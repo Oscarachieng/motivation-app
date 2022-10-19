@@ -38,7 +38,7 @@ class StudentsController < ApplicationController
     private
   
     def find_student
-      student.find(params[:id])
+      Student.find(params[:id])
     end
   
     def student_params
