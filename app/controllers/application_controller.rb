@@ -3,5 +3,5 @@ class ApplicationController < ActionController::API
 
     def index
         puts("ADmin is now created")
-    end
+        puts("Test successful")
 end
