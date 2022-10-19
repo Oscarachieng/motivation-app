@@ -16,6 +16,12 @@ rescue_from ActiveRecord::RecordNotFound,with: :render_record_not_found
         render json: a_staff_member, status: :ok      
     end
 
+    #POST Create 
+    def create 
+        new_staff_member = Staff.create(params.permit())
+    end
+    
+
     private
     #find a staff member 
     def find_staff_member
