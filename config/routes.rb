@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  resources :staffs, only: [:index, :show]
+  resources :staffs
   resources :admins, only: [:index]
   
 end
