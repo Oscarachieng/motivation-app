@@ -10,7 +10,7 @@ class studentsController < ApplicationController
   
     # POST /students
     def create
-      student = Student.create(student_params)
+      student = Student.create!(student_params)
       render json: student, status: :created
     end
   
@@ -23,7 +23,7 @@ class studentsController < ApplicationController
     # PATCH /students/:id
     def update
       student = find_student
-      student.update(student_params)
+      student.update!(student_params)
       render json: student
     end
   
