@@ -33,7 +33,7 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
     #DELETE destroy 
     def destroy
         staff_member = find_staff_member 
-        staff_members.destroy 
+        staff_member.destroy 
         head :no_content
     end
     
