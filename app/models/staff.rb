@@ -7,5 +7,7 @@ class Staff < ApplicationRecord
     # format: { with: /^(.+)@(.+)$/, message: "Email invalid"  },
     #           uniqueness: { case_sensitive: false },
     #           length: { minimum: 4, maximum: 254 }
+    #Associations 
+    has_many :posts
 end
 
