@@ -18,7 +18,7 @@ class AudioCommentsController < ApplicationController
     def update
         audio_comment = find_audio_comment
         audio_comment.update!(audio_comment_params)
-        render json: audio_comment, statu: :updated
+        render json: audio_comment, status: :updated
     end
 
     #DELETE /audio_comments/:id

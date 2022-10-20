@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  resources :audio_comment_replies
+  resources :article_comment_replies
+  resources :article_comments
+  resources :articles
+  resources :audio_comments
+  resources :audios
   resources :staffs
   resources :admins, only: [:index]
   

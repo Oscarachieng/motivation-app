@@ -1,0 +1,2 @@
+class AudioCommentReply < ApplicationRecord
+end
