@@ -1,6 +1,4 @@
 class StaffsController < ApplicationController
-rescue_from ActiveRecord::RecordNotFound,with: :render_record_not_found
-rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
 
 
     wrap_parameters format: []
@@ -54,14 +52,6 @@ rescue_from ActiveRecord::RecordInvalid, with: :render_record_invalid
        ) 
     end
 
-    #RecordNotFound Handler 
-    def render_record_not_found
-        render json: { error: " Staff Not found"}, status: :not_found 
-    end
-    
-    #RecordInvalid error handler
-    def render_record_invalid(invalid) 
-        render json: { errors: invalid.record.errors.full_messages }, status: :unprocessable_entity
-    end
+   
     
 end
