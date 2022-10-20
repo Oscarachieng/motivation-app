@@ -6,7 +6,7 @@ class CreateAudios < ActiveRecord::Migration[7.0]
       t.boolean :is_approved
       t.integer :likes
       t.boolean :is_flagged
-
+      t.belongs_to :user, null:false, foreign_key:true
       t.timestamps
     end
   end
