@@ -1,6 +1,5 @@
 class StaffsController < ApplicationController
 
-
     wrap_parameters format: []
  ## Controller Actions
  #GET index
@@ -11,7 +10,7 @@ class StaffsController < ApplicationController
 
     #GET show /:id 
     def show 
-        a_staff_member =find_staff_member
+        a_staff_member = find_staff_member
         render json: a_staff_member, status: :ok      
     end
 
@@ -55,3 +54,5 @@ class StaffsController < ApplicationController
    
     
 end
+
+
