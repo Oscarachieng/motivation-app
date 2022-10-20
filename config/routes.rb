@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  resources :article_comment_replies
-  resources :article_comments
-  resources :articles
+  resources :students
   resources :staffs
   resources :admins, only: [:index]
   
