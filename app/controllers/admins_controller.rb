@@ -23,7 +23,7 @@ class AdminsController < ApplicationController
 
     #render RecordNotFound 
     def render_admin_record_not_found
-        render json: { error: "Admin Not found"}, status: :not_found 
+        render json: { error: "Admin Not found" }, status: :not_found 
     end
     
     
