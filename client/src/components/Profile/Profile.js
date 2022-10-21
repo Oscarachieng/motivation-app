@@ -2,6 +2,7 @@ import React from "react";
 import "./Profile.css";
 import logo from "../Assets/moringa.png";
 
+
 export default function Profile() {
   return (
     <div className="container">
