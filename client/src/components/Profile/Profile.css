@@ -1,0 +1,33 @@
+.container{
+	display:flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+    width: 20rem;
+	height: 90vh;
+	flex: 1 1 40rem;
+	padding: 2rem;
+	box-shadow: 0 1rem 2rem #001219;
+	border-radius: .5rem;
+	background: #001E2A;
+	color: #FF8C00;
+}
+.btn-primary{
+	background: #FF8C00;
+	color:#001E2A;
+	border: #FF8C00;
+	margin-top: 17px;
+	font-weight: 700;
+	text-transform: uppercase;
+}
+.image{
+	height: 20px;
+	width: 15vh;
+}
+.im{
+	display:flex;
+	align-items: center;
+	justify-content: center;
+}
+
+
