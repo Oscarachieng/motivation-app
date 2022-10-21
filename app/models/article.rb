@@ -3,5 +3,5 @@ class Article < ApplicationRecord
     validates :content,length:{minimum: 250}
     validates :title, uniqueness: true
     has_many :article_comments
-    #belongs_to :user
+    belongs_to :user
 end

@@ -1,4 +1,4 @@
 class Category < ApplicationRecord
-    has_many :students
     has_many :subscriptions
+    has_many :userS,through: :subscriptions
 end
