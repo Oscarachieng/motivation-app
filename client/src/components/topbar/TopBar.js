@@ -8,7 +8,7 @@ export default function TopBar() {
     <div className="topbar">
       <div className="topbarWrapper">
         <div className="topLeft">
-          <span className="logo">Test</span>
+          <span className="logo">Feeling Motivated</span>
         </div>
         <div className="topRight">
           <div className="topbarIconContainer">
@@ -22,7 +22,7 @@ export default function TopBar() {
           <div className="topbarIconContainer">
             <Settings />
           </div>
-          <img src="https://images.pexels.com/photos/1526814/pexels-photo-1526814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500" alt="" className="topAvatar" />
+          <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fcdn2.iconfinder.com%2Fdata%2Ficons%2Fsocial-media-marketing-color%2F64%2Fpersonal-branding-motivation-passion-success-confident-512.png&f=1&nofb=1&ipt=37edb1024346ae408128fd4fe576f0a46938436a84b5c5434d0be12d9559b054&ipo=images" alt="" className="topAvatar" />
         </div>
       </div>
     </div>

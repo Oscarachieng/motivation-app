@@ -30,11 +30,11 @@ export default function Sidebar() {
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              Videos
             </li>
             <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
-              Sales
+              Blogs
             </li>
           </ul>
         </div>
@@ -50,16 +50,16 @@ export default function Sidebar() {
             <Link to="/products" className="link">
               <li className="sidebarListItem">
                 <Storefront className="sidebarIcon" />
-                Products
+                Flags
               </li>
             </Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Transactions
+              Contents
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
-              Reports
+              Statitics
             </li>
           </ul>
         </div>
@@ -89,7 +89,7 @@ export default function Sidebar() {
             </li>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Analytics
+              Videos
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
