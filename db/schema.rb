@@ -22,4 +22,5 @@
     t.datetime "updated_at", null: false
   end
 
+
 end
