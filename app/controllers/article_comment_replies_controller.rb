@@ -1,7 +1,7 @@
 class ArticleCommentRepliesController < ApplicationController
     #GET /article_comment_replies
     def index
-        render json: ArticleCommentRepliesController.all
+        render json: ArticleCommentReply.all
     end
 
     #GET /article_comment_replies
@@ -10,7 +10,7 @@ class ArticleCommentRepliesController < ApplicationController
     end
     #POST /article_comment_replies
     def create
-        article_comment_reply  = ArticleCommentRepliesController.create!(article_comment_reply_params)
+        article_comment_reply  = ArticleCommentReply.create!(article_comment_reply_params)
         render json: article_comment_reply
     end
 
@@ -36,7 +36,7 @@ class ArticleCommentRepliesController < ApplicationController
     
     #Permit params
     def article_comment_reply_params
-        params.permit(:likes,:user_id,:article_id,:reply)
+        params.permit(:likes,:user_id,:article_comment_id,:reply)
     end
 
 end
