@@ -3,11 +3,6 @@ class Admin < ApplicationRecord
     validates_presence_of :first_name, :last_name, :password
     validates :password, length: { minimu:12, maximum: 24}
    
-    #GET index 
-    def index
-        admins = Admin.all 
-        render json: admin, status: :ok
-    end
     
    
 end
