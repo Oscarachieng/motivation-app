@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :wishes
   resources :users
   resources :audio_comment_replies
   resources :article_comment_replies
