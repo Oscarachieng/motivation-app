@@ -27,13 +27,14 @@ class VideosController < ApplicationController
     end
 
     private
+    #find a video
     def find_a_video
         video = Video.find(params[:id])
     end
 
+    #permit params
     def video_params
         params.permit(:title,:content,:is_approved,:likes,:is_flagged)
     end
-
 
 end
