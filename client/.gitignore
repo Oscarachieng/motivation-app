@@ -5,6 +5,8 @@
 /.pnp
 .pnp.js
 
+/config/routes.rb
+/db/schema.rb
 # testing
 /coverage
 
