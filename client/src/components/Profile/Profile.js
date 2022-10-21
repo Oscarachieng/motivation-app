@@ -1,11 +1,14 @@
 import React from "react";
 import "./Profile.css";
 import logo from "../Assets/moringa.png";
+import EditIcon from '@mui/icons-material/Edit';
+
 
 
 export default function Profile() {
   return (
     <div className="container">
+     <EditIcon />
       <div className="im">
         <img className="image" src={`${logo}`} />
       </div>
