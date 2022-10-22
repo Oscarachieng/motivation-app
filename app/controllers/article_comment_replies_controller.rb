@@ -15,7 +15,7 @@ class ArticleCommentRepliesController < ApplicationController
     end
 
     #PATCH /article_comment_replies/:id
-    def show
+    def update
         article_comment_reply = find_article_reply
         article_comment_reply.update!(article_comment_reply_params)
         render json: article_comment_reply, status: :accepted
@@ -31,7 +31,7 @@ class ArticleCommentRepliesController < ApplicationController
     private
     #find one reply
     def find_article_reply
-       article_comment_reply = ArticleCommentRepliesController.find(params[:id])
+       article_comment_reply = ArticleCommentReply.find(params[:id])
     end
     
     #Permit params

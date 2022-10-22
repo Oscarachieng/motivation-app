@@ -30,7 +30,7 @@ class VideoCommentsController < ApplicationController
 
     #permit params
     def video_comment_params
-        params.permmit(:comment,:likes,:video_id,:user_id)
+        params.permit(:comment,:likes,:video_id,:user_id)
     end
 
     #find _a_comment
