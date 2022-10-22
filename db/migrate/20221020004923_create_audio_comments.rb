@@ -4,8 +4,7 @@ class CreateAudioComments < ActiveRecord::Migration[7.0]
       t.string :comment
       t.integer :likes
       t.belongs_to :audio, null:false, foreign_key: true
-      t.belongs_to :user,null:false, foreign_key:true
-      t.timestamps
+      t.integer :user_id
     end
   end
 end
