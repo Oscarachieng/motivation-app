@@ -38,7 +38,7 @@ class ArticlesController < ApplicationController
 
     #permit params
     def article_params
-      params.permit(:title, :content,:is_approved,:likes,:is_flagged,:category_id)
+      params.permit(:title,:content,:is_approved,:likes,:is_flagged,:category_id,:user_id)
     end
     
 end
