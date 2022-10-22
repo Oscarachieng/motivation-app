@@ -4,4 +4,5 @@ class Article < ApplicationRecord
     validates :title, uniqueness: true
     has_many :article_comments
     belongs_to :user
+    belongs_to :category
 end

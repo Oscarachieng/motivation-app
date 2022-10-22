@@ -3,4 +3,5 @@ class Audio < ApplicationRecord
     validates :title, uniqueness: true
     has_many :audio_comments
     belongs_to :user
+    belongs_to :category
 end
