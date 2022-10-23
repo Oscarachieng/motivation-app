@@ -33,7 +33,7 @@ class ArticleCommentsController < ApplicationController
     private
     #permit params
     def article_comment_params
-        params.permit(:user_id,:post_id,:comment,:likes)
+        params.permit(:user_id,:article_id,:comment,:likes)
     end
 
     #find an article comment
