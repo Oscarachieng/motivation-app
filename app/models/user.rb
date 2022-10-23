@@ -1,6 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
     validates :first_name,:last_name,:email, :username, :avatar_url,:password, :user_category,presence:true
+    validates :email, uniqueness: true
+    validates :password, length: { in: 8..24 }
     has_many :audios
     has_many :audio_comments
     has_many :audio_comment_replies
