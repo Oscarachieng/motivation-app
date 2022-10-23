@@ -7,8 +7,8 @@ import Sidebar from './components/sidebar/Sidebar';
 export default function App() {
   return (
     <div>
-      {/* <h1>Motivation app</h1>
-      <Routes>
+      {/* <h1>Motivation app</h1> */}
+      {/* <Routes>
         <Route path="/" element={<Login />} />
       </Routes> */}
     <TopBar/>
