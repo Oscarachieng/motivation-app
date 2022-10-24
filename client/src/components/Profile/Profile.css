@@ -29,5 +29,19 @@
 	align-items: center;
 	justify-content: center;
 }
+#profile {
+	display:flex;
+	align-items: center;
+	padding: 4px;
+}
+#container {
+	display:flex;
+    flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	border-radius: .5rem;
+	background: #001E2A;
+	color: #FF8C00;
+}
 
 
