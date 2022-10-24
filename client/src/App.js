@@ -17,11 +17,11 @@ export default function App() {
   return (
     <div>
       <h1 style={mystyles}>Motivation app</h1> 
-       <Routes>
+       {/* <Routes>
         <Route path="/" element={<Login />} />
-      </Routes>
-    {/* <TopBar/>
-    <Sidebar /> */}
+      </Routes> */}
+    <TopBar/>
+    <Sidebar />
     </div>
   )
 }
