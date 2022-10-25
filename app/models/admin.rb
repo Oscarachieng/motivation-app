@@ -1,8 +1,9 @@
 class Admin < ApplicationRecord
     has_secure_password
-    #validations for the admin model
-    validates_presence_of :first_name,  :last_name, :password, :email    
+    validates_presence_of :first_name, :last_name, :email, :password 
+
     validates :email, uniqueness: true
-    validates :password, length: { in: 12..24 }    
-   
+
+    validates :password, length: { in: 12..24 }
+
 end
