@@ -1,12 +1,13 @@
 import React from "react";
 import "./home.css";
 import logo from "../Assets/avator.png";
-import TwitterIcon from '@mui/icons-material/Twitter';
-import GitHubIcon from '@mui/icons-material/GitHub';
-import InstagramIcon from '@mui/icons-material/Instagram';
-import FacebookIcon from '@mui/icons-material/Facebook';
-import LanguageIcon from '@mui/icons-material/Language';
-import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import TwitterIcon from "@mui/icons-material/Twitter";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LanguageIcon from "@mui/icons-material/Language";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import EditIcon from '@mui/icons-material/Edit';
 
 export default function Home() {
   return (
@@ -48,6 +49,21 @@ export default function Home() {
                 </div>
               </div>
               <hr />
+              {/* user profile section ends */}
+              {/* user comment area */}
+              <div class="form-outline">
+              <label class="form-label" for="textAreaExample">
+                  Say something...
+                </label>
+                <textarea
+                  class="form-control"
+                  id="textAreaExample"
+                  rows=""
+                ></textarea>
+                <input type="submit" value="Send" />
+              
+              </div>
+              {/* user comment area section ends */}
             </div>
           </div>
         </div>
