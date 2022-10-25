@@ -4,7 +4,7 @@ import TopBar from './components/topbar/TopBar';
 import Sidebar from './components/sidebar/Sidebar';
 
 // import Login from './components/Login/Login';
-import Home from './page/home/Home';
+import Home from './components/home/Home';
 // import Product from './page/product/Product';
 // import UserList from './page/userList/UserList';
 // import User from './page/user/User';

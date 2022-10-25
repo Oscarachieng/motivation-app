@@ -76,9 +76,7 @@ export default function Login({ setCurrentUser }) {
             <div className="valid-feedback">Looks good!</div>
           </div>
           <div classNameName="col-12">
-            {/* <button className="btn btn-primary p-0 w-100" type="submit">
-              Login
-            </button> */}
+        
             <input className="btn btn-primary p-0 w-100" type="submit" value="Login" />
           </div>
         </form>
