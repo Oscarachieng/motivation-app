@@ -4,20 +4,31 @@ import "./Student.css";
 import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import Category from "../Categoryfolder/Category";
+import EditIcon from '@mui/icons-material/Edit';
+import TelegramIcon from '@mui/icons-material/Telegram';
 
 export default function Student() {
+
+  const myStyles ={
+      backgroundImage: "url('https://moringaschool.com/wp-content/uploads/2022/04/about-us-min.png')",
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+     
+    }
   return (
-    <div className="card h-100 ">
-      <div className="card" id="userbox">
-        <div className="card-body">
-          <div className="card-body text-center d-flex justify-content-end">
+    <div className="card h-100 "  >
+      <div className="card " id="userbox" style={myStyles}>
+        <div className="card-body bg-gradient-to-b from-primary to-transparent">
+          <div className="card-body " id='student-page-profile'>
+           
             <img
               id="im-wd"
               className="rounded-circle img-fluid"
               src={`${logo}`}
               alt="avatar"
             />
-            <div className="">
+            <div className="student-page-profile-text">
               {" "}
               <h6 className="card-title">JOHN DOE</h6>
               <p className="text mb-1">CATEGORY</p>
@@ -31,12 +42,13 @@ export default function Student() {
             <label class="form-label" for="textAreaExample">
               Say something...
             </label>
+            <i><EditIcon /></i>
             <textarea
               class="form-control"
-              id="textAreaExample"
+              id="textArea"
               rows=""
             ></textarea>
-            <input type="submit" value="Send" />
+            <TelegramIcon  type="submit" value="Send" />
           </div>
           {/* user comment area section ends */}
           <a href="#" className="">

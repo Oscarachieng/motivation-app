@@ -17,14 +17,7 @@ import Home from './components/home/Home';
 
 
 export default function App() {
-  // const mystyles ={
-  //   background:"#001E2A",
-  //   textAlign:"center",
-  //   padding: 10,
-  //   textTransform:"uppercase",
-  //   color:"#FF8C00",
-  //   marginBottom: 30,
-  // }
+
   return (
     
     <div className="">
