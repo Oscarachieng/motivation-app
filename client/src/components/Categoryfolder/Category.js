@@ -7,7 +7,7 @@ import CommentIcon from '@mui/icons-material/Comment';
 export default function Category() {
   return (
     <div className="col-sm-6">
-    <div className="card">
+    <div className="card" id="userbox">
       <div className="card-body">
         <div className="d-flex">
         <img

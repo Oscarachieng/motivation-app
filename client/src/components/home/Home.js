@@ -9,7 +9,7 @@ import LanguageIcon from "@mui/icons-material/Language";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import Category from "../Categoryfolder/Category";
-
+import Contact from "../Contactfolder/Contact";
 
 export default function Home() {
   return (
@@ -54,7 +54,7 @@ export default function Home() {
               {/* user profile section ends */}
               {/* user comment area */}
               <div class="form-outline">
-              <label class="form-label" for="textAreaExample">
+                <label class="form-label" for="textAreaExample">
                   Say something...
                 </label>
                 <textarea
@@ -63,7 +63,6 @@ export default function Home() {
                   rows=""
                 ></textarea>
                 <input type="submit" value="Send" />
-              
               </div>
               {/* user comment area section ends */}
             </div>
@@ -75,27 +74,28 @@ export default function Home() {
         {/* Widget section */}
         <Category />
         {/* widget section ends */}
+
+        {/* Ads section */}
         <div className="col-sm-3">
-          <div className="card">
+          <div className="card" id="userbox">
             <div className="card-body">
-            <img
+              <img
                 id="image"
                 className="rounded-circle img-fluid"
-                src={`${logo}`}
-                alt="avatar"
+                src={``}
+                alt="Advertisement"
               />
-              <h5 className="card-title">JOHN DOE</h5>
+              <h5 className="card-title">Ad</h5>
               <p className="text-muted mb-1">CATEGORY</p>
-              <p className="card-text">
-                With supporting text below as a natural lead-in to additional
-                content.
-              </p>
-              <a href="#" className="btn btn-primary">
-                Go somewhere
-              </a>
+              <p className="card-text">Ad content</p>
             </div>
           </div>
+          {/* Contacts section */}
+          <Contact />
+          {/* Contacts section */}
         </div>
+
+        {/* Ads section ends */}
       </div>
     </div>
   );
