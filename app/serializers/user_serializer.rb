@@ -14,7 +14,7 @@ class UserSerializer < ActiveModel::Serializer
       }
     else
       {
-        url: "No image uploaded!"
+        url: nil
       }
     end
   end
