@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes,Route } from 'react-router-dom';
 import TopBar from './components/topbar/TopBar';
 import Sidebar from './components/sidebar/Sidebar';
+import Student from './components/StudentFolder/Student';
 
 // import Login from './components/Login/Login';
 import Home from './components/home/Home';
@@ -29,7 +30,7 @@ export default function App() {
     <div className="">
       {/* <TopBar /> */}
       <Routes>
-     
+      <Route path="/" element={<Student />} />
       <Route path="/" element={<Home />} />
         <Route path="/" element={<Sidebar />} />
         {/* <Route path="/users" element={<UserList />} />

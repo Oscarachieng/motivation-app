@@ -73,7 +73,8 @@ export default function Home() {
         {/* user side column ends */}
 
         {/* Widget section */}
-        <Category />
+        <div className="col-sm-6"><Category /></div>
+        
         {/* widget section ends */}
 
         {/* Ads section */}
