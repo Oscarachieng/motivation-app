@@ -10,10 +10,11 @@ import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 import Category from "../Categoryfolder/Category";
 import Contact from "../Contactfolder/Contact";
+import Ads from "../Adsfolder/Ads";
 
 export default function Home() {
   return (
-    <div className="container-fluid">
+    <div className="container-fluid" id='main-body'>
       <div className="row">
         <div className="col-sm-3">
           <div className="card mb-4" id="userbox">
@@ -77,19 +78,7 @@ export default function Home() {
 
         {/* Ads section */}
         <div className="col-sm-3">
-          <div className="card" id="userbox">
-            <div className="card-body">
-              <img
-                id="image"
-                className="rounded-circle img-fluid"
-                src={``}
-                alt="Advertisement"
-              />
-              <h5 className="card-title">Ad</h5>
-              <p className="text-muted mb-1">CATEGORY</p>
-              <p className="card-text">Ad content</p>
-            </div>
-          </div>
+        <Ads />
           {/* Contacts section */}
           <Contact />
           {/* Contacts section */}
