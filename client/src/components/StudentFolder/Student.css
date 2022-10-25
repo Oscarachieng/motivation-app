@@ -10,6 +10,7 @@
     align-items: flex-end;
     height: 130px;
     overflow: hidden;
+    color:#fff;
 }
 .student-page-profile-text{
    padding: 2px;
@@ -26,21 +27,10 @@
 #student-page-profile EditIcon{
     align-items: flex-start;
 }
-/* .form-outline i{
+
+.form-outline i{
     position: absolute;
 }
 .form-outline {
-    width: 100%;
-    margin-bottom: 10px;
-    max-width: 400px;
-    margin:auto;
+  color: #fff;
 }
-i {
-    padding: 20px;
-    min-width: 40px;
-}
-#textArea{
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-} */

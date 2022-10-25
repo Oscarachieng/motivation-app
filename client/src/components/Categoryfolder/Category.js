@@ -28,10 +28,10 @@ export default function Category() {
         <div className="media"></div>
 
         <a href="#" className="">
-          <ShareIcon />
+          <ShareIcon  style={{color:"#fa521c"}}/>
         </a>
         <a href="#" className="">
-          <CommentIcon />
+          <CommentIcon  style={{color:"#fa521c"}}/>
         </a>
       </div>
     </div>
