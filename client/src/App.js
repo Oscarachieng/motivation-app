@@ -27,11 +27,11 @@ export default function App() {
   return (
     
     <div className="">
-      <TopBar />
+      {/* <TopBar /> */}
       <Routes>
      
-      <Route path="/" element={<Sidebar />} />
-        <Route path="/" element={<Home />} />
+      <Route path="/" element={<Home />} />
+        <Route path="/" element={<Sidebar />} />
         {/* <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
         <Route path="/newUser" element={<NewUser />} />

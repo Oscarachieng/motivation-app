@@ -1,20 +1,53 @@
-// import Chart from "../../components/chart/Chart";
-import FeaturedInfo from "../../components/featuredInfo/FeaturedInfo";
-import "./home.css";
-import { userData } from "../../dummyData";
-import WidgetSm from "../../components/widgetSm/WidgetSm";
-import WidgetLg from "../../components/widgetLg/WidgetLg";
+import React from "react";
 
 export default function Home() {
   return (
-    <div className="home">
-      <FeaturedInfo />
-      {/* <Chart data={userData} title="User Analytics" grid dataKey="Active User"/> */}
-      <div>data={userData}</div>
-      <div className="homeWidgets">
-        <WidgetSm/>
-        <WidgetLg/>
+    <div className="container-fluid">
+    <div class="row">
+
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+            <a href="#" class="btn btn-primary">
+              Go somewhere
+            </a>
+          </div>
+        </div>
       </div>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+            <a href="#" class="btn btn-primary">
+              Go somewhere
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">
+              With supporting text below as a natural lead-in to additional
+              content.
+            </p>
+            <a href="#" class="btn btn-primary">
+              Go somewhere
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
     </div>
   );
 }
