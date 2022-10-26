@@ -8,7 +8,9 @@ class UsersController < ApplicationController
         
           # POST /users
           def create
-            user = User.create!(user_params)
+            user = User.new(user_params)
+            user.avatar_url.attach(params[:avatar_url])
+            user.save!()
             render json: user, status: :created
           end
         
