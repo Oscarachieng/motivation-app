@@ -31,6 +31,9 @@ class AdminsController < ApplicationController
      head :no_content
    end
 
+   #me stayying logged in
+   def me
+
   private
   #Admin params
   def admin_params 

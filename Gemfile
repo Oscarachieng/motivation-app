@@ -11,6 +11,8 @@ gem "pg", "~> 1.1"
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'activestorage', '~> 7.0', '>= 7.0.4'
+
 #Faker gem to generate fake data
 gem "faker", "~> 2.18.0"
 
@@ -22,6 +24,8 @@ gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem "rack-cors"
+gem "image_processing", ">= 1.2"
+
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
@@ -35,3 +39,4 @@ end
 
 
 gem "active_model_serializers", "~> 0.10.13"
+

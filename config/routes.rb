@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :video_comment_replies
 
  #Authenication routes for users 
- 
+ post "/login", to: "sessions#create"
+ get "/me", to: "users#stay_logged_in"
+ delete "/logout", to: "sessions#destroy"
     
  end
