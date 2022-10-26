@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import "./home.css";
-import logo from "../Assets/avator.png";
 import TwitterIcon from "@mui/icons-material/Twitter";
 import GitHubIcon from "@mui/icons-material/GitHub";
 import InstagramIcon from "@mui/icons-material/Instagram";
@@ -14,35 +14,49 @@ import Category from "../Categoryfolder/Category";
 import Contact from "../Contactfolder/Contact";
 import Ads from "../Adsfolder/Ads";
 
-export default function Home({currentUser}) {
+export default function Home({ currentUser ,articles}) {
+  const navigate = useNavigate();
   
-
-
-
   const myStyles = {
     backgroundImage:
-      "url('	https://moringaschool.com/wp-content/themes/moringa/public/images/default.jpg')",
+      "url('https://moringaschool.com/wp-content/themes/moringa/public/images/default.jpg')",
     backgroundSize: "cover",
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
   };
+
+
+
+
+  function handleOnClick(){
+    if (currentUser.user_category === "student") {
+        navigate("/student");
+      } else {
+        navigate("/staff");
+      }
+  }
   return (
-    <div className="container-fluid" id='main-body'>
-      <div className="row"  style={myStyles}>
-        
-          {/* user section  */}
+    <div className="container-fluid" >
+      <div className="row" style={myStyles} id="main-body">
+        {/* user section  */}
         <div className="col-sm-3">
           <div className="card mb-4" id="userbox">
             <div className="card-body text-center">
-              <img
-                id="image"
-                className="rounded-circle img-fluid"
-                src={`${logo}`}
-                alt="avatar"
-              />
-              <h5 className="card-title">{currentUser.first_name + ' ' +currentUser.last_name}</h5>
-              <p className="text-muted mb-1">CATEGORY</p>
-              <p className="text-muted mb-1">About</p>
+              <div className="bio-link" onClick={handleOnClick}>
+              
+                <img
+                  id="image"
+                  className="rounded-circle img-fluid"
+                  src= {currentUser.avatar_url.url}
+                  alt="avatar"
+                />
+                <h5 className="card-title">
+                  {currentUser.first_name + " " + currentUser.last_name}
+                </h5>
+                <p className="text-muted mb-1">CATEGORY</p>
+                <p className="text-muted mb-1">About</p>
+              </div>
+
               <hr />
               <div className="card-body p-0  ">
                 <div className=" d-flex flex-row ">
@@ -78,7 +92,11 @@ export default function Home({currentUser}) {
                   id="textAreaExample"
                   rows=""
                 ></textarea>
-               <TelegramIcon type="submit" value="Send" style={{color:"#fa521c"}}/>
+                <TelegramIcon
+                  type="submit"
+                  value="Send"
+                  style={{ color: "#fa521c" }}
+                />
               </div>
               {/* user comment area section ends */}
             </div>
@@ -88,21 +106,22 @@ export default function Home({currentUser}) {
         {/* user side column ends */}
 
         {/* Widget section */}
-        <div className="col-sm-6"><Category /></div>
-        
+        <div className="col-sm-6">
+          {articles.map((article)=>  <Category key={article.id} article = {article} />)} 
+      
+        </div>
+
         {/* widget section ends */}
 
         {/* Ads section */}
         <div className="col-sm-3">
-        <Ads />
+          <Ads />
           {/* Contacts section */}
           <Contact />
           {/* Contacts section */}
         </div>
 
         {/* Ads section ends */}
-        
-      
       </div>
     </div>
   );

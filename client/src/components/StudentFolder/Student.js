@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../Assets/avator.png";
+
 import "./Student.css";
 import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
@@ -7,7 +7,7 @@ import Category from "../Categoryfolder/Category";
 import EditIcon from "@mui/icons-material/Edit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 
-export default function Student({currentUser}) {
+export default function Student({currentUser , articles}) {
   const myStyles = {
     backgroundImage:
       "url('https://moringaschool.com/wp-content/uploads/2022/04/about-us-min.png')",
@@ -23,7 +23,7 @@ export default function Student({currentUser}) {
             <img
               id="im-wd"
               className="rounded-circle img-fluid"
-              src={`${logo}`}
+              src={currentUser.avatar_url.url}
               alt="avatar"
             />
             <div className="student-page-profile-text">
@@ -69,7 +69,7 @@ export default function Student({currentUser}) {
           <div className="media"></div>
           {/* Widget section */}
           <div className="card h-100">
-            <Category />
+          {articles.map((article)=>  <Category key={article.id} article = {article} />)} 
           </div>
 
           {/* widget section ends */}
