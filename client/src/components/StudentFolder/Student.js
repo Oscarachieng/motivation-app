@@ -33,25 +33,38 @@ export default function Student() {
               <p className="text mb-1">About</p>
             </div>
           </div>
-          
 
           {/* user comment area */}
           <div class="form-outline">
-            <label class="form-label" for="textAreaExample"  style={{color:"#fa521c"}}>
+            <label
+              class="form-label"
+              for="textAreaExample"
+              style={{ color: "#fa521c" }}
+            >
               Say something...
             </label>
             <i>
               <EditIcon />
             </i>
-            <textarea className="form-control text-black opacity-50" id="textArea" rows="" style={{color:"#ffffff96"}}></textarea>
-            <TelegramIcon className="btn-rounded float-end" type="submit" value="Send" style={{color:"#fa521c"}}/>
+            <textarea
+              className="form-control text-black opacity-50"
+              id="textArea"
+              rows=""
+              style={{ color: "#ffffff96" }}
+            ></textarea>
+            <TelegramIcon
+              className="btn-rounded float-end"
+              type="submit"
+              value="Send"
+              style={{ color: "#fa521c" }}
+            />
           </div>
           {/* user comment area section ends */}
           <a href="#" className="">
-            <ShareIcon  style={{color:"#fa521c"}}/>
+            <ShareIcon style={{ color: "#fa521c" }} />
           </a>
           <a href="#" className="">
-            <CommentIcon  style={{color:"#fa521c"}}/>
+            <CommentIcon style={{ color: "#fa521c" }} />
           </a>
           <div className="media"></div>
           {/* Widget section */}
