@@ -13,6 +13,7 @@ class User < ApplicationRecord
     has_many :articles
     has_many :articles_comments
     has_many :articles_comment_replies
+    #has_one_attached :avatar_url
     has_many :wishes
     has_many :subscriptions
     has_many :categories, through: :subscriptions

@@ -1,4 +1,5 @@
 class ArticleCommentsController < ApplicationController
+    
     #GET /article_comments
     def index        
         render json:ArticleComment.all

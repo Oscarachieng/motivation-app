@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     # GET /users
         def index
             users = User.all
-            render json: users
+            render json: users, status: :ok
           end
         
           # POST /users
@@ -17,14 +17,14 @@ class UsersController < ApplicationController
           # GET /users/:id
           def show
             user = find_user
-            render json: user
+            render json: user, status: :ok
           end
         
           # PATCH /users/:id
           def update
             user = find_user
             user.update!(user_params)
-            render json: user
+            render json: user,status: :accepted
           end
         
         
@@ -33,6 +33,16 @@ class UsersController < ApplicationController
             user = find_user
             user.destroy
             head :no_content
+          end
+
+          #Stay logged in
+          def stay_logged_in
+            @user = User.find_by(id: session[:user_id]) || Admin.find_by(id: session[:user_id])
+            if @user
+              render json: @user
+            else
+              render json: { error: "Not authorized" }, status: :unauthorized
+            end
           end
 
           private

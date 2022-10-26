@@ -1,4 +1,5 @@
 class AdminsController < ApplicationController
+  # skip_before_action :authorize, only: [:index]
 # GET index
     def index
         admins = Admin.all 
@@ -31,6 +32,16 @@ class AdminsController < ApplicationController
      head :no_content
    end
 
+   #staying logged in
+  #  def is_logged_in 
+  #   admin = Admin.find_by(id: session[:user_id])
+  #   if admin
+  #     render json: admin
+  #   else
+  #     render json: { error: "Not authorized" }, status: :unauthorized
+  #   end
+  #  end
+
   private
   #Admin params
   def admin_params 
@@ -40,7 +51,5 @@ class AdminsController < ApplicationController
   def find_admin
     Admin.find(params[:id])
   end
-  
 
-    
 end

@@ -1,0 +1,44 @@
+#im-wd {
+    width: 40px;
+    height: 40px;
+}
+
+#student-page-profile {
+
+    flex-direction: column;
+    display: flex;
+    align-items: flex-end;
+    height: 130px;
+    overflow: hidden;
+    color:#fff;
+}
+.student-page-profile-text{
+   padding: 2px;
+}
+.student-page-profile-text h6{
+    font-weight: 400;
+    font-size: small;
+}
+.student-page-profile-text p{
+    font-weight: 300;
+    font-size: smaller;
+    
+}
+#student-page-profile EditIcon{
+    align-items: flex-start;
+}
+
+.form-outline i{
+    position: absolute;
+}
+.form-outline {
+  color: #fff;
+}
+#textArea{
+    background: white;
+   
+}
+.bg-indigo {
+    --bs-bg-opacity: .25;
+    background-color: rgba(var(--bs-indigo), var(--bs-bg-opacity)) !important;
+  }

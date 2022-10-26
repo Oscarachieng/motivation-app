@@ -1,5 +1,5 @@
 import "./userList.css";
-import { DataGrid } from "@material-ui/data-grid";
+import Grid from '@mui/material/Grid';
 import { DeleteOutline } from "@material-ui/icons";
 import { userRows } from "../../dummyData";
 import { Link } from "react-router-dom";
@@ -60,7 +60,7 @@ export default function UserList() {
 
   return (
     <div className="userList">
-      <DataGrid
+      <Grid
         rows={data}
         disableSelectionOnClick
         columns={columns}
