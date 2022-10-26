@@ -31,7 +31,7 @@ class AudiosController < ApplicationController
     private
     #permit params
     def audio_params
-        params.permit(:title, :content,:is_approved,:likes,:is_flagged,:category_id,:user_id)
+        params.permit(:title, :audio,:is_approved,:likes,:is_flagged,:category_id,:user_id)
     end
 
     #find an audio
