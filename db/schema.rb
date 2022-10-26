@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
+ActiveRecord::Schema[7.0].define(version: 2022_10_26_093632) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -42,6 +42,14 @@
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "admins", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "password_digest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "article_comment_replies", force: :cascade do |t|
     t.integer "likes"
@@ -95,6 +103,7 @@
 
   create_table "audios", force: :cascade do |t|
     t.string "title"
+    t.string "content"
     t.boolean "is_approved"
     t.integer "likes"
     t.boolean "is_flagged"
@@ -122,10 +131,13 @@
     t.string "last_name"
     t.string "email"
     t.string "username"
+    t.string "avatar_url"
     t.string "password_digest"
     t.string "user_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   create_table "video_comment_replies", force: :cascade do |t|
@@ -150,6 +162,7 @@
 
   create_table "videos", force: :cascade do |t|
     t.string "title"
+    t.string "content"
     t.boolean "is_approved"
     t.integer "likes"
     t.boolean "is_flagged"
