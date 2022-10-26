@@ -10,14 +10,14 @@ export default function Contact() {
     <div className="mt-3" id="userbox">
       <div className="card">
         <div className="card-body">
-          <p className="">
+          <p className="" style={{color:"#fa521c"}}>
             About | Advertising | Privacy & Terms | Help Center
           </p>
           <p className="card-text">
-            <TwitterIcon style={{ color: "#55acee" }} />
-            <InstagramIcon style={{ color: "#ac2bac" }} />
-            <FacebookIcon style={{ color: "#3b5998" }} />
-            <LinkedInIcon style={{ color: "#3b5998" }} />
+            <TwitterIcon style={{color:"#fa521c"}} />
+            <InstagramIcon style={{color:"#fa521c"}} />
+            <FacebookIcon style={{color:"#fa521c"}} />
+            <LinkedInIcon style={{color:"#fa521c"}} />
           </p>
         </div>
       </div>

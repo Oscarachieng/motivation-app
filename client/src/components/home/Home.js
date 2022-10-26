@@ -7,15 +7,26 @@ import InstagramIcon from "@mui/icons-material/Instagram";
 import FacebookIcon from "@mui/icons-material/Facebook";
 import LanguageIcon from "@mui/icons-material/Language";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import TelegramIcon from "@mui/icons-material/Telegram";
 
 import Category from "../Categoryfolder/Category";
 import Contact from "../Contactfolder/Contact";
 import Ads from "../Adsfolder/Ads";
 
 export default function Home() {
+
+  const myStyles = {
+    backgroundImage:
+      "url('	https://moringaschool.com/wp-content/themes/moringa/public/images/default.jpg')",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+  };
   return (
     <div className="container-fluid" id='main-body'>
-      <div className="row">
+      <div className="row"  style={myStyles}>
+        
+          {/* user section  */}
         <div className="col-sm-3">
           <div className="card mb-4" id="userbox">
             <div className="card-body text-center">
@@ -63,7 +74,7 @@ export default function Home() {
                   id="textAreaExample"
                   rows=""
                 ></textarea>
-                <input type="submit" value="Send" />
+               <TelegramIcon type="submit" value="Send" style={{color:"#fa521c"}}/>
               </div>
               {/* user comment area section ends */}
             </div>
@@ -86,6 +97,8 @@ export default function Home() {
         </div>
 
         {/* Ads section ends */}
+        
+      
       </div>
     </div>
   );

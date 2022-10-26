@@ -17,8 +17,8 @@ export default function Student() {
   };
   return (
     <div className="card h-100 ">
-      <div className="card " id="userbox" style={myStyles}>
-        <div className="card-body bg-gradient-to-b from-primary to-transparent">
+      <div className=" card  " id="userbox" style={myStyles}>
+        <div className="card-body bg-primary bg-gradient bg-opacity-25">
           <div className="card-body " id="student-page-profile">
             <img
               id="im-wd"
@@ -43,8 +43,8 @@ export default function Student() {
             <i>
               <EditIcon />
             </i>
-            <textarea class="form-control" id="textArea" rows=""></textarea>
-            <TelegramIcon type="submit" value="Send" style={{color:"#fa521c"}}/>
+            <textarea className="form-control text-black opacity-50" id="textArea" rows="" style={{color:"#ffffff96"}}></textarea>
+            <TelegramIcon className="btn-rounded float-end" type="submit" value="Send" style={{color:"#fa521c"}}/>
           </div>
           {/* user comment area section ends */}
           <a href="#" className="">

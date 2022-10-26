@@ -24,7 +24,8 @@ export default function App() {
       {/* <TopBar /> */}
       <Routes>
       <Route path="/" element={<Student />} />
-      <Route path="/" element={<Home />} />
+      <Route path="/" element={<Student />} />
+      
         <Route path="/" element={<Sidebar />} />
         {/* <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />

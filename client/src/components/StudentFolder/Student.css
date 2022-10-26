@@ -34,3 +34,11 @@
 .form-outline {
   color: #fff;
 }
+#textArea{
+    background: white;
+   
+}
+.bg-indigo {
+    --bs-bg-opacity: .25;
+    background-color: rgba(var(--bs-indigo), var(--bs-bg-opacity)) !important;
+  }
