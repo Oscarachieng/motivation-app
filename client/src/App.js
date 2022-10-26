@@ -3,6 +3,7 @@ import { Routes,Route } from 'react-router-dom';
 import TopBar from './components/topbar/TopBar';
 import Sidebar from './components/sidebar/Sidebar';
 import Student from './components/StudentFolder/Student';
+import Staff from './components/Staffpage/Staff';
 
 // import Login from './components/Login/Login';
 import Home from './components/home/Home';
@@ -23,7 +24,7 @@ export default function App() {
     <div className="">
       {/* <TopBar /> */}
       <Routes>
-      <Route path="/" element={<Student />} />
+      <Route path="/" element={<Staff />} />
       <Route path="/" element={<Student />} />
       
         <Route path="/" element={<Sidebar />} />
