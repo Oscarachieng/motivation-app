@@ -3,19 +3,19 @@
     flex-direction: column;
 	justify-content: center;
 	align-items: center;
-    width: 20rem;
-	height: 90vh;
+    width: 15rem;
+	height:70vh;
 	flex: 1 1 40rem;
 	padding: 2rem;
 	box-shadow: 0 1rem 2rem #001219;
 	border-radius: .5rem;
-	background: #001E2A;
-	color: #FF8C00;
+	background: ;
+	color: #fa521c;
 }
 .btn-primary{
-	background: #FF8C00;
-	color:#001E2A;
-	border: #FF8C00;
+	background: #fa521c;
+	color:#fff;
+	border: #fa521c;
 	margin-top: 17px;
 	font-weight: 700;
 	text-transform: uppercase;
@@ -41,7 +41,7 @@
 	align-items: center;
 	border-radius: .5rem;
 	background: #001E2A;
-	color: #FF8C00;
+	color: #fa521c;
 }
 
 
