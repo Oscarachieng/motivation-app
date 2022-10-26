@@ -15,5 +15,6 @@ Rails.application.routes.draw do
  post "/login", to: "sessions#create"
  get "/me", to: "users#stay_logged_in"
  delete "/logout", to: "sessions#destroy"
+#  get "/an_admin", to: "admins#is_logged_in"
     
  end

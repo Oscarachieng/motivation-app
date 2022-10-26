@@ -1,4 +1,5 @@
 class ArticleCommentRepliesController < ApplicationController
+    
     #GET /article_comment_replies
     def index
         render json: ArticleCommentReply.all

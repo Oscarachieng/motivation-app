@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+    
     #GET /articles
     def index
         render json: Article.all
