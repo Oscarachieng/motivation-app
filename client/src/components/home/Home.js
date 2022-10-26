@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import "./home.css";
 import logo from "../Assets/avator.png";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -14,6 +15,9 @@ import Contact from "../Contactfolder/Contact";
 import Ads from "../Adsfolder/Ads";
 
 export default function Home() {
+  
+
+
 
   const myStyles = {
     backgroundImage:

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { Routes, Route } from "react-router-dom";
 import TopBar from "./components/topbar/TopBar";
@@ -17,15 +17,21 @@ import NewProduct from "./page/newProduct/NewProduct";
 import Profile from "./components/Profile/Profile";
 
 export default function App() {
+  const [currentUser, setCurrentUser] = useState(null);
+
   return (
     <div className="">
-      <NewUser />
       <Routes>
-        <Route path="/home" element={<Home />} />
+        <Route path="/" element={<Home />} />
+        <Route
+          path="/login"
+          element={<Login setCurrentUser={setCurrentUser} />}/>
         <Route path="/topbar" element={<TopBar />} />
-        <Route path="/staff" element={<Staff />} />
+        <Route path="/staff" element={<Staff currentUser={currentUser} />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/student" element={<Student />} />
+        <Route
+          path="/student"
+          element={<Student currentUser={currentUser} />} />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />

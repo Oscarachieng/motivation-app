@@ -7,7 +7,7 @@ import Category from "../Categoryfolder/Category";
 import EditIcon from "@mui/icons-material/Edit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 
-export default function Student() {
+export default function Staff({currentUser}) {
   const myStyles = {
     backgroundImage:
       "url('https://moringaschool.com/wp-content/uploads/2022/04/about-us-min.png')",
@@ -28,9 +28,9 @@ export default function Student() {
             />
             <div className="student-page-profile-text">
               {" "}
-              <h6 className="card-title">JOHN DOE</h6>
+              <h6 className="card-title">{currentUser.first_name}</h6>
               <p className="text mb-1">CATEGORY</p>
-              <p className="text mb-1">About</p>
+              <p className="text mb-1">About staff</p>
             </div>
             <div>
               <input class="btn btn-primary" type="submit" value="Submit" />
