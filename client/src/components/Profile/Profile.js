@@ -12,25 +12,32 @@ export default function Profile() {
       <div className="col-md-12">
         <form className="col g-1 needs-validation" novalidate>
           <div class="form-group">
-            <label for="exampleFormControlFile1">Profile </label>
-            <input
-              type="file"
-              class="form-control-file"
-              id="exampleFormControlFile1"
-              required
-            />
+            <div className="col-md-12" id="profile">
+              <input
+                type="text"
+                placeholder="John Doe"
+                className="form-control p-0 pr-2"
+                required
+                value=""
+              />
+              <input
+                type="text"
+                placeholder="Profile URL"
+                className="form-control p-0"
+                required
+              />
+            </div>
           </div>
 
-          <div class="form-group">
+          <div class="form-group m-2">
             <textarea
-              class="form-control p-0 w-100"
+              id="form10"
               placeholder="About"
-              id="exampleFormControlTextarea1"
+              class="md-textarea form-control"
               rows="1"
             ></textarea>
           </div>
-          <div className="col-md-12">
-    
+          <div className="col-md-12 m-auto">
             <input
               type="text"
               placeholder="john.doe@student.moringaschool.com"
@@ -63,7 +70,7 @@ export default function Profile() {
               id="validationCustom02"
               required
             />
-            <div className="valid-feedback">Looks good!</div>
+            <div className="valid-feedback">Confirmed!</div>
           </div>
           <div classNameName="col-12">
             <button className="btn btn-primary p-0 w-100" type="submit">

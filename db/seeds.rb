@@ -14,7 +14,6 @@ User.create!(
     email: "oscar.achieng@student.moringaschool.com",
     username: Faker::Name.first_name,
     password: "oscarachieng0799",
-    avatar_url: Faker::Avatar.image,
     user_category: category[rand(0..1)]
     )
 
@@ -24,7 +23,6 @@ User.create!(
         email: "livya.kiruja@student.moringaschool.com",
         username: Faker::Name.first_name,
         password: "oscarachieng0799",
-        avatar_url: Faker::Avatar.image,
         user_category: category[rand(0..1)]
         )
 
@@ -34,7 +32,6 @@ User.create!(
             email: "samuel.mwaura@student.moringaschool.com",
             username: Faker::Name.first_name,
             password: "oscarachieng0799",
-            avatar_url: Faker::Avatar.image,
             user_category: category[rand(0..1)]
             )
 User.create!(
@@ -44,7 +41,6 @@ User.create!(
                 email: "peter.atito@student.moringaschool.com",
                 username: Faker::Name.first_name,
                 password: "oscarachieng0799",
-                avatar_url: Faker::Avatar.image,
                 user_category: category[rand(0..1)]
                 )
 User.create!(
@@ -54,7 +50,6 @@ User.create!(
                     email: "kelvin.mwangig@student.moringaschool.com",
                     username: Faker::Name.first_name,
                     password: "oscarachieng0799",
-                    avatar_url: Faker::Avatar.image,
                     user_category: category[rand(0..1)]
                     )
 
@@ -65,7 +60,6 @@ User.create!(
                         email: "newton.mboi@student.moringaschool.com",
                         username: Faker::Name.first_name,
                         password: "oscarachieng0799",
-                        avatar_url: Faker::Avatar.image,
                         user_category: category[rand(0..1)]
                         )
 

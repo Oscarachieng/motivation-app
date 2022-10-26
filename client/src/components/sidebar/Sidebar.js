@@ -93,7 +93,7 @@ export default function Sidebar() {
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-              Reports
+              Report
             </li>
           </ul>
         </div>
