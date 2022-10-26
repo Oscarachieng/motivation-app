@@ -2,9 +2,6 @@ import React from "react";
 import "./Profile.css";
 import logo from "../Assets/moringa.png";
 
-
-
-
 export default function Profile() {
   return (
     <div className="container">
@@ -22,22 +19,19 @@ export default function Profile() {
                 required
                 value=""
               />
-              <input
-                type="text"
-                placeholder="Profile URL"
-                className="form-control p-0"
-                required
-              />
             </div>
           </div>
 
           <div class="form-group m-2">
-            <textarea
-              id="form10"
-              placeholder="About"
-              class="md-textarea form-control"
-              rows="1"
-            ></textarea>
+            <label for="formFileSm" class="form-label">
+              Profile picture
+            </label>
+            <input
+              class="form-control form-control-sm"
+              id="formFileSm"
+              type="file"
+            />
+          
           </div>
           <div className="col-md-12 m-auto">
             <input
@@ -82,7 +76,6 @@ export default function Profile() {
         </form>
       </div>
       {/* test  */}
-    
     </div>
   );
 }

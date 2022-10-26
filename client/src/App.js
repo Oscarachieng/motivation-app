@@ -19,7 +19,7 @@ import Profile from "./components/Profile/Profile";
 export default function App() {
   return (
     <div className="">
-      <NewUser />
+      <Profile />
       <Routes>
         <Route path="/home" element={<Home />} />
         <Route path="/topbar" element={<TopBar />} />
