@@ -3,13 +3,12 @@
     flex-direction: column;
 	justify-content: center;
 	align-items: center;
-    width: 15rem;
+    width: 25rem;
 	height:70vh;
 	flex: 1 1 40rem;
 	padding: 2rem;
 	box-shadow: 0 1rem 2rem #001219;
 	border-radius: .5rem;
-	background: ;
 	color: #fa521c;
 }
 .btn-primary{

@@ -2,9 +2,9 @@ import "./newUser.css";
 
 export default function NewUser() {
   return (
-    <div className="newUser">
-      <h1 className="newUserTitle">New User</h1>
-      <form className="newUserForm">
+    <div className="container">
+      <h3 className="newUserTitle text-white">Create New User</h3>
+      <form className="newUserForm col-md-12">
         <div className="newUserItem">
           <label>First Name</label>
           <input type="text" placeholder="John" />
@@ -22,7 +22,9 @@ export default function NewUser() {
           <input type="password" placeholder="password" />
         </div>
         <div className="newUserItem">
-        <button className="newUserButton">Create</button>
+        <button className="btn btn-primary p-0 w-100" type="submit">
+              CREATE
+            </button>
         </div>
       
       
