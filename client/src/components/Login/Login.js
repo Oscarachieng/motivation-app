@@ -23,12 +23,14 @@ export default function Login({ setCurrentUser }) {
       // setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
+          localStorage.setItem("currentUser",JSON.stringify(user))
+          // Persists the current user
           setCurrentUser(user);
-          if (user.user_category === "student") {
-            navigate("/student");
-          } else {
-            navigate("/staff");
-          }
+          // if (user.user_category === "student") {
+          //   navigate("/student");
+          // } else {
+            navigate("/");
+          // }
         });
       } else {
         r.json().then((err) => setErrors(err.errors));

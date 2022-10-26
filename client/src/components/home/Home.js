@@ -14,7 +14,7 @@ import Category from "../Categoryfolder/Category";
 import Contact from "../Contactfolder/Contact";
 import Ads from "../Adsfolder/Ads";
 
-export default function Home() {
+export default function Home({currentUser}) {
   
 
 
@@ -40,7 +40,7 @@ export default function Home() {
                 src={`${logo}`}
                 alt="avatar"
               />
-              <h5 className="card-title">JOHN DOE</h5>
+              <h5 className="card-title">{currentUser.first_name + ' ' +currentUser.last_name}</h5>
               <p className="text-muted mb-1">CATEGORY</p>
               <p className="text-muted mb-1">About</p>
               <hr />

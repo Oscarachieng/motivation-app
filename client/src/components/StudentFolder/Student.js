@@ -28,7 +28,7 @@ export default function Student({currentUser}) {
             />
             <div className="student-page-profile-text">
               {" "}
-              <h6 className="card-title">{currentUser.first_name + currentUser.last_name}</h6>
+              <h6 className="card-title">{currentUser.first_name + ' ' + currentUser.last_name}</h6>
               <p className="text mb-1">CATEGORY</p>
               <p className="text mb-1">About</p>
             </div>
