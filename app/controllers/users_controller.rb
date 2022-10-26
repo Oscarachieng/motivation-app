@@ -37,9 +37,9 @@ class UsersController < ApplicationController
 
           #Stay logged in
           def stay_logged_in
-            user = User.find_by(id: session[:user_id])
-            if user
-              render json: user
+            @user = User.find_by(id: session[:user_id]) || Admin.find_by(id: session[:user_id])
+            if @user
+              render json: @user
             else
               render json: { error: "Not authorized" }, status: :unauthorized
             end
