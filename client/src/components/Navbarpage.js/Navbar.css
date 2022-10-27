@@ -8,7 +8,7 @@
     text-align: center;
     font-size: 40px;
     padding-top: 15px;
-    color: #FF8C00;
+    color: #fa521c;
 }
 /* .l1{
     text-decoration: none;
@@ -17,14 +17,24 @@
 #l2{
     text-decoration: none;
     display: flex;
-    color: #FF8C00;
+    color: #fa521c;
 }
 .links{
     background-color: #001E2A;
     border-bottom-left-radius: 30px;
+    
 }
 img{
     width: 80%;
     height:8vh;
     border-radius: 50px;
+}
+.nav-logo{
+	height: 30px;
+
+}
+.logo-nav{
+	display:flex;
+	align-items: center;
+	justify-content: center;
 }
