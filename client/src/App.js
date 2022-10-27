@@ -16,6 +16,9 @@ import NewUser from "./page/newUser/NewUser";
 import ProductList from "./page/productList/ProductList";
 import NewProduct from "./page/newProduct/NewProduct";
 import Profile from "./components/Profile/Profile";
+import Landing from "./components/LandingPageFolder/Landing"
+import NavBar from "./components/Navbarpage.js/NavBar";
+
 
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem("currentUser"))
@@ -32,7 +35,8 @@ export default function App() {
 
   return (
     <div className="">
-      
+      <NavBar />
+      <Landing />
       <Routes>
         <Route path="/" element={<Home currentUser={currentUser} articles={articles}/>} />
         <Route

@@ -1,0 +1,30 @@
+.l1{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+    margin: 40;
+    text-decoration: none;
+    outline: none;
+    text-align: center;
+    font-size: 40px;
+    padding-top: 15px;
+    color: #FF8C00;
+}
+/* .l1{
+    text-decoration: none;
+    display: flex;
+} */
+#l2{
+    text-decoration: none;
+    display: flex;
+    color: #FF8C00;
+}
+.links{
+    background-color: #001E2A;
+    border-bottom-left-radius: 30px;
+}
+img{
+    width: 80%;
+    height:8vh;
+    border-radius: 50px;
+}

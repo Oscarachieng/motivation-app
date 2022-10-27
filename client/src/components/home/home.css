@@ -2,13 +2,16 @@
     width: 100px;
 }
 #userbox{
-    box-shadow: 0 1rem 2rem #FF8C00;
+    box-shadow: 0 1rem 2rem #001e2a;
+    background-attachment: fixed;
 }
 #img-wd{
     width: 80px;
     height:80px;
 }
 #main-body{
-    height: 115vh;
+    height: 100%;
+    width: 100%;
+    background-attachment: fixed;
 }
 
