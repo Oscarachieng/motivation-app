@@ -29,7 +29,7 @@ export default function Login({ setCurrentUser }) {
           // if (user.user_category === "student") {
           //   navigate("/student");
           // } else {
-            navigate("/");
+            navigate("/home");
           // }
         });
       } else {

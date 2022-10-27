@@ -114,11 +114,13 @@ export default function Student({ currentUser, articles }) {
             />
           
           </div>
+
           <button
           className="btn-rounded float-end"
           type="submit"
           value="Send"
-          style={{ color: "#fa521c" }}><TelegramIcon  /></button>
+          style={{ color: "#fa521c" }}>
+          <TelegramIcon  /></button>
               
             </form>
             {/* user comment area section ends */}
