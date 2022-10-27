@@ -83,12 +83,12 @@ export default function Home({ currentUser ,articles}) {
               <hr />
               {/* user profile section ends */}
               {/* user comment area */}
-              <div class="form-outline">
-                <label class="form-label" for="textAreaExample">
+              <div className="form-outline">
+                <label className="form-label">
                   Say something...
                 </label>
                 <textarea
-                  class="form-control"
+                  className="form-control"
                   id="textAreaExample"
                   rows=""
                 ></textarea>

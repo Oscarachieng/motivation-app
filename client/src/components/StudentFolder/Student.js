@@ -71,7 +71,7 @@ export default function Student({ currentUser, articles }) {
             </div>
 
             {/* user comment area */}
-            <form onSubmit={handleSubmit} className="form-outline">
+            <form onSubmit={handleSubmit} className="form-outline ">
               <label
                 className="form-label"
                 // for="textAreaExample"
@@ -86,7 +86,7 @@ export default function Student({ currentUser, articles }) {
               </select>
               <input
                 name="title"
-                className="form-control text-black opacity-50"
+                className="form-control text-black opacity-50 mt-3"
                 id="textArea"
                 placeholder="Article Title"
                 value = {articleDetails.title}
@@ -95,7 +95,7 @@ export default function Student({ currentUser, articles }) {
               
               <textarea
                 name="content"
-                className="form-control text-black opacity-50"
+                className="form-control text-black opacity-50 mt-3"
                 id="textArea"
                 rows=""
                 value = {articleDetails.content}

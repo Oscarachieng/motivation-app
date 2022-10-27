@@ -35,10 +35,10 @@ export default function App() {
 
   return (
     <div className="">
+      {/* <Landing /> */}
       <NavBar />
-      <Landing />
       <Routes>
-        <Route path="/" element={<Home currentUser={currentUser} articles={articles}/>} />
+        <Route path="/home" element={<Home currentUser={currentUser} articles={articles}/>} />
         <Route
           path="/login"
           element={<Login setCurrentUser={setCurrentUser} />}/>
