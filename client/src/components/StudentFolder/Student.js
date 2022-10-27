@@ -1,13 +1,20 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 
 import "./Student.css";
 import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import Category from "../Categoryfolder/Category";
-import EditIcon from "@mui/icons-material/Edit";
 import TelegramIcon from "@mui/icons-material/Telegram";
 
 export default function Student({ currentUser, articles }) {
+  const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
+  const [categories, setCategories] = useState([])
+  
+
+
+  //title - input
+  //select - category - fronm backend
+
   const myStyles = {
     backgroundImage:
       "url('https://moringaschool.com/wp-content/uploads/2022/04/about-us-min.png')",
@@ -15,25 +22,32 @@ export default function Student({ currentUser, articles }) {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
-
   };
+  useEffect(()=>{
+        fetch('/categories')
+        .then(response=>response.json())
+        .then(categories=>setCategories(categories))
+        .catch(error=>console.log(error))
+  },[])
 
-  //  function handleSubmit(){
-  //   const handleSubmit = (e) => {
-  //     e.preventDefault();
-  //     fetch('https://jsonplaceholder.typicode.com/posts', {
-  //        method: 'POST',
-  //        body: JSON.stringify({
-  //           title: title,
-  //           body: body,
-  //           userId: Math.random().toString(36).slice(2),
-  //        }),
-  //        headers: {
-  //           'Content-type': 'application/json; charset=UTF-8',
-  //        },
-  //     })
-  //     .then((res) => res.json())
-  //     .then((post)=> console.log(post));
+  function handleOnchange(event){
+      setArticleDetails({...articleDetails,[event.target.name]:event.target.value})
+  }
+
+   function handleSubmit(e){
+      e.preventDefault();
+      fetch('/articles', {
+         method: 'POST',
+         body: JSON.stringify(articleDetails),
+         headers: {
+            'Content-type': 'application/json; charset=UTF-8',
+            "Accept":"application/json"
+         },
+      })
+      .then((res) => res.json())
+      .then((post)=> console.log(post));
+    }
+    
   return (
     <div className="card h-100 ">
       <div className=" card  " id="userbox" style={myStyles}>
@@ -57,31 +71,55 @@ export default function Student({ currentUser, articles }) {
             </div>
 
             {/* user comment area */}
-            <form 
-            // onSubmit={handleSubmit} 
-            class="form-outline">
+            <form onSubmit={handleSubmit} className="form-outline">
               <label
-                class="form-label"
-                for="textAreaExample"
+                className="form-label"
+                // for="textAreaExample"
                 style={{ color: "#fa521c" }}
               >
                 Say something...
-              </label>
-              <i>
-                <EditIcon />
-              </i>
+              </label><br/>
+              
+              <select name="category">
+                <option>Select the article category</option>
+                {categories.map(category=><option key={category.id} value={category.id}>{category.category}</option>)}
+              </select>
+              <input
+                name="title"
+                className="form-control text-black opacity-50"
+                id="textArea"
+                placeholder="Article Title"
+                value = {articleDetails.title}
+                onChange={handleOnchange}
+              />
+              
               <textarea
+                name="content"
                 className="form-control text-black opacity-50"
                 id="textArea"
                 rows=""
-                style={{ color: "#ffffff96" }}
+                value = {articleDetails.content}
+                onChange={handleOnchange}
               ></textarea>
-              <TelegramIcon
-                className="btn-rounded float-end"
-                type="submit"
-                value="Send"
-                style={{ color: "#fa521c" }}
-              />
+                  <div className="form-group m-2">
+            <label 
+            // for="formFileSm"
+             className ="form-label">
+              Profile picture
+            </label>
+            <input
+              className="form-control form-control-sm"
+              id="formFileSm"
+              type="file"
+            />
+          
+          </div>
+          <button
+          className="btn-rounded float-end"
+          type="submit"
+          value="Send"
+          style={{ color: "#fa521c" }}><TelegramIcon  /></button>
+              
             </form>
             {/* user comment area section ends */}
             <a href="#" className="">
