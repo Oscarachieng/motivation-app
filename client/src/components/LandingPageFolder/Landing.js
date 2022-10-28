@@ -1,35 +1,33 @@
 
 import React from 'react';
+import "./Landing.css";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import InstagramIcon from "@mui/icons-material/Instagram";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
+export default function Landing() {
 
-export default function Landing({props}){
+  const myStyles = {
+    backgroundImage:
+      "url('https://moringaschool.com/wp-content/uploads/2022/04/about-us-min.png')",
+    backgroundSize: "cover",
+    backgroundRepeat: "no-repeat",
+    backgroundPosition: "center",
+    backgroundAttachment: "fixed",
+  }; 
+
   return (
-    <div id='team' className='text-center'>
-      <div className='container'>
-        <div className='col-md-8 col-md-offset-2 section-title'>
-          <h2>Meet the Team</h2>
-          <p>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit duis sed
-            dapibus leonec.
+    <div className="container-fluid" style={myStyles}>
+      <footer>
+      <p className="card-text">
+            <TwitterIcon style={{color:"#fa521c"}} />
+            <InstagramIcon style={{color:"#fa521c"}} />
+            <FacebookIcon style={{color:"#fa521c"}} />
+            <LinkedInIcon style={{color:"#fa521c"}} />
           </p>
-        </div>
-        <div id='row'>
-          {props.data
-            ? props.data.map((d, i) => (
-                <div key={`${d.name}-${i}`} className='col-md-3 col-sm-6 team'>
-                  <div className='thumbnail'>
-                    {' '}
-                    <img src={d.img} alt='...' className='team-img' />
-                    <div className='caption'>
-                      <h4>{d.name}</h4>
-                      <p>{d.job}</p>
-                    </div>
-                  </div>
-                </div>
-              ))
-            : 'loading'}
-        </div>
-      </div>
+      </footer>
     </div>
   )
 }
+

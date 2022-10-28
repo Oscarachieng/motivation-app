@@ -1,4 +1,4 @@
-import "./newUser.css";
+import './newUser.css'
 
 export default function NewUser() {
   return (
@@ -13,6 +13,18 @@ export default function NewUser() {
           <label>Last Name</label>
           <input type="text" placeholder="Doe" />
         </div>
+        {/* select */}
+        <div className="newUserItem">
+          <label>User Category</label>
+
+          <select name="category">
+            <optgroup label="Select user category" value="null">
+              <option value="student">Student</option>
+              <option value="staff">Staff</option>
+            </optgroup>
+          </select>
+        </div>
+        {/* select */}
         <div className="newUserItem">
           <label>Email</label>
           <input type="email" placeholder="johndoe@moringaschool.student.com" />
@@ -22,15 +34,11 @@ export default function NewUser() {
           <input type="password" placeholder="password" />
         </div>
         <div className="newUserItem">
-        <button className="btn btn-primary p-0 w-100" type="submit">
-              CREATE
-            </button>
+          <button className="btn btn-primary p-0 w-100" type="submit">
+            CREATE
+          </button>
         </div>
-      
-      
-        
-        
       </form>
     </div>
-  );
+  )
 }

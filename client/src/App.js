@@ -18,6 +18,7 @@ import NewProduct from "./page/newProduct/NewProduct";
 import Profile from "./components/Profile/Profile";
 import Landing from "./components/LandingPageFolder/Landing"
 import NavBar from "./components/Navbarpage.js/NavBar";
+import EditUser from "./components/UserDetailsUpdateform/EditUser"
 
 
 export default function App() {
@@ -35,8 +36,9 @@ export default function App() {
 
   return (
     <div className="">
-      {/* <Landing /> */}
-      <NavBar />
+       
+      <Landing />
+      {/* <NavBar /> */}
       <Routes>
         <Route path="/home" element={<Home currentUser={currentUser} articles={articles}/>} />
         <Route
