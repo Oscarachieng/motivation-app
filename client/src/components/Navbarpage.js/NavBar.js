@@ -9,7 +9,7 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
-export default function NavBar() {
+export default function NavBar(currentUser) {
   return (
     <div className="links">
       <div className="l1">
@@ -35,6 +35,7 @@ export default function NavBar() {
         </Link>
         <Link to="/logout" id="l2">
         <LogoutOutlinedIcon />Log Out
+       
         </Link>
       </div>
     </div>
