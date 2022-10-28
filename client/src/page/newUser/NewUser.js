@@ -3,9 +3,9 @@ import React, { useState } from 'react'
 import { useNavigate } from "react-router-dom";
 
 export default function NewUser() {
-  const [errors, setErrors] = useState([])
+  const [errors, setErrors] = useState(null)
   const [newUser, setNewUser] = useState({first_name: '',last_name: '', 
-  email:'',password:''} )
+  email:'',password:'',user_category:''} )
   const navigate = useNavigate()
    const handleChange = (event)=> {
     setNewUser({...newUser,[event.target.name]:event.target.value})
@@ -20,9 +20,13 @@ export default function NewUser() {
       body: JSON.stringify(newUser),
     }).then(r => {
       if (r.ok){
-       r.json().then(user => navigate('/login'))
+       r.json().then(user =>{
+        console.log(user)
+        navigate('/login')})
       } else {
-       
+       r.json().then(errors => {
+        console.log(errors)
+        setErrors(errors)})
       }
     })
   }
@@ -38,6 +42,20 @@ export default function NewUser() {
           <label>Last Name</label>
           <input type="text" placeholder="Doe" name="last_name"  onChange={handleChange} value={newUser.last_name}/>
         </div>
+
+        {/* select */}
+        <div className="newUserItem">
+          <label>User Category</label>
+
+          <select name="user_category">
+            <optgroup label="Select user category" value=''>
+              <option value="student">Student</option>
+              <option value="staff">Staff</option>
+            </optgroup>
+          </select>
+        </div>
+        {/* select */}
+
         <div className="newUserItem">
           <label>Email</label>
           <input type="email" name="email" placeholder="johndoe@moringaschool.student.com"  onChange={handleChange}
@@ -49,8 +67,10 @@ export default function NewUser() {
         </div>
         <div className="newUserItem">
         <button className="btn btn-primary p-0 w-100" type="submit" >
+
               CREATE
             </button>
+            <p>{errors?"There are some errors":null}</p>
         </div>
       
       

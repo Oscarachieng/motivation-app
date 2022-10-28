@@ -16,8 +16,8 @@ import NewUser from "./page/newUser/NewUser";
 import ProductList from "./page/productList/ProductList";
 import NewProduct from "./page/newProduct/NewProduct";
 import Profile from "./components/Profile/Profile";
-import Landing from "./components/LandingPageFolder/Landing"
 import NavBar from "./components/Navbarpage.js/NavBar";
+import EditUser from "./components/UserDetailsUpdateform/EditUser";
 
 
 export default function App() {
@@ -39,15 +39,12 @@ export default function App() {
       <NavBar />
       <Routes>
         <Route path="/home" element={<Home currentUser={currentUser} articles={articles}/>} />
-        <Route
-          path="/login"
-          element={<Login setCurrentUser={setCurrentUser} />}/>
+        <Route path="/login"element={<Login setCurrentUser={setCurrentUser} />}/>
         <Route path="/topbar" element={<TopBar />} />
         <Route path="/staff" element={<Staff currentUser={currentUser} articles={articles}/>} />
         <Route path="/profile" element={<Profile />} />
-        <Route
-          path="/student"
-          element={<Student currentUser={currentUser}  articles={articles}/>} />
+        <Route path="/student" element={<Student currentUser={currentUser}  articles={articles}/>} />
+        <Route path="/editprofile" element={<EditUser currentUser={currentUser} />}/>
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
