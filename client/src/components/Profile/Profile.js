@@ -68,7 +68,7 @@ export default function Profile() {
             />
             <div className="valid-feedback">Confirmed!</div>
           </div>
-          <div classNameName="col-12">
+          <div className="col-12">
             <button className="btn btn-primary p-0 w-100" type="submit">
               REGISTER
             </button>

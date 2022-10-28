@@ -1,7 +1,7 @@
 import React from 'react'
 import './Landing.css'
+import { Link } from 'react-router-dom'
 
-import logo from '../Assets/moringa.png'
 import safaricom from '../Assets/Safaricom-Logo.wine_.png'
 import sanlam from '../Assets/sanlam-logo-vector.png'
 import microsoft from '../Assets/microsoft.png'
@@ -9,7 +9,7 @@ import mastercard from '../Assets/Mastercard.jpg'
 import i_click from '../Assets/I-Click-logo_approved.png'
 import i_talanta from '../Assets/i-talanta.png'
 import grey from '../Assets/grey.png'
-import andela from '../Assets/Andela-logo-landscape-blue-400px.png'
+import andela from '../Assets/mcf.png'
 import dalberg from '../Assets/dalberg-data-insights.png'
 import adrian from '../Assets/Adrian.png'
 import cybertek from '../Assets/Cybertek.png'
@@ -31,11 +31,31 @@ export default function Landing() {
 
   return (
     <div className="container-fluid" style={myStyles}>
-      <div className="ms-container py-16 space-y-16" id="partners">
-        <div className="grid  grid-cols-2 gap-0.5 sm:grid-cols-3 xl:grid-cols-5">
-          <div className="flex justify-content-center py-5 px-3">
+      <div className="landingview">
+        <div className="landingviewpage">
+          <h1>Moringa Community</h1>
+          <p>
+            Connect with the community to find answers, ask questions, build
+            skills, and accelerate your digital transformation with the Moringa
+            Community.
+          </p>
+          <div className="col-12">
+            <button className="btn btn-primary p-0 w-100" type="submit">
+              LOGIN
+            </button>
+          </div>
+        </div>
+        <div className="landingviewpage"></div>
+      </div>
+      {/* partners section */}
+      <div className="card-body" id="partners">
+        <div className="">
+          <div className="part-heading">
+            <h1>Our Partners</h1>{' '}
+          </div>
+          <div className="partners-png">
             <div className="im">
-              <img className="image" src={`${logo}`} alt="logo" />
+              <img className="image" src={`${mastercard}`} alt="mastercard" />
             </div>{' '}
             <div className="im">
               <img className="image" src={`${safaricom}`} alt="saf-logo" />
@@ -44,7 +64,12 @@ export default function Landing() {
               <img className="image" src={`${sanlam}`} alt="sanlam" />
             </div>{' '}
             <div className="im">
-              <img className="image" src={`${microsoft}`} alt="microsoft" />
+              <img
+                className="image"
+                src={`${microsoft}`}
+                alt="microsoft"
+                style={{ color: '#fff' }}
+              />
             </div>{' '}
             <div className="im">
               <img className="image" src={`${i_click}`} alt="i_click" />
@@ -70,13 +95,28 @@ export default function Landing() {
           </div>
         </div>
       </div>
+      {/* partners section */}
+      {/* footersection */}
       <footer>
-        <p className="card-text">
-          <TwitterIcon style={{ color: '#fa521c' }} />
-          <InstagramIcon style={{ color: '#fa521c' }} />
-          <FacebookIcon style={{ color: '#fa521c' }} />
-          <LinkedInIcon style={{ color: '#fa521c' }} />
-        </p>
+        <div className="foot">
+          <Link to="" id="linkf">
+            <TwitterIcon />
+            Moringa School
+          </Link>
+
+          <Link to="" id="linkf">
+            <InstagramIcon />
+            Moringa School
+          </Link>
+          <Link to="" id="linkf">
+            <FacebookIcon />
+            Moringa School
+          </Link>
+          <Link to="" id="linkf">
+            <LinkedInIcon />
+            Moringa School
+          </Link>
+        </div>
       </footer>
     </div>
   )

@@ -22,6 +22,7 @@ export default function Student({ currentUser, articles }) {
     backgroundRepeat: "no-repeat",
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
+  
   };
   useEffect(()=>{
         fetch('/categories')
