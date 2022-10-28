@@ -20,9 +20,12 @@ export default function NewUser() {
       body: JSON.stringify(newUser),
     }).then(r => {
       if (r.ok){
-       r.json().then(user => navigate('/login'))
+       r.json().then(user => {
+         setNewUser(user)
+         navigate('/login')
+       })
       } else {
-       
+        r.json().then(errorData => setErrors([errorData.errors])  )
       }
     })
   }
@@ -30,6 +33,14 @@ export default function NewUser() {
     <div className="container">
       <h3 className="newUserTitle text-white">Create New User</h3>
       <form className="newUserForm col-md-12" onSubmit={handleSubmit}>
+         
+  {errors.length > 0 && (
+    <ul style={{ color: "red" }}>
+      {errors.map((error) => (
+        <li key={error}>{error}</li>
+      ))}
+    </ul>
+  )}
         <div className="newUserItem">
           <label>First Name</label>
           <input type="text" placeholder="John" name="first_name" onChange={handleChange} value={newUser.first_name}/>

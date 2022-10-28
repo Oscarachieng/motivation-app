@@ -8,6 +8,7 @@ export default function Login({ setCurrentUser }) {
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [login, setLogin] = useState('')
   const [errors, setErrors] = useState("");
 
   function handleSubmit(e) {
@@ -29,17 +30,19 @@ export default function Login({ setCurrentUser }) {
           // if (user.user_category === "student") {
           //   navigate("/student");
           // } else {
-            navigate("/");
+            navigate("/home");
           // }
         });
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        
+        r.json().then((err) => setErrors(err.error));
       }
     });
   }
   return (
     <div className="container">
       <div>
+        <p style={{color:"green"}}>{login}</p>
         <form
           type="submit"
           onSubmit={handleSubmit}
