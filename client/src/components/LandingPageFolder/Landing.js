@@ -19,6 +19,7 @@ export default function Landing() {
 
   return (
     <div className="container-fluid" style={myStyles}>
+      <div className=""></div>
       <footer>
       <p className="card-text">
             <TwitterIcon style={{color:"#fa521c"}} />

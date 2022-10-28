@@ -1,23 +1,27 @@
 .l1{
     display: flex;
     justify-content: space-evenly;
-    padding: 0;
+    padding: 6px;
     margin: 40;
-    text-decoration: none;
     outline: none;
     text-align: center;
     font-size: 40px;
-    padding-top: 15px;
+    padding-top: 25px;
     color: #fa521c;
+    z-index: 1000;
+    background-color: #001E2A;
+    position: fixed;
+    top:0; left:0; right: 0;
 }
-/* .l1{
-    text-decoration: none;
-    display: flex;
-} */
+
 #l2{
     text-decoration: none;
     display: flex;
     color: #fa521c;
+    font-size: small;
+}
+#l2:hover{
+color: #fff;
 }
 .links{
     background-color: #001E2A;

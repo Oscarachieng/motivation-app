@@ -36,9 +36,9 @@ export default function App() {
 
   return (
     <div className="">
-       
-      <Landing />
-      {/* <NavBar /> */}
+{/*        
+      <Landing /> */}
+      <NavBar />
       <Routes>
         <Route path="/home" element={<Home currentUser={currentUser} articles={articles}/>} />
         <Route

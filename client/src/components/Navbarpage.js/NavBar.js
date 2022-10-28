@@ -7,6 +7,7 @@ import NotificationsActiveOutlinedIcon from "@mui/icons-material/NotificationsAc
 import TextsmsOutlinedIcon from "@mui/icons-material/TextsmsOutlined";
 import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
 export default function NavBar() {
   return (
@@ -16,26 +17,24 @@ export default function NavBar() {
           <img className="nav-logo" src={`${logo}`} />
         </div>
         <Link to="/home" id="l2">
-          <HomeOutlinedIcon />
+          <HomeOutlinedIcon /> Home
         </Link>
 
         <Link to="/blog" id="l2">
-          <CategoryOutlinedIcon />
+          <CategoryOutlinedIcon />Categories
         </Link>
         <Link to="" id="l2">
-          <NotificationsActiveOutlinedIcon />
+          <NotificationsActiveOutlinedIcon />Notification
         </Link>
         <Link to="" id="l2">
-          <TextsmsOutlinedIcon />
+          <TextsmsOutlinedIcon />Messages
         </Link>
 
         <Link to="/" id="l2">
-          <SearchOutlinedIcon />
+          <SearchOutlinedIcon />Search
         </Link>
         <Link to="/logout" id="l2">
-          <span>
-            <img src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse4.mm.bing.net%2Fth%3Fid%3DOIP.Ix6XjMbuCvoq3EQNgJoyEQHaFj%26pid%3DApi&f=1&ipt=0b5bea4417392594431600b77f6778c40e82a3ddaa8e95de8f20e04baf6c7ece&ipo=images" />
-          </span>
+        <LogoutOutlinedIcon />Log Out
         </Link>
       </div>
     </div>
