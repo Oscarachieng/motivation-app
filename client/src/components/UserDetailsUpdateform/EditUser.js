@@ -1,8 +1,8 @@
 import React from "react";
-import "./Profile.css";
+import "./EditUser.css";
 import logo from "../Assets/moringa.png";
 
-export default function Profile() {
+export default function EditUser() {
   return (
     <div className="container">
       <div className="im">
@@ -46,7 +46,7 @@ export default function Profile() {
           </div>
           <div className="col-md-12">
             <label for="validationCustom02" className="form-label">
-              Password
+              Username
             </label>
             <input
               type="text"
@@ -56,21 +56,10 @@ export default function Profile() {
             />
             <div className="valid-feedback">Looks good!</div>
           </div>
-          <div className="col-md-12">
-            <label for="validationCustom02" className="form-label">
-              Confirm Password
-            </label>
-            <input
-              type="text"
-              className="form-control p-0"
-              id="validationCustom02"
-              required
-            />
-            <div className="valid-feedback">Confirmed!</div>
-          </div>
-          <div className="col-12">
+    
+          <div classNameName="col-12">
             <button className="btn btn-primary p-0 w-100" type="submit">
-              REGISTER
+              UPDATE PROFILE 
             </button>
           </div>
         </form>

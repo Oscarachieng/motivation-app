@@ -13,7 +13,7 @@ export default function Contact() {
           <p className="" style={{color:"#fa521c"}}>
             About | Advertising | Privacy & Terms | Help Center
           </p>
-          <p className="card-text">
+          <p className="card-text" id="footer">
             <TwitterIcon style={{color:"#fa521c"}} />
             <InstagramIcon style={{color:"#fa521c"}} />
             <FacebookIcon style={{color:"#fa521c"}} />

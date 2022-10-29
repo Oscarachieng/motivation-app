@@ -24,6 +24,15 @@ class ArticlesController < ApplicationController
         render json: article, status: :accepted
     end
 
+      # PATCH /articles/:id/like
+    def increment_likes
+        article = find_an_article
+        article.update(likes: article.likes + 1)
+        render json: article
+    end
+
+
+
     #DELETE /articles/:id
     def destroy
         article = find_an_article

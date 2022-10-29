@@ -1,8 +1,7 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import "./Login.css";
 import logo from "../Assets/moringa.png";
 import { useNavigate } from "react-router-dom";
-
 
 
 export default function Login({ setCurrentUser }) {
@@ -10,8 +9,6 @@ export default function Login({ setCurrentUser }) {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState("");
-
-
 
   function handleSubmit(e) {
     e.preventDefault();
@@ -25,8 +22,16 @@ export default function Login({ setCurrentUser }) {
     }).then((r) => {
       // setIsLoading(false);
       if (r.ok) {
-        r.json().then((user) => setCurrentUser(user));
-        navigate("/");
+        r.json().then((user) => {
+          localStorage.setItem("currentUser",JSON.stringify(user))
+          // Persists the current user
+          setCurrentUser(user);
+          // if (user.user_category === "student") {
+          //   navigate("/student");
+          // } else {
+            navigate("/home");
+          // }
+        });
       } else {
         r.json().then((err) => setErrors(err.errors));
       }
@@ -47,7 +52,7 @@ export default function Login({ setCurrentUser }) {
             </p>
           ))} */}
           <div className="im">
-            <img className="image" src={`${logo}`} alt='logo' />
+            <img className="image" src={`${logo}`} alt="logo" />
           </div>
           <div className="col-md-12">
             <label for="validationCustom01" className="form-label">
@@ -58,7 +63,7 @@ export default function Login({ setCurrentUser }) {
               className="form-control p-0"
               id="validationCustom01"
               required
-              onChange={(e)=> setEmail(e.target.value)}
+              onChange={(e) => setEmail(e.target.value)}
             />
             <div className="valid-feedback">Looks good!</div>
           </div>
@@ -70,14 +75,17 @@ export default function Login({ setCurrentUser }) {
               type="password"
               className="form-control p-0"
               id="validationCustom02"
-              onChange={(e)=> setPassword(e.target.value)}
+              onChange={(e) => setPassword(e.target.value)}
               required
             />
             <div className="valid-feedback">Looks good!</div>
           </div>
-          <div classNameName="col-12">
-        
-            <input className="btn btn-primary p-0 w-100" type="submit" value="Login" />
+          <div className="col-12">
+            <input
+              className="btn btn-primary p-0 w-100"
+              type="submit"
+              value="Login"
+            />
           </div>
         </form>
         <div>
