@@ -1,6 +1,7 @@
 import React from 'react'
 import './Landing.css'
 import { Link } from 'react-router-dom'
+// import { useNavigate } from "react-router-dom";
 
 import safaricom from '../Assets/Safaricom-Logo.wine_.png'
 import sanlam from '../Assets/sanlam-logo-vector.png'
@@ -29,6 +30,11 @@ export default function Landing() {
     backgroundAttachment: 'fixed',
   }
 
+  // function handleOnClick(){
+  //   if (currentUser.user_category === "student") {
+  //       navigate("/login");
+  //     } 
+
   return (
     <div className="container-fluid" style={myStyles}>
       <div className="landingview">
@@ -40,7 +46,9 @@ export default function Landing() {
             Community.
           </p>
           <div className="col-12">
-            <button className="btn btn-primary p-0 w-100" type="submit">
+            <button className="btn btn-primary p-0 w-100" type="submit" 
+            // onClick={handleOnClick}
+            >
               LOGIN
             </button>
           </div>
