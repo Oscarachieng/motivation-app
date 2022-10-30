@@ -30,10 +30,7 @@ export default function Landing() {
     backgroundAttachment: 'fixed',
   }
 
-  // function handleOnClick(){
-  //   if (currentUser.user_category === "student") {
-  //       navigate("/login");
-  //     } 
+
 
   return (
     <div className="container-fluid" style={myStyles}>
@@ -46,11 +43,14 @@ export default function Landing() {
             Community.
           </p>
           <div className="col-12">
+            <Link to="/login">
             <button className="btn btn-primary p-0 w-100" type="submit" 
-            // onClick={handleOnClick}
-            >
-              LOGIN
-            </button>
+         
+         >
+           LOGIN
+         </button>
+            </Link>
+        
           </div>
         </div>
         <div className="landingviewpage"></div>

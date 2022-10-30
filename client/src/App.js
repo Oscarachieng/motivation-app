@@ -19,6 +19,7 @@ import Profile from './components/Profile/Profile'
 import Landing from './components/LandingPageFolder/Landing'
 import NavBar from './components/Navbarpage.js/NavBar'
 import EditUser from './components/UserDetailsUpdateform/EditUser'
+import Commentary from './components/ArticleComments/Commentary'
 
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -57,6 +58,10 @@ export default function App() {
           path="/student"
           element={<Student currentUser={currentUser} articles={articles} />}
         />
+          <Route
+          path="/commentary"
+          element={<Commentary currentUser={currentUser} articles={articles} />}
+        />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
@@ -64,7 +69,7 @@ export default function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/newProduct" element={<NewProduct />} />
-        <Route path="/category" element={<Category />} />
+        {/* <Route path="/category" element={<Category currentUser={currentUser} article={article} />} /> */}
       </Routes>
     </div>
   )

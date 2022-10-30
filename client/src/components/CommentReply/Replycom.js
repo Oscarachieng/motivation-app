@@ -2,53 +2,54 @@ import React, { useState } from 'react'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import CommentIcon from '@mui/icons-material/Comment'
 import TelegramIcon from '@mui/icons-material/Telegram'
-
-
-
-export default function Commentary({article, currentUser}) {
-  console.log(article)
-  console.log(currentUser)
-  const [commentData, setCommentData] = useState({ comment:'', article_id:article.id, user_id:currentUser.id })
+export default function Replycom({comment, currentUser}) {
+  const [replyData, setReply] = useState({ reply:'',article_comment_id:comment.id, user_id:currentUser.id })
   const [errors, setErrors] = useState([])
-  const [numberOfLikes, setNumberOfLikes] = useState(26)
+  const [numberOfLikes, setNumberOfLikes] = useState(comment.likes)
   function handleOnchange(event) {
-    setCommentData({
-      ...commentData,
+    setReplyData({
+      ...replyData,
       [event.target.name]: event.target.value,
     })
   }
-  async function handleSubmit(e) {
+   async function handleSubmit(e) {
     e.preventDefault()
     const response = await fetch('/article_comments', {
       method: 'POST',
-      body: JSON.stringify(commentData),
+      body: JSON.stringify(replyData),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
         Accept: 'application/json',
       },
-    })
-    const newComment = await response.json()
-        if (response.ok) {
-          console.log(newComment);
+    });
+    const data = await response.json()
+        if (r.ok) {
+          setReply(newReply);
         } else {
-          setErrors([newComment.errors]);
+          setErrors([er.errors]);
         }
   }
-  function handleOnLikeClick(){
-    let likes = article.likes + 1
+  async function handleOnLikeClick(){
+    let likes = article_comment_reply.likes + 1
     // likes += 1
     console.log(likes)
-    fetch(`/like`,{
+   const res = await fetch(`/like`,{
       method:"PATCH",
       headers:{
         "Content-Type":"application/json",
         "Accept":"application/json"
       },
       body:JSON.stringify({
-        id:article.id,
+        id:article_comment_reply.id,
         likes:likes
       })
-    }).then(response =>response.json()).then(updatedComment =>setNumberOfLikes(updatedComment.likes)).catch()
+    });
+    const updatedReply = await res.json();
+    if (res.ok){
+      setNumberOfLikes(updatedReply.likes)
+    } else {
+      console.log(er.errors)
+    }
   }
   return (
     <div>
@@ -60,17 +61,6 @@ export default function Commentary({article, currentUser}) {
           </ul>
         )}
       <form onSubmit={handleSubmit} className="form-outline ">
-          {/* <div className="bio-link" >
-              <img
-                id="image"
-                className="rounded-circle img-fluid"
-                src= {currentUser.avatar_url.url}
-                alt="avatar"
-              />
-              <h5 className="card-title">
-                {currentUser.first_name + " " + currentUser.last_name}
-              </h5>
-            </div>   */}
         <textarea
           name="content"
           className="form-control text-black opacity-50 mt-3"
