@@ -107,7 +107,7 @@ export default function Home({ currentUser ,articles}) {
 
         {/* Widget section */}
         <div className="col-sm-6">
-          {articles.map((article)=>  <Category key={article.id} article = {article} />)} 
+          {articles.map((article)=>  <Category key={article.id} article = {article} currentUser = { currentUser }/>)} 
       
         </div>
 

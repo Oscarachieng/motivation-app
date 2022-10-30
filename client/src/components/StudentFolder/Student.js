@@ -151,7 +151,7 @@ export default function Student({ currentUser, articles }) {
           {/* Widget section */}
           <div className="card h-100">
             {articles.map((article) => (
-              <Category key={article.id} article={article} />
+              <Category key={article.id} article={article} currentUser = {currentUser}/>
             ))}
           </div>
 

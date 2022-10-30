@@ -9,6 +9,7 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 export default function Staff({ currentUser, articles }) {
   const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
   const [categories, setCategories] = useState([])
+  const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
   
 
 
@@ -47,6 +48,9 @@ export default function Staff({ currentUser, articles }) {
       .then((res) => res.json())
       .then((post)=> console.log(post));
     }
+    function handlePostClick(e){
+      setShowArticleCreationForm(!showArticleCreationForm)
+    }
     
   return (
     <div className="card h-100 ">
@@ -71,6 +75,8 @@ export default function Staff({ currentUser, articles }) {
             </div>
 
             {/* user comment area */}
+            <button onClick={handlePostClick} >Post</button>
+            {showArticleCreationForm ? 
             <form onSubmit={handleSubmit} className="form-outline ">
               <label
                 className="form-label"
@@ -101,7 +107,7 @@ export default function Staff({ currentUser, articles }) {
                 value = {articleDetails.content}
                 onChange={handleOnchange}
               ></textarea>
-                  <div className="form-group m-2">
+                  {/* <div className="form-group m-2">
             <label 
             // for="formFileSm"
              className ="form-label">
@@ -111,9 +117,9 @@ export default function Staff({ currentUser, articles }) {
               className="form-control form-control-sm"
               id="formFileSm"
               type="file"
-            />
+            /> 
           
-          </div>
+          </div> */}
 
           <button
           className="btn-rounded float-end"
@@ -121,22 +127,21 @@ export default function Staff({ currentUser, articles }) {
           value="Send"
           style={{ color: "#fa521c" }}>
           <TelegramIcon  /></button>
-              
-            </form>
+               
+          <ShareIcon style={{ color: "#fa521c" }} />
+      
+      <CommentIcon style={{ color: "#fa521c" }} />  
+            </form>: null}
             {/* user comment area section ends */}
-            <a href="#" className="">
-              <ShareIcon style={{ color: "#fa521c" }} />
-            </a>
-            <a href="#" className="">
-              <CommentIcon style={{ color: "#fa521c" }} />
-            </a>
+
+          
           </div>
 
           <div className="media"></div>
           {/* Widget section */}
           <div className="card h-100">
             {articles.map((article) => (
-              <Category key={article.id} article={article} />
+              <Category key={article.id} article={article} currentUser = {currentUser}/>
             ))}
           </div>
 
