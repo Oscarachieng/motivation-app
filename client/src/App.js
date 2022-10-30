@@ -35,7 +35,8 @@ export default function App() {
 
   return (
     <div className="">
-      <Landing />
+    
+      {/* <Landing /> */}
       {/* <NavBar /> */}
       <Routes>
         <Route

@@ -46,11 +46,13 @@ export default function Category({ article }) {
         </div>
 
         <p className="card-text">{article.content}</p>
-        <div className="media"></div>
+        <div className="media d-flex text-muted">
         <a className="" onClick={handleOnLikeClick}>
           <ThumbUpIcon style={{ color: '#fa521c' }} />
         </a>
-        <h1>{numberOfLikes}</h1>
+        <h6>{numberOfLikes}</h6>
+        </div>
+       
         <a href="#" className="">
           <ShareIcon style={{ color: '#fa521c' }} />
         </a>
