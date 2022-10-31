@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useEffect } from "react";
+import avatar from '../Assets/avator.png'
 import { useNavigate } from "react-router-dom";
 import "./home.css";
 import TwitterIcon from "@mui/icons-material/Twitter";
@@ -13,6 +13,7 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import Category from "../Categoryfolder/Category";
 import Contact from "../Contactfolder/Contact";
 import Ads from "../Adsfolder/Ads";
+import NavBar from "../Navbarpage.js/NavBar";
 
 export default function Home({ currentUser ,articles}) {
   const navigate = useNavigate();
@@ -37,14 +38,16 @@ export default function Home({ currentUser ,articles}) {
   }
   return (
     <div className="container-fluid" >
+      
       <div className="row" style={myStyles} id="main-body">
         {/* user section  */}
-        <div className="col-sm-3">
-          <div className="card mb-4" id="userbox">
+        <div className="col-sm-3" >
+          <div className="card mb-4 col-sm-3 position-fixed" id="userbox">
             <div className="card-body text-center">
               <div className="bio-link" onClick={handleOnClick}>
               
                 <img
+                placeholder="{`${avatar}}"
                   id="image"
                   className="rounded-circle img-fluid"
                   src= {currentUser.avatar_url.url}
@@ -53,8 +56,8 @@ export default function Home({ currentUser ,articles}) {
                 <h5 className="card-title">
                   {currentUser.first_name + " " + currentUser.last_name}
                 </h5>
-                <p className="text-muted mb-1">CATEGORY</p>
-                <p className="text-muted mb-1">About</p>
+                <p className="text-muted mb-1">{currentUser.category}</p>
+                <p className="text-muted mb-1">{currentUser.about}</p>
               </div>
 
               <hr />
@@ -116,9 +119,7 @@ export default function Home({ currentUser ,articles}) {
         {/* Ads section */}
         <div className="col-sm-3">
           <Ads />
-          {/* Contacts section */}
-          <Contact />
-          {/* Contacts section */}
+         
         </div>
 
         {/* Ads section ends */}
