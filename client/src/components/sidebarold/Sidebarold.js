@@ -15,19 +15,7 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
-
-export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
- function handleUsersClick(){
-  setShowusers (!showusers)
-  // alert("Test")
- }
- function handlePostClick(){
-  setPosts (!posts)
-  // alert("Test")
- }
- 
-
-
+export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -53,18 +41,18 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-           {/* button submit */}
-              <li className="link">
-                <PermIdentity onClick= {handleUsersClick}  className="side"barIcon />
+            <Link to="/users" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
                 Users
               </li>
-          
-            {/* <Link to="/products" className="link"> */}
-              <li className="link">
-                <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
+            </Link>
+            <Link to="/products" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
                 Flags
               </li>
-            
+            </Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
               Contents
