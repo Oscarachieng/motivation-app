@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react'
 
 import { Routes, Route } from 'react-router-dom'
-import TopBar from './components/topbar/TopBar'
-import Sidebar from './components/sidebar/Sidebar'
+
 import Student from './components/StudentFolder/Student'
 import Staff from './components/Staffpage/Staff'
 import Category from './components/Categoryfolder/Category'
@@ -17,7 +16,7 @@ import ProductList from './page/productList/ProductList'
 import NewProduct from './page/newProduct/NewProduct'
 import Profile from './components/Profile/Profile'
 import Landing from './components/LandingPageFolder/Landing'
-import NavBar from './components/Navbarpage.js/NavBar'
+import NavBar from './components/Navbarpage/NavBar'
 import EditUser from './components/UserDetailsUpdateform/EditUser'
 import Commentary from './components/ArticleComments/Commentary'
 
@@ -36,9 +35,8 @@ export default function App() {
 
   return (
     <div className="">
-    {/* <Sidebar /> */}
       {/* <Landing /> */}
-      {/* <NavBar /> */}
+      <NavBar />
       <Routes>
         <Route
           path="/home"
@@ -48,7 +46,7 @@ export default function App() {
           path="/login"
           element={<Login setCurrentUser={setCurrentUser} />}
         />
-        <Route path="/topbar" element={<TopBar />} />
+
         <Route
           path="/staff"
           element={<Staff currentUser={currentUser} articles={articles} />}
@@ -58,7 +56,7 @@ export default function App() {
           path="/student"
           element={<Student currentUser={currentUser} articles={articles} />}
         />
-          <Route
+        <Route
           path="/commentary"
           element={<Commentary currentUser={currentUser} articles={articles} />}
         />
@@ -69,8 +67,7 @@ export default function App() {
         <Route path="/products" element={<ProductList />} />
         <Route path="/product/:productId" element={<Product />} />
         <Route path="/newProduct" element={<NewProduct />} />
-        {/* <Route path="/category" element={<Category currentUser={currentUser} article={article} />} /> */}
-      </Routes>
+        </Routes>
     </div>
   )
 }

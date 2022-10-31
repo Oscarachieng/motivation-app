@@ -52,6 +52,10 @@ export default function Commentary({article, currentUser}) {
       })
     }).then(response =>response.json()).then(updatedComment =>setNumberOfLikes(updatedComment.likes)).catch()
   }
+  function handleDeleteComment(e){
+    alert('Ombasa')
+  }
+
   return (
     <div>
          {errors.length > 0 && (
@@ -97,7 +101,7 @@ export default function Commentary({article, currentUser}) {
           {/* like section ends */}
           <CommentIcon style={{ color: '#FA521C' }} />
       
-          <DeleteOutlineOutlinedIcon style={{ color: '#fa521c' }} />
+          <DeleteOutlineOutlinedIcon onClick={handleDeleteComment} style={{ color: '#fa521c' }} />
          
       
         

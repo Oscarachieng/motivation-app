@@ -33,6 +33,9 @@ export default function Category({ article, currentUser }) {
   function handleCommentClick(e) {
     setShowCommentary(!showCommentary)
   }
+  function handleDeleteComment(e){
+    alert('Ombasa')
+  }
 
   return (
     <div className="card" id="userbox">
@@ -84,7 +87,7 @@ export default function Category({ article, currentUser }) {
             style={{ color: '#fa521c' }}
           />
 
-          <DeleteOutlineOutlinedIcon style={{ color: '#fa521c' }} />
+          <DeleteOutlineOutlinedIcon onClick={handleDeleteComment} style={{ color: '#fa521c' }} />
         </div>
 
         {showCommentary ? (
