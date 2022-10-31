@@ -15,19 +15,7 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
-
-export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
- function handleUsersClick(){
-  setShowusers (!showusers)
-  // alert("Test")
- }
- function handlePostClick(){
-  setPosts (!posts)
-  // alert("Test")
- }
- 
-
-
+export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
@@ -42,36 +30,36 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Videos
+              Analytics
             </li>
             <li className="sidebarListItem">
               <TrendingUp className="sidebarIcon" />
-              Blogs
+              Sales
             </li>
           </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
           <ul className="sidebarList">
-           {/* button submit */}
-              <li className="link">
-                <PermIdentity onClick= {handleUsersClick}  className="side"barIcon />
-                Users
+            <Link to="/user" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
+                user
               </li>
-          
-            {/* <Link to="/products" className="link"> */}
-              <li className="link">
-                <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
-                Flags
+            </Link>
+            <Link to="/products" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
+                Products
               </li>
-            
+            </Link>
             <li className="sidebarListItem">
               <AttachMoney className="sidebarIcon" />
-              Contents
+              Transactions
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
-              Statitics
+              Reports
             </li>
           </ul>
         </div>
@@ -101,11 +89,11 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
             </li>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
-              Videos
+              Analytics
             </li>
             <li className="sidebarListItem">
               <Report className="sidebarIcon" />
-              Report
+              Reports
             </li>
           </ul>
         </div>
