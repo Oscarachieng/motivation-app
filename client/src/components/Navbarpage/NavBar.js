@@ -34,6 +34,7 @@ export default function NavBar(currentUser) {
           <SearchOutlinedIcon />Search
         </Link>
         <Link to="/logout" id="l2">
+          
         <LogoutOutlinedIcon />Log Out
        
         </Link>

@@ -10,7 +10,7 @@ import Commentary from '../ArticleComments/Commentary'
 
 export default function Category({ article, currentUser }) {
   const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
-const [showCommentary, setShowCommentary] = useState(false)
+  const [showCommentary, setShowCommentary] = useState(false)
   function handleOnLikeClick() {
     let likes = article.likes + 1
     // likes += 1
@@ -30,14 +30,17 @@ const [showCommentary, setShowCommentary] = useState(false)
       .then((updatedArticle) => setNumberOfLikes(updatedArticle.likes))
       .catch()
   }
-  function handleCommentClick(e){
-    setShowCommentary (!showCommentary)
+  function handleCommentClick(e) {
+    setShowCommentary(!showCommentary)
+  }
+  function handleDeleteComment(e){
+    alert('Ombasa')
   }
 
   return (
     <div className="card" id="userbox">
-      <div className="card-body">
-        <div className="d-flex">
+      <div className="card-body" id="userbox">
+        <div className="d-flex" id="prof">
           <img
             id="imw-wd"
             className="rounded-circle img-fluid"
@@ -54,39 +57,42 @@ const [showCommentary, setShowCommentary] = useState(false)
             </h6>
             <p
               className="text mb-1"
-              style={{ color: '#fa521c', fontSize: '12px' }}
+              style={{ color: '#fa521c', fontSize: '10px' }}
             >
               {article.category.category}
             </p>
           </div>
         </div>
-
-        <p className="card-text">{article.content}</p>
-
-        {/* like section */}
-        <div className="media d-flex text-muted" style={{ fontSize: '12px' }}>
-          <a className="" onClick={handleOnLikeClick}>
-            <ThumbUpIcon style={{ color: '#fa521c' }} />
-          </a>
-          <h6 className="text-sm" style={{ fontSize: '12px' }}>
-            {numberOfLikes}
-          </h6>
+        <div className="articlesection">
+          <p className="card-text">{article.content}</p>
         </div>
-        {/* like section ends */}
 
-        <a href="#" className="">
+        <div className="media d-flex text-muted" style={{ fontSize: '12px' }}>
+          {/* like section */}
+          <div className="d-flex">
+            <ThumbUpIcon
+              onClick={handleOnLikeClick}
+              style={{ color: '#fa521c' }}
+            />
+
+            <h6 className="text-sm" style={{ fontSize: '12px' }}>
+              {numberOfLikes}
+            </h6>
+          </div>
+          {/* like section ends */}
           <ShareIcon style={{ color: '#fa521c' }} />
-        </a>
-  
-  
-            <CommentIcon  onClick={handleCommentClick} style={{ color: '#fa521c' }} />
-          
-    
 
-        <a href="#" className="">
-          <DeleteOutlineOutlinedIcon style={{ color: '#fa521c' }} />
-        </a>
-        {showCommentary ? <Commentary currentUser={currentUser} article={article} /> : null}
+          <CommentIcon
+            onClick={handleCommentClick}
+            style={{ color: '#fa521c' }}
+          />
+
+          <DeleteOutlineOutlinedIcon onClick={handleDeleteComment} style={{ color: '#fa521c' }} />
+        </div>
+
+        {showCommentary ? (
+          <Commentary currentUser={currentUser} article={article} />
+        ) : null}
       </div>
     </div>
   )

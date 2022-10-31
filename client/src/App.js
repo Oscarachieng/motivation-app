@@ -16,7 +16,7 @@ import ProductList from './page/productList/ProductList'
 import NewProduct from './page/newProduct/NewProduct'
 import Profile from './components/Profile/Profile'
 import Landing from './components/LandingPageFolder/Landing'
-import NavBar from './components/Navbarpage.js/NavBar'
+import NavBar from './components/Navbarpage/NavBar'
 import EditUser from './components/UserDetailsUpdateform/EditUser'
 import Commentary from './components/ArticleComments/Commentary'
 import Admin from './components/Admin/Admin'
@@ -36,43 +36,7 @@ export default function App() {
 
   return (
     <div className="">
-     
-      <Admin/>
-     
-     
-       <Routes> 
-        
-         <Route
-          path="/EditUser"
-          element={<EditUser currentUser={currentUser} />}
-        /> 
-        <Route
-          path="/login"
-          element={<Login setCurrentUser={setCurrentUser} />}
-        /> 
-       
-        <Route
-          path="/staff"
-          element={<Staff currentUser={currentUser} articles={articles} />}
-        /> 
-        <Route path="/profile" element={<Profile />} /> 
-        <Route
-          path="/student"
-          element={<Student currentUser={currentUser} articles={articles} />}
-        /> 
-           <Route
-          path="/commentary"
-          element={<Commentary currentUser={currentUser} articles={articles} />}
-        />
-      
-         <Route path="/users" element={<UserList />} />
-        <Route path="/user/:userId" element={<User />} /> 
-        <Route path="/newUser" element={<NewUser />} /> 
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/product/:productId" element={<Product />} /> 
-        <Route path="/newProduct" element={<NewProduct />} />
-       
-     </Routes> 
+
     </div>
   )
 }
