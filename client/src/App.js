@@ -36,7 +36,7 @@ export default function App() {
 
   return (
     <div className="">
-     
+     {/* Side bar and topbar appeared here */}
       <Admin/>
      
      
