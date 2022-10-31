@@ -37,6 +37,7 @@ export default function NavBar(currentUser) {
         <LogoutOutlinedIcon />Log Out
        
         </Link>
+        <Link to="/admin" id="l3"> approval</Link>
       </div>
     </div>
   );

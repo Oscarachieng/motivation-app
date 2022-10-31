@@ -6,9 +6,10 @@ import CommentIcon from "@mui/icons-material/Comment";
 import Category from "../Categoryfolder/Category";
 import TelegramIcon from "@mui/icons-material/Telegram";
 
-export default function Staff({ currentUser, articles }) {
+export default function Staff({ currentUser, articles, setCategories,categories }) {
   const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
-  const [categories, setCategories] = useState([])
+  // const [categories, setCategories] = useState([])
+
   const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
   
 
@@ -24,12 +25,12 @@ export default function Staff({ currentUser, articles }) {
     backgroundPosition: "center",
     backgroundAttachment: "fixed",
   };
-  useEffect(()=>{
-        fetch('/categories')
-        .then(response=>response.json())
-        .then(categories=>setCategories(categories))
-        .catch(error=>console.log(error))
-  },[])
+  // useEffect(()=>{
+  //       fetch('/categories')
+  //       .then(response=>response.json())
+  //       .then(categories=>setCategories(categories))
+  //       .catch(error=>console.log(error))
+  // },[])
 
   function handleOnchange(event){
       setArticleDetails({...articleDetails,[event.target.name]:event.target.value})

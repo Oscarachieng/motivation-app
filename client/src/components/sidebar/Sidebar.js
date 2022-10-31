@@ -16,13 +16,17 @@ import {
 import { Link } from "react-router-dom";
 
 
-export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
+export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCategory,showcategory}) {
  function handleUsersClick(){
   setShowusers (!showusers)
   // alert("Test")
  }
  function handlePostClick(){
   setPosts (!posts)
+  // alert("Test")
+ }
+ function handleCategoryClick(){
+  setshowCategory (!showcategory)
   // alert("Test")
  }
  
@@ -64,10 +68,10 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts}) {
                 <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
                 Flags
               </li>
-            
+            {/* Category Start */}
             <li className="sidebarListItem">
-              <AttachMoney className="sidebarIcon" />
-              Contents
+              <AttachMoney onClick= {handleCategoryClick}className="sidebarIcon" />
+              Category
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />

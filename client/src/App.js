@@ -20,11 +20,13 @@ import NavBar from './components/Navbarpage.js/NavBar'
 import EditUser from './components/UserDetailsUpdateform/EditUser'
 import Commentary from './components/ArticleComments/Commentary'
 import Admin from './components/Admin/Admin'
+import Ftcontentcard from './components/ftcontentcard/Ftcontentcard'
 // import UserList from './page/userList/UserList'
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem('currentUser'))
   const [currentUser, setCurrentUser] = useState(initialUser)
   const [articles, setArticles] = useState([])
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     fetch('/articles').then((r) => {
@@ -34,14 +36,29 @@ export default function App() {
     })
   }, [])
 
+  // Start Category
+  useEffect(()=>{
+    fetch('/categories')
+    .then(response=>response.json())
+    .then(categories=>setCategories(categories))
+    .catch(error=>console.log(error))
+},[])
+  // End Category API
+
   return (
     <div className="">
      {/* Side bar and topbar appeared here */}
-      <Admin/>
-     
-     
+{/*       
+     <NavBar />
+      */}
        <Routes> 
-        
+       <Route
+          path="/admin"
+          element={<Admin setCategories={setCategories} categories={categories}/>}
+        /> 
+        <Route path="/admin/:id"
+        element={<Ftcontentcard/>}
+        > </Route>
          <Route
           path="/EditUser"
           element={<EditUser currentUser={currentUser} />}
@@ -53,7 +70,7 @@ export default function App() {
        
         <Route
           path="/staff"
-          element={<Staff currentUser={currentUser} articles={articles} />}
+          element={<Staff currentUser={currentUser} articles={articles} setCategories={setCategories} categories={categories} />}
         /> 
         <Route path="/profile" element={<Profile />} /> 
         <Route
