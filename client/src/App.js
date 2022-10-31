@@ -16,7 +16,7 @@ import ProductList from './page/productList/ProductList'
 import NewProduct from './page/newProduct/NewProduct'
 import Profile from './components/Profile/Profile'
 import Landing from './components/LandingPageFolder/Landing'
-import NavBar from './components/Navbarpage.js/NavBar'
+import NavBar from './components/Navbarpage/NavBar'
 import EditUser from './components/UserDetailsUpdateform/EditUser'
 import Commentary from './components/ArticleComments/Commentary'
 import Admin from './components/Admin/Admin'
@@ -36,6 +36,7 @@ export default function App() {
 
   return (
     <div className="">
+
      {/* Side bar and topbar appeared here */}
       <Admin/>
      
