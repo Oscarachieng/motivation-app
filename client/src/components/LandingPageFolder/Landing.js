@@ -42,7 +42,7 @@ export default function Landing() {
             skills, and accelerate your digital transformation with the Moringa
             Community.
           </p>
-          <div className="col-12">
+          <div className="col-3">
             <Link to="/login">
             <button className="btn btn-primary p-0 w-100" type="submit" 
          

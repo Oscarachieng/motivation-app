@@ -1,6 +1,8 @@
 import React, { useState } from 'react'
+import './Commentary.css'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import CommentIcon from '@mui/icons-material/Comment'
+import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import TelegramIcon from '@mui/icons-material/Telegram'
 
 
@@ -50,6 +52,10 @@ export default function Commentary({article, currentUser}) {
       })
     }).then(response =>response.json()).then(updatedComment =>setNumberOfLikes(updatedComment.likes)).catch()
   }
+  function handleDeleteComment(e){
+    alert('Ombasa')
+  }
+
   return (
     <div>
          {errors.length > 0 && (
@@ -59,7 +65,7 @@ export default function Commentary({article, currentUser}) {
             ))}
           </ul>
         )}
-      <form onSubmit={handleSubmit} className="form-outline ">
+      <form onSubmit={handleSubmit} className="comment">
           {/* <div className="bio-link" >
               <img
                 id="image"
@@ -80,22 +86,37 @@ export default function Commentary({article, currentUser}) {
           onChange={handleOnchange}
         ></textarea>
         <div>
-        <a className="" onClick={handleOnLikeClick}>
-          <ThumbUpIcon style={{ color: '#FA521C' }} />
-        </a>
-        <h5>{numberOfLikes}</h5>
-        </div>
-        <a href="#" className="">
+        <div className="media d-flex text-muted" style={{ fontSize: '12px' }}>
+          {/* like section */}
+          <div className="d-flex">
+            <ThumbUpIcon
+              onClick={handleOnLikeClick}
+              style={{ color: '#fa521c' }}
+            />
+
+            <h6 className="text-sm" style={{ fontSize: '12px' }}>
+              {numberOfLikes}
+            </h6>
+          </div>
+          {/* like section ends */}
           <CommentIcon style={{ color: '#FA521C' }} />
-        </a>
-        <button
-          className="btn-rounded float-end"
-          type="submit"
+      
+          <DeleteOutlineOutlinedIcon onClick={handleDeleteComment} style={{ color: '#fa521c' }} />
+         
+      
+        
+        </div>
+        <button className="btn-rounded float-end" type="submit"
           value="Send"
-          style={{ color: '#FA521C' }}
-        >
-          <TelegramIcon />
-        </button>
+          style={{ color: '#FA521C' }}>
+          <TelegramIcon   
+          /></button>
+       
+        </div>
+  
+        
+  
+    
       </form>
     </div>
   )

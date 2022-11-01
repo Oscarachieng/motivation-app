@@ -56,12 +56,7 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCa
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
-          <ul className="sidebarList">
-           {/* button submit */}
-              <li className="link">
-                <PermIdentity onClick= {handleUsersClick}  className="side"barIcon />
-                Users
-              </li>
+
           
             {/* <Link to="/products" className="link"> */}
               <li className="link">
