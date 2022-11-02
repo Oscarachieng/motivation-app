@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import avatar from '../Assets/avator.png'
 
-import './Staff.css'
-import Ftcategory from '../ftcategory/Ftcategory'
+import './Video.css'
 import ShareIcon from '@mui/icons-material/Share'
 import CommentIcon from '@mui/icons-material/Comment'
 import Category from '../Categoryfolder/Category'
@@ -10,12 +9,18 @@ import TelegramIcon from '@mui/icons-material/Telegram'
 import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 
 
-export default function Staff({ currentUser, articles, setCategories,categories }) {
-  const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
-  const [showcategory,setshowCategory]= useState(false)
-  const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
+export default function Video({ currentUser, videos, setCategories,categories }) {
+  const [videoDetails,setVideoDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
+  // const [categories, setCategories] = useState([])
+  const [showVideoCreationForm, setShowVideoCreationForm] = useState(false)
 
   //title - input
+
+
+
+
+
+  
   //select - category - fronm backend
 
   const myStyles = {
@@ -37,17 +42,17 @@ export default function Staff({ currentUser, articles, setCategories,categories 
 
 
   function handleOnchange(event) {
-    setArticleDetails({
-      ...articleDetails,
+    setVideoDetails({
+      ...videoDetails,
       [event.target.name]: event.target.value,
     })
   }
 
   function handleSubmit(e) {
     e.preventDefault()
-    fetch('/articles', {
+    fetch('/videos', {
       method: 'POST',
-      body: JSON.stringify(articleDetails),
+      body: JSON.stringify(videoDetails),
       headers: {
         'Content-type': 'application/json; charset=UTF-8',
         Accept: 'application/json',
@@ -57,20 +62,15 @@ export default function Staff({ currentUser, articles, setCategories,categories 
       .then((post) => console.log(post))
   }
   function handlePostClick(e) {
-    setShowArticleCreationForm(!showArticleCreationForm)
+    setShowVideoCreationForm(!showVideoCreationForm)
   }
-  // staffcategorycreation
-  function handleCategoryClick() {
-    setshowCategory(!showcategory)
-  }
-  // staff category creation ends
 
   return (
     <div className="card h-100 ">
       <div className=" card  " id="userbox" style={myStyles}>
         <div className="card-body">
           <div className="">
-            <div className="" id="staff-page-profile">
+            <div className="video-page-profile">
               <img
                 placeholder="{`${avatar}}"
                 id="im-wd"
@@ -78,7 +78,7 @@ export default function Staff({ currentUser, articles, setCategories,categories 
                 src={currentUser.avatar_url.url}
                 alt=""
               />
-              <div className="staff-page-profile-text">
+              <div className="Video-page-profile-text">
                 <h6 className="card-title">
                   {currentUser.first_name + ' ' + currentUser.last_name}
                 </h6>
@@ -87,24 +87,16 @@ export default function Staff({ currentUser, articles, setCategories,categories 
               </div>
             </div>
             {/* user profile section */}
-            <div>
-            <button className="postbutton" onClick={handleCategoryClick}>
-              Create Category
-              
-            </button>
-            {showcategory? <Ftcategory setCategories={setCategories} categories={categories}/> : null}
-            </div>
-           
 
             {/* user comment area */}
             <button className="postbutton" onClick={handlePostClick}>
               Post
             </button>
-            {showArticleCreationForm ? (
+            {showVideoCreationForm ? (
               <form onSubmit={handleSubmit} className="postform">
                 <select name="category">
-                  <option>Select the article category</option>
-                  {categories.map((category) => (
+                  <option>Select the video category</option>
+                  {categories?.map((category) => (
                     <option key={category.id} value={category.id}>
                       {category.category}
                     </option>
@@ -114,17 +106,17 @@ export default function Staff({ currentUser, articles, setCategories,categories 
                   name="title"
                   className="form-control"
                   id="textArea"
-                  placeholder="Article Title"
-                  value={articleDetails.title}
+                  placeholder="video Title"
+                  value={videoDetails.title}
                   onChange={handleOnchange}
                 />
 
                 <textarea
-                  name="content"
+                  name="video"
                   className="form-control mt-1"
                   id="textArea"
                   rows=""
-                  value={articleDetails.content}
+                  value={videoDetails.video}
                   onChange={handleOnchange}
                 ></textarea>
                 {/* <div className="form-group m-2">
@@ -159,10 +151,10 @@ export default function Staff({ currentUser, articles, setCategories,categories 
           <div className="media"></div>
           {/* Widget section */}
           <div className="card" style={{ width: '700px' }}>
-            {articles.map((article) => (
+            {videos?.map((video) => (
               <Category
-                key={article.id}
-                article={article}
+                key={video.id}
+                video={video}
                 currentUser={currentUser}
               />
 
