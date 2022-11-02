@@ -61,16 +61,19 @@ export default function Sidebar({
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
 
-          {/* <Link to="/products" className="link"> */}
+
           <ul>
+            {/* <Link to="/products" className="link"> */}
             <li className="link">
-              <Storefront onClick={handleUsersClick} className="sidebarIcon" />
-              Users
-            </li>
-            <li className="link">
-              <Storefront onClick={handlePostClick} className="sidebarIcon" />
-              Flags
-            </li>
+                <Storefront  onClick= {handleUsersClick}  className="sidebarIcon" />
+                Users
+              </li>
+              <li className="link">
+                <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
+                Flags
+              </li>
+
+          
             {/* Category Start */}
             <li className="sidebarListItem">
               <AttachMoney

@@ -1,43 +1,44 @@
-import React, { useEffect,useState} from 'react';
 
-import { Routes, Route } from 'react-router-dom';
-// New
-import Login from './Pages/login/Login'
-import Homme from './Pages/home/Homme'
-import Profile from './Pages/profile/Profile'
-import Register from './Pages/register/Register'
+import React, { useState, useEffect } from 'react'
 
+import { Routes, Route } from 'react-router-dom'
+
+import Student from './components/StudentFolder/Student'
+import Staff from './components/Staffpage/Staff'
 
 
-
-//new
-
-// import Student from './components/StudentFolder/Student'
-// import Staff from './components/Staffpage/Staff'
-
-// import Login from './components/Login/Login'
-// import Home from './components/home/Home'
+import Login from './components/Login/Login'
+import Home from './components/home/Home'
 // import Product from './page/product/Product'
-// import UserList from './page/userList/UserList'
-// import User from './page/user/User'
+// // import UserList from './page/userList/UserList'
+// // import User from './page/user/User'
 // import NewUser from './page/newUser/NewUser'
-// import ProductList from './page/productList/ProductList'
+// // import ProductList from './page/productList/ProductList'
 // import NewProduct from './page/newProduct/NewProduct'
-// import Profile from './components/Profile/Profile'
-// import Landing from './components/LandingPageFolder/Landing'
-// import NavBar from './components/Navbarpage/NavBar'
-// import EditUser from './components/UserDetailsUpdateform/EditUser'
-// import Commentary from './components/ArticleComments/Commentary'
-// import Admin from './components/Admin/Admin'
-// import Ftcontentcard from './components/ftcontentcard/Ftcontentcard'
-// import Video from './components/Video/Video'
-// import UserList from './page/userList/UserList'
+import Profile from './components/Profile/Profile'
+import Landing from './components/LandingPageFolder/Landing'
+import NavBar from './components/Navbarpage/NavBar'
+import EditUser from './components/UserDetailsUpdateform/EditUser'
+import Commentary from './components/ArticleComments/Commentary'
+import Admin from './components/Admin/Admin'
+import Ftcontentcard from './components/ftcontentcard/Ftcontentcard'
+
 
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem('currentUser'))
   const [currentUser, setCurrentUser] = useState(initialUser)
   const [articles, setArticles] = useState([])
-  const [post, setPost] = useState([])
+
+  const [categories, setCategories] = useState([])
+  const [users,setUsers]=useState([])
+useEffect(() => {
+    fetch('/users').then((r) => {
+      if (r.ok) {
+        r.json().then((users) => setUsers(users))
+      }
+    })
+  }, [])
+
 
   useEffect(() => {
     fetch('/articles').then((r) => {
@@ -57,46 +58,8 @@ export default function App() {
   // End Category API
 
   return (
-    <div>
-      <Profile />
-      <Login />
+    <div className="">
 
-      <Routes>
-      <Route
-          path="/homme"
-          element={<Homme currentUser={currentUser} articles={articles} />}
-        />
-      </Routes>
-      {/* Side bar and topbar appeared here */}
-
-      {/* <NavBar /> */}
-
-      {/* <Routes>
-        <Route
-          path="/videos"
-          element={
-            <Video
-              currentUser={currentUser}
-              setCategories={setCategories}
-              categories={categories}
-            />
-          }
-        />
-
-        <Route path="/" element={<Landing />} />
-        <Route
-          path="/admin"
-          element={
-            <Admin setCategories={setCategories} categories={categories} />
-          }
-        />
-        <Route path="/admin/:id" element={<Ftcontentcard />}>
-          {' '}
-        </Route>
-        <Route
-          path="/EditUser"
-          element={<EditUser currentUser={currentUser} />}
-        />
          <Route
           path="/login"
           element={<Login setCurrentUser={setCurrentUser} />}
@@ -127,13 +90,6 @@ export default function App() {
           element={<Commentary currentUser={currentUser} articles={articles} />}
         />
 
-        <Route path="/users" element={<UserList />} />
-        <Route path="/user/:userId" element={<User />} />
-        <Route path="/newUser" element={<NewUser />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/newProduct" element={<NewProduct />} />
-        </Routes> */}
     </div>
   );
 }

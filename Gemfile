@@ -12,6 +12,7 @@ gem "pg", "~> 1.1"
 gem 'bcrypt', '~> 3.1.7'
 
 gem 'activestorage', '~> 7.0', '>= 7.0.4'
+gem 'will_paginate', '~> 3.3'
 
 #Faker gem to generate fake data
 gem "faker", "~> 2.18.0"

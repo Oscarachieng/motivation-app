@@ -3,13 +3,30 @@ import React, { useState } from "react";
 export default function NewUser() {
   const [errors, setErrors] = useState([]);
   const [created, setCreated] = useState('')
+  // const [password, setPassword] = useState('')
   const [newUser, setNewUser] = useState({
     first_name: "",
     last_name: "",
     email: "",
-    password: "",
+    password:'',
     user_category: "student",
   });
+
+  const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+  function generateString(length) {
+      let result = ' ';
+      const charactersLength = characters.length;
+      for ( let i = 0; i < length; i++ ) {
+          result += characters.charAt(Math.floor(Math.random() * charactersLength));
+      }
+  
+      return result;
+  }
+  
+
+
+
   function handleChange(event) {
     const name = event.target.name;
     let value = event.target.value;
@@ -49,7 +66,7 @@ export default function NewUser() {
     });
   };
   return (
-    <div className="container">
+    <div className="contai">
       <h3 className="newUserTitle text-white">Create New User</h3>
       {errors.length > 0 && (
           <ul style={{ color: "red" }}>
@@ -59,8 +76,8 @@ export default function NewUser() {
           </ul>
         )}
       <p style={{color:"green"}}>{created}</p>
-      <form className="newUserForm col-md-12" onSubmit={handleSubmit}>
-        <div className="newUserItem">
+      <form className="newUserForm col-m" onSubmit={handleSubmit}>
+        <div className="input">
           <label>First Name</label>
           <input
             type="text"
@@ -70,7 +87,7 @@ export default function NewUser() {
             value={newUser.first_name}
           />
         </div>
-        <div className="newUserItem">
+        <div className="input">
           <label>Last Name</label>
           <input
             type="text"
@@ -81,7 +98,7 @@ export default function NewUser() {
           />
         </div>
         {/* select */}
-        <div className="newUserItem">
+        <div className="input">
           <label>User Category</label>
           <select  name ='user_category' onChange={handleChange} value={newUser.user_category}>
             <optgroup label="Select user category" >
@@ -91,7 +108,7 @@ export default function NewUser() {
           </select>
         </div>
         {/* select */}
-        <div className="newUserItem">
+        <div className="input">
           <label>Email</label>
           <input
             type="email"
@@ -101,7 +118,7 @@ export default function NewUser() {
             value={newUser.email}
           />
         </div>
-        <div className="newUserItem">
+        <div className="input">
           <label>Password</label>
           <input
             type="password"
