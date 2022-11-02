@@ -62,7 +62,6 @@ export default function Staff({ currentUser, articles, setCategories,categories 
   // staffcategorycreation
   function handleCategoryClick() {
     setshowCategory(!showcategory)
-    alert("Test")
   }
   // staff category creation ends
 

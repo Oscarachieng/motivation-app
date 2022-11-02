@@ -1,41 +1,40 @@
-import React, { useState } from "react";
-import "./Login.css";
-import logo from "../Assets/moringa.png";
-import { useNavigate } from "react-router-dom";
-
+import React, { useState } from 'react'
+import './Login.css'
+import logo from '../Assets/moringa.png'
+import { useNavigate } from 'react-router-dom'
 
 export default function Login({ setCurrentUser }) {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [errors, setErrors] = useState("");
+  const navigate = useNavigate()
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+  const [errors, setErrors] = useState('')
 
   function handleSubmit(e) {
-    e.preventDefault();
+    e.preventDefault()
     // setIsLoading(true);
-    fetch("/login", {
-      method: "POST",
+    fetch('/login', {
+      method: 'POST',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ email, password }),
     }).then((r) => {
       // setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
-          localStorage.setItem("currentUser",JSON.stringify(user))
+          localStorage.setItem('currentUser', JSON.stringify(user))
           // Persists the current user
-          setCurrentUser(user);
+          setCurrentUser(user)
           // if (user.user_category === "student") {
           //   navigate("/student");
           // } else {
-            navigate("/home");
+          navigate('/home')
           // }
-        });
+        })
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then((err) => setErrors(err.errors))
       }
-    });
+    })
   }
   return (
     <div className="container">
@@ -93,5 +92,5 @@ export default function Login({ setCurrentUser }) {
         </div>
       </div>
     </div>
-  );
+  )
 }
