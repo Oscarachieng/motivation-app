@@ -13,14 +13,14 @@ class PostsController < ApplicationController
 
     #POST /articles
     def create
-        post  = Post.create!(article_params)
+        post  = Post.create!(post_params)
         render json: post, status: :created
     end
 
     #PATCH /articles/:id
     def update
         post = find_a_post
-        post.update!(article_params)
+        post.update!(post_params)
         render json: post, status: :accepted
     end
 

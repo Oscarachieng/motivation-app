@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_220016) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -51,26 +51,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "article_comment_replies", force: :cascade do |t|
-    t.integer "likes"
-    t.string "reply"
-    t.integer "user_id"
-    t.bigint "article_comment_id", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_comment_id"], name: "index_article_comment_replies_on_article_comment_id"
-  end
-
-  create_table "article_comments", force: :cascade do |t|
-    t.string "comment"
-    t.string "likes"
-    t.bigint "article_id", null: false
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["article_id"], name: "index_article_comments_on_article_id"
-  end
-
   create_table "audio_comment_replies", force: :cascade do |t|
     t.string "user_id"
     t.string "reply"
@@ -91,7 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
 
   create_table "audios", force: :cascade do |t|
     t.string "title"
-    t.string "content"
     t.boolean "is_approved"
     t.integer "likes"
     t.boolean "is_flagged"
@@ -105,6 +84,26 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
     t.string "category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "post_comment_replies", force: :cascade do |t|
+    t.integer "likes"
+    t.string "reply"
+    t.integer "user_id"
+    t.bigint "post_comment_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_comment_id"], name: "index_post_comment_replies_on_post_comment_id"
+  end
+
+  create_table "post_comments", force: :cascade do |t|
+    t.string "comment"
+    t.string "likes"
+    t.bigint "post_id", null: false
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["post_id"], name: "index_post_comments_on_post_id"
   end
 
   create_table "posts", force: :cascade do |t|
@@ -132,13 +131,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
     t.string "last_name"
     t.string "email"
     t.string "username"
-    t.string "avatar_url"
     t.string "password_digest"
     t.string "user_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "password_reset_token"
-    t.datetime "password_reset_sent_at"
   end
 
   create_table "video_comment_replies", force: :cascade do |t|
@@ -163,7 +159,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
 
   create_table "videos", force: :cascade do |t|
     t.string "title"
-    t.string "content"
     t.boolean "is_approved"
     t.integer "likes"
     t.boolean "is_flagged"
@@ -181,10 +176,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
-  add_foreign_key "article_comment_replies", "article_comments"
-  add_foreign_key "article_comments", "posts", column: "article_id"
   add_foreign_key "audio_comment_replies", "audio_comments"
   add_foreign_key "audio_comments", "audios"
+  add_foreign_key "post_comment_replies", "post_comments"
+  add_foreign_key "post_comments", "posts"
   add_foreign_key "video_comment_replies", "video_comments"
   add_foreign_key "video_comments", "videos"
 end
