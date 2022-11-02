@@ -10,7 +10,7 @@
 .newUserItem {
   width: 400px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 10px;
   margin-right: 20px;
 }

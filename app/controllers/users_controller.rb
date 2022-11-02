@@ -1,8 +1,9 @@
 class UsersController < ApplicationController
         
     # GET /users
-        def index
+         def index
             users = User.all
+            
             render json: users, status: :ok
           end
         

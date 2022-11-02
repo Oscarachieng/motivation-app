@@ -57,8 +57,12 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCa
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
 
-          
+          <ul>
             {/* <Link to="/products" className="link"> */}
+            <li className="link">
+                <Storefront  onClick= {handleUsersClick}  className="sidebarIcon" />
+                Users
+              </li>
               <li className="link">
                 <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
                 Flags

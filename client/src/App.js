@@ -8,12 +8,12 @@ import Staff from './components/Staffpage/Staff'
 
 import Login from './components/Login/Login'
 import Home from './components/home/Home'
-import Product from './page/product/Product'
-import UserList from './page/userList/UserList'
-import User from './page/user/User'
-import NewUser from './page/newUser/NewUser'
-import ProductList from './page/productList/ProductList'
-import NewProduct from './page/newProduct/NewProduct'
+// import Product from './page/product/Product'
+// // import UserList from './page/userList/UserList'
+// // import User from './page/user/User'
+// import NewUser from './page/newUser/NewUser'
+// // import ProductList from './page/productList/ProductList'
+// import NewProduct from './page/newProduct/NewProduct'
 import Profile from './components/Profile/Profile'
 import Landing from './components/LandingPageFolder/Landing'
 import NavBar from './components/Navbarpage/NavBar'
@@ -27,6 +27,14 @@ export default function App() {
   const [currentUser, setCurrentUser] = useState(initialUser)
   const [articles, setArticles] = useState([])
   const [categories, setCategories] = useState([])
+  const [users,setUsers]=useState([])
+useEffect(() => {
+    fetch('/users').then((r) => {
+      if (r.ok) {
+        r.json().then((users) => setUsers(users))
+      }
+    })
+  }, [])
 
   useEffect(() => {
     fetch('/articles').then((r) => {
@@ -52,10 +60,12 @@ export default function App() {
 {/*       
      <NavBar />
       */}
+      
+       <NavBar currentUser={currentUser} />
        <Routes> 
        <Route
           path="/admin"
-          element={<Admin setCategories={setCategories} categories={categories}/>}
+          element={<Admin setCategories={setCategories} categories={categories} users={users} setUsers={setUsers}/>}
         /> 
         <Route path="/admin/:id"
         element={<Ftcontentcard/>}
@@ -83,12 +93,12 @@ export default function App() {
           element={<Commentary currentUser={currentUser} articles={articles} />}
         />
       
-         <Route path="/users" element={<UserList />} />
-        <Route path="/user/:userId" element={<User />} /> 
+         {/* <Route path="/users" element={<UserList />} /> */}
+        {/* <Route path="/user/:userId" element={<User />} /> 
         <Route path="/newUser" element={<NewUser />} /> 
         <Route path="/products" element={<ProductList />} />
         <Route path="/product/:productId" element={<Product />} /> 
-        <Route path="/newProduct" element={<NewProduct />} />
+        <Route path="/newProduct" element={<NewProduct />} /> */}
        
      </Routes> 
     </div>

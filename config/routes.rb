@@ -5,9 +5,9 @@ Rails.application.routes.draw do
     resources :audios
     resources :audio_comments
     resources :audio_comment_replies
-    resources :articles
-    resources :articles_comments
-    resources :articles_comment_replies
+    resources :posts
+    resources :post_comments
+    resources :post_comment_replies
     resources :videos 
     resources :video_comments 
     resources :video_comment_replies
@@ -18,4 +18,5 @@ Rails.application.routes.draw do
  delete "/logout", to: "sessions#destroy"
 #  get "/an_admin", to: "admins#is_logged_in"
  patch '/like', to: "articles#increment_likes"  
+ patch '/approval', to: 'posts#approve_post'
  end

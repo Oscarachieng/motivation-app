@@ -1,0 +1,17 @@
+.content-body{
+    height: 80px;
+    width: 80%;
+    background-color: blue;
+}
+
+.inspect{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .table{
+    height: 300px;
+    background-color: chocolate;
+    padding-left: 50px;
+    display: flex;
+  }

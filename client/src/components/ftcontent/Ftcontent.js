@@ -1,86 +1,115 @@
-import React,{useEffect,useState} from 'react'
-import { Link } from 'react-router-dom'
+import React, { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
+import "./Ftcontent.css";
 
 export default function Testing() {
-    const [contents,setContents]=useState([])
-     useEffect(() => {
-    fetch('/articles').then((r) => {
+  const [contents, setContents] = useState([]);
+  const [inspectedContent, setInspectedContent] = useState(null);
+  useEffect(() => {
+    fetch("/articles").then((r) => {
       if (r.ok) {
-        r.json().then((contents) => setContents(contents))
+        r.json().then((contents) => setContents(contents));
       }
-    })
-  }, [])
-//   Update
+    });
+  }, []);
+  //   Update
 
-function handleContentApproval(content) {
+  function handleContentApproval(inspectedContent) {
     // alert("Passed")
-    console.log(content)
-  const updatedApproval=!content.is_approved
+    console.log(inspectedContent);
+    const updatedApproval = !inspectedContent.is_approved;
     // Call onUpdateItem, passing the data returned from the fetch request
-    fetch(`/articles/${content.id}`, {
+    fetch(`/articles/${inspectedContent.id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({is_approved:updatedApproval}),
+      body: JSON.stringify({ is_approved: updatedApproval }),
     })
       .then((r) => r.json())
       .then((updatedItem) => console.log(updatedItem));
-}
-// End of update
+  }
+  // End of update
 
-// Delete
-function handleContentDelete(content) {
+  // Delete
+  function handleContentDelete(content) {
     // e.preventDefault()
-    console.log(content)
+    console.log(content);
     fetch(`/articles/${content.id}`, {
-      method: 'DELETE',
-    //   body: JSON.stringify(userData),
-    
+      method: "DELETE",
+      //   body: JSON.stringify(userData),
     })
-    .then((r) => r.json())
-    .then((deletedcontent) => { 
-        const updatedList= contents.filter((content) => content.id !== deletedcontent.id);
+      .then((r) => r.json())
+      .then((deletedcontent) => {
+        const updatedList = contents.filter(
+          (content) => content.id !== deletedcontent.id
+        );
         setContents(updatedList);
-    });
-}
+      });
+  }
 
-// End of Delete
+  // End of Delete
   return (
-    <div className="Table">
-     
+    <div className="table">
+      <div>
+      <h6>List of Users</h6>
       <table>
         <thead>
-        <tr>
-          <th scope='col'>Title</th>
-          <th scope='col'>Category</th>
-          <th scope='col'>is_approved</th>
-        </tr> 
+          <tr>
+            <th scope="col">Title</th>
+            <th scope="col">Category</th>
+            <th scope="col">is_approved</th>
+          </tr>
         </thead>
         <tbody>
-            {/* Imported */}
-            {contents.map((content) => {
-          return (
-            <tr key={content.id}>
-              <td>{content.title}</td>
-              <td>{content.category.category}</td>
-              <td>{content.is_approved}</td>
-           
-              {/* <td >Button</td> */}
-              
-              <button onClick= {() => handleContentApproval(content)}>Approve</button>
-              <button onClick= {() => handleContentDelete(content)}>Delete</button>
-              <Link to={`/admin/${content.id}`} >MoreInfo</Link>
+          {/* Imported */}
+          {contents.map((content) => {
+            return (
+              <tr key={content.id}>
+                <td>{content.title}</td>
+                <td>{content.category.category}</td>
+                <td>{content.is_approved}</td>
 
-            </tr>
-          )
-        })}
+                {/* <td >Button</td> */}
 
-            {/* End */}
+                
+                <button onClick={() => handleContentDelete(content)}>
+                  Delete
+                </button>
+                <button onClick={() => setInspectedContent(content)}>
+                  Check
+                </button>
+              </tr>
+            );
+          })}
+
+          {/* End */}
         </tbody>
       </table>
-     
- 
+      </div>
+      <div>
+        {inspectedContent ? (
+          <div className="content-body-2">
+            <div className="inspect-content">
+              <p>
+                Author: {inspectedContent.user.first_name}{" "}
+                {inspectedContent.user.last_name}
+              </p>
+              <p>Category: {inspectedContent.category.category}</p>
+
+              <p>Likes: {inspectedContent.likes}</p>
+
+              <p>Likes: {inspectedContent.is_approved}</p>
+              <p>Likes: {inspectedContent.is_flagged}</p>
+              {/* / */}
+              <button onClick={() => setInspectedContent(null)}>close</button>
+              <button onClick={() => handleContentApproval(inspectedContent)}>
+                  Approve
+                </button>
+            </div>
+          </div>
+        ) : null}
+      </div>
     </div>
-  )
+  );
 }

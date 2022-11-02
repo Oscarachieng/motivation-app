@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_02_200547) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,18 +71,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
     t.index ["article_id"], name: "index_article_comments_on_article_id"
   end
 
-  create_table "articles", force: :cascade do |t|
-    t.string "title"
-    t.string "content"
-    t.boolean "is_approved"
-    t.integer "likes"
-    t.boolean "is_flagged"
-    t.integer "category_id"
-    t.integer "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "audio_comment_replies", force: :cascade do |t|
     t.string "user_id"
     t.string "reply"
@@ -103,6 +91,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
 
   create_table "audios", force: :cascade do |t|
     t.string "title"
+    t.string "content"
     t.boolean "is_approved"
     t.integer "likes"
     t.boolean "is_flagged"
@@ -118,6 +107,19 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "posts", force: :cascade do |t|
+    t.string "title"
+    t.string "content"
+    t.boolean "is_approved"
+    t.integer "likes"
+    t.boolean "is_flagged"
+    t.integer "category_id"
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "content_type"
+  end
+
   create_table "subscriptions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "category_id"
@@ -130,10 +132,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
     t.string "last_name"
     t.string "email"
     t.string "username"
+    t.string "avatar_url"
     t.string "password_digest"
     t.string "user_category"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "password_reset_token"
+    t.datetime "password_reset_sent_at"
   end
 
   create_table "video_comment_replies", force: :cascade do |t|
@@ -158,6 +163,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
 
   create_table "videos", force: :cascade do |t|
     t.string "title"
+    t.string "content"
     t.boolean "is_approved"
     t.integer "likes"
     t.boolean "is_flagged"
@@ -176,7 +182,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_26_045440) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "article_comment_replies", "article_comments"
-  add_foreign_key "article_comments", "articles"
+  add_foreign_key "article_comments", "posts", column: "article_id"
   add_foreign_key "audio_comment_replies", "audio_comments"
   add_foreign_key "audio_comments", "audios"
   add_foreign_key "video_comment_replies", "video_comments"
