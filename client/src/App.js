@@ -21,6 +21,7 @@ import EditUser from './components/UserDetailsUpdateform/EditUser'
 import Commentary from './components/ArticleComments/Commentary'
 import Admin from './components/Admin/Admin'
 import Ftcontentcard from './components/ftcontentcard/Ftcontentcard'
+import Video from './components/Video/Video'
 // import UserList from './page/userList/UserList'
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -49,16 +50,26 @@ export default function App() {
     <div className="">
 
      {/* Side bar and topbar appeared here */}
-{/*       
-     <NavBar />
-      */}
+      
+     {/* <NavBar /> */}
+     
        <Routes> 
+
+       <Route
+          path="/videos"
+        element={<Video currentUser={currentUser} setCategories={setCategories} categories={categories} />}
+        /> 
+
+       <Route
+          path="/"
+          element={<Landing />}
+        /> 
        <Route
           path="/admin"
           element={<Admin setCategories={setCategories} categories={categories}/>}
         /> 
         <Route path="/admin/:id"
-        element={<Ftcontentcard/>}
+        element={<Ftcontentcard />}
         > </Route>
          <Route
           path="/EditUser"
@@ -78,10 +89,15 @@ export default function App() {
           path="/student"
           element={<Student currentUser={currentUser} articles={articles} />}
         /> 
+        <Route
+          path="/home"
+          element={<Home currentUser={currentUser} articles={articles} />}
+        /> 
            <Route
           path="/commentary"
           element={<Commentary currentUser={currentUser} articles={articles} />}
         />
+        
       
          <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} /> 
