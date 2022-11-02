@@ -7,6 +7,7 @@ class CreatePosts < ActiveRecord::Migration[7.0]
       t.integer :likes
       t.boolean :is_flagged
       t.integer :category_id
+      
       t.integer :user_id
 
       t.timestamps
