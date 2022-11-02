@@ -8,6 +8,7 @@ Rails.application.routes.draw do
     resources :posts
     resources :post_comments
     resources :post_comment_replies
+  
     resources :videos 
     resources :video_comments 
     resources :video_comment_replies

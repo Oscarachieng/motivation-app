@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 import './Category.css'
@@ -7,10 +7,14 @@ import CommentIcon from '@mui/icons-material/Comment'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import Commentary from '../ArticleComments/Commentary'
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined'
 
 export default function Category({ article, currentUser }) {
   const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
   const [showCommentary, setShowCommentary] = useState(false)
+  const [deleteArticle, setDeleteArticle] = useState([])
+  const [showFlag, setShowFlag] = useState(false)
+
   function handleOnLikeClick() {
     let likes = article.likes + 1
     // likes += 1
@@ -30,17 +34,57 @@ export default function Category({ article, currentUser }) {
       .then((updatedArticle) => setNumberOfLikes(updatedArticle.likes))
       .catch()
   }
+
+  function handleOnFlagClick(e) {
+    fetch('/articles', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        id: article.id,
+      }),
+    }).then((response) => response.json())
+    alert('This post is flagged')
+    setShowFlag(!showFlag)
+  }
+
   function handleCommentClick(e) {
-    setShowCommentary(!showCommentary)
+    setShowFlag(!showFlag)
   }
-  function handleDeleteComment(e){
-    alert('Ombasa')
+
+  // delete article
+
+  useEffect(() => {
+    fetch('/articles').then((r) => {
+      if (r.ok) {
+        r.json().then((deleteArticle) => setDeleteArticle(deleteArticle))
+      }
+    })
+  }, [])
+
+  function handleDeleteArticle(article) {
+    //  e.preventDefault()
+    console.log(article)
+    fetch(`/articles/${article.id}`, {
+      method: 'DELETE',
+      //   body: JSON.stringify(userData),
+    })
+      .then((r) => r.json())
+      .then((deletedarticle) => {
+        const updatedList = deleteArticle.filter(
+          (article) => article.id !== deletedarticle.id,
+        )
+        setDeleteArticle(updatedList)
+      })
   }
+  // delete article ends
 
   return (
     <div className="card" id="userbox">
       <div className="card-body" id="userbox">
-        <div className="d-flex" id="prof">
+        {/* <div className="d-flex" id="prof">
           <img
             id="imw-wd"
             className="rounded-circle img-fluid"
@@ -62,7 +106,7 @@ export default function Category({ article, currentUser }) {
               {article.category.category}
             </p>
           </div>
-        </div>
+        </div> */}
         <div className="articlesection">
           <p className="card-text">{article.content}</p>
         </div>
@@ -87,12 +131,22 @@ export default function Category({ article, currentUser }) {
             style={{ color: '#fa521c' }}
           />
 
-          <DeleteOutlineOutlinedIcon onClick={handleDeleteComment} style={{ color: '#fa521c' }} />
+          <DeleteOutlineOutlinedIcon
+            onClick={() => handleDeleteArticle(article)}
+            style={{ color: '#fa521c' }}
+          />
+          <FlagOutlinedIcon
+            style={{ color: '#fa521c' }}
+            onClick={handleOnFlagClick}
+          />
         </div>
 
         {showCommentary ? (
           <Commentary currentUser={currentUser} article={article} />
         ) : null}
+         {/* {showFlag ? (
+          {if {currentUser.category} === staff}
+        ) : null} */}
       </div>
     </div>
   )

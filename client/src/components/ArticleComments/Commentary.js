@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Commentary.css'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import CommentIcon from '@mui/icons-material/Comment'
@@ -13,6 +13,11 @@ export default function Commentary({article, currentUser}) {
   const [commentData, setCommentData] = useState({ comment:'', article_id:article.id, user_id:currentUser.id })
   const [errors, setErrors] = useState([])
   const [numberOfLikes, setNumberOfLikes] = useState(26)
+  const [deleteComment, setDeleteComment] = ([])
+
+
+
+
   function handleOnchange(event) {
     setCommentData({
       ...commentData,
@@ -36,6 +41,10 @@ export default function Commentary({article, currentUser}) {
           setErrors([newComment.errors]);
         }
   }
+
+
+
+
   function handleOnLikeClick(){
     let likes = article.likes + 1
     // likes += 1
@@ -52,9 +61,32 @@ export default function Commentary({article, currentUser}) {
       })
     }).then(response =>response.json()).then(updatedComment =>setNumberOfLikes(updatedComment.likes)).catch()
   }
-  function handleDeleteComment(e){
-    alert('Ombasa')
+
+
+  // Delete comment
+
+  useEffect(() => {
+    fetch('/article_comments').then((r) => {
+      if (r.ok) {
+        r.json().then((deleteComment) => setDeleteComment(deleteComment))
+      }
+    })
+  }, []) 
+  function handleDeleteComment(comment){
+    // e.preventDefault()
+    console.log(comment)
+    fetch(`/article_comments/${comment.id}`, {
+      method: 'DELETE',
+    //   body: JSON.stringify(userData),
+    
+    })
+    .then((r) => r.json())
+    .then((deletedcomment) => { 
+        const updatedList= deleteComment.filter((comment) => article.id !== deletedcomment.id);
+        setDeleteComment(updatedList);
+    });
   }
+  // Delete comment
 
   return (
     <div>
@@ -79,7 +111,7 @@ export default function Commentary({article, currentUser}) {
             </div>   */}
         <textarea
           name="content"
-          className="form-control text-black opacity-50 mt-3"
+          className="form-control text-black  mt-3"
           id="textArea"
           rows=""
           value={commentData.comment}
@@ -101,7 +133,7 @@ export default function Commentary({article, currentUser}) {
           {/* like section ends */}
           <CommentIcon style={{ color: '#FA521C' }} />
       
-          <DeleteOutlineOutlinedIcon onClick={handleDeleteComment} style={{ color: '#fa521c' }} />
+          <DeleteOutlineOutlinedIcon onClick= {() => handleDeleteComment(article)} style={{ color: '#fa521c' }} />
          
       
         

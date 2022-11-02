@@ -1,4 +1,4 @@
-import "./sidebar.css";
+import './sidebar.css'
 import {
   LineStyle,
   Timeline,
@@ -12,25 +12,29 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
-} from "@material-ui/icons";
-import { Link } from "react-router-dom";
+} from '@material-ui/icons'
+import { Link } from 'react-router-dom'
 
-
-export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCategory,showcategory}) {
- function handleUsersClick(){
-  setShowusers (!showusers)
-  // alert("Test")
- }
- function handlePostClick(){
-  setPosts (!posts)
-  // alert("Test")
- }
- function handleCategoryClick(){
-  setshowCategory (!showcategory)
-  // alert("Test")
- }
- 
-
+export default function Sidebar({
+  setShowusers,
+  showusers,
+  setPosts,
+  posts,
+  setshowCategory,
+  showcategory,
+}) {
+  function handleUsersClick() {
+    setShowusers(!showusers)
+    // alert("Test")
+  }
+  function handlePostClick() {
+    setPosts(!posts)
+    // alert("Test")
+  }
+  function handleCategoryClick() {
+    setshowCategory(!showcategory)
+    // alert("Test")
+  }
 
   return (
     <div className="sidebar">
@@ -39,10 +43,10 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCa
           <h3 className="sidebarTitle">Dashboard</h3>
           <ul className="sidebarList">
             <Link to="/" className="link">
-            <li className="sidebarListItem active">
-              <LineStyle className="sidebarIcon" />
-              Home
-            </li>
+              <li className="sidebarListItem active">
+                <LineStyle className="sidebarIcon" />
+                Home
+              </li>
             </Link>
             <li className="sidebarListItem">
               <Timeline className="sidebarIcon" />
@@ -57,6 +61,7 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCa
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
 
+
           <ul>
             {/* <Link to="/products" className="link"> */}
             <li className="link">
@@ -67,9 +72,14 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCa
                 <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
                 Flags
               </li>
+
+          
             {/* Category Start */}
             <li className="sidebarListItem">
-              <AttachMoney onClick= {handleCategoryClick}className="sidebarIcon" />
+              <AttachMoney
+                onClick={handleCategoryClick}
+                className="sidebarIcon"
+              />
               Category
             </li>
             <li className="sidebarListItem">
@@ -114,5 +124,5 @@ export default function Sidebar({setShowusers,showusers,setPosts,posts,setshowCa
         </div>
       </div>
     </div>
-  );
+  )
 }
