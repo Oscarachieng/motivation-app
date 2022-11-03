@@ -5,6 +5,7 @@ import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import Category from "../Categoryfolder/Category";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import FtCategory from "../FtCategory/FtCategory";
 
 export default function Staff({ currentUser, articles }) {
   const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
@@ -86,7 +87,7 @@ function handleCategoryClick() {
               Create Category
               
             </button>
-            {showcategory? <Ftcategory setCategories={setCategories} categories={categories}/> : null}
+            {showcategory? <FtCategory setCategories={setCategories} categories={categories}/> : null}
             </div>
 
 

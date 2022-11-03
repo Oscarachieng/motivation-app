@@ -1,13 +1,14 @@
-import React,{useEffect,useState} from 'react'
-​import './ftCategory.css'
-​
+import React,{useEffect,useState} from 'react';
+
+import './FtCategory.css';
+
 export default function Ftcategory({setCategories,categories}) {
     const [category,setCategory]=useState("")
-​
+
     // Handle submit
 function handleSubmit(e) {
         e.preventDefault();
-​
+
         fetch("/categories", {
           method: "POST",
           headers: {
