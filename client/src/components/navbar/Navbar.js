@@ -1,11 +1,12 @@
-import "./NavTop.css";
-import { Search, Person, Chat, Notifications } from "@material-ui/icons";
+import './NavTop.css'
+import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined'
+import { Search, Person, Chat, Notifications } from '@material-ui/icons'
 
 export default function Topbar() {
   return (
     <div className="topbarContainer">
       <div className="topbarLeft">
-        <span className="logo">Moringa Forum</span>
+        <span className="logoo">Moringa Forum</span>
       </div>
       <div className="topbarCenter">
         <div className="searchbar">
@@ -24,19 +25,21 @@ export default function Topbar() {
         <div className="topbarIcons">
           <div className="topbarIconItem">
             <Person />
-            <span className="topbarIconBadge">1</span>
+            <span className="topbarIconBadge"></span>
           </div>
           <div className="topbarIconItem">
             <Chat />
-            <span className="topbarIconBadge">2</span>
+            <span className="topbarIconBadge"></span>
           </div>
           <div className="topbarIconItem">
             <Notifications />
-            <span className="topbarIconBadge">1</span>
+            <span className="topbarIconBadge"></span>
           </div>
         </div>
-        <img src="/assets/person/1.jpeg" alt="" className="topbarImg"/>
+        <div className="topbarIconItem">
+          <LogoutOutlinedIcon />
+        </div>
       </div>
     </div>
-  );
+  )
 }

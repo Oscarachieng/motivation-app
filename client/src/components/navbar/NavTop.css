@@ -1,7 +1,7 @@
 .topbarContainer {
     height: 50px;
     width: 100%;
-    background-color: #fa521c;
+    background-color: #001e2a;
     display: flex;
     align-items: center;
     position: sticky;
@@ -13,7 +13,7 @@
     flex: 3;
   }
   
-  .logo {
+  .logoo{
     font-size: 24px;
     margin-left: 20px;
     font-weight: bold;

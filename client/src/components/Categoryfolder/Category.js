@@ -35,6 +35,7 @@ export default function Category({ article, currentUser }) {
       .catch()
   }
 
+
   function handleOnFlagClick(e) {
     fetch('/articles', {
       method: 'PATCH',
@@ -53,7 +54,6 @@ export default function Category({ article, currentUser }) {
   function handleCommentClick(e) {
     setShowFlag(!showFlag)
   }
-
   // delete article
 
   useEffect(() => {
