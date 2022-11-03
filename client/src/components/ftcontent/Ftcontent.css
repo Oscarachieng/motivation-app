@@ -1,0 +1,21 @@
+.content-body{
+    height: 80px;
+    width: 80%;
+    background-color: blue;
+}
+
+.inspect{
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .table{
+    height: 600px;
+    
+    padding-left: 50px;
+    display: flex;
+  }
+
+  .c-body{
+    max-width: 70%;
+  }

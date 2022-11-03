@@ -1,70 +1,268 @@
-# Getting Started with Create React App
+# **[Motivation-App](https://github.com/Oscarachieng/motivation-app)**:kenya:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## **Authors** :black_nib:
 
-## Available Scripts
 
-In the project directory, you can run:
+   [Kelvin Kariuki](https://github.com/Kelvin-kariuki)<br>
+   [Livya Kendi](https://github.com/livya-kendi)<br>
+   [Oscar Ochieng](https://github.com/Oscarachieng)<br>
+   [Peter Atito](https://github.com/peterclermy232)<br>
+   [Newton Mboi](https://github.com/devblackie)<br>
+   [Samuel Mwaura](https://github.com/samuelmwaura)<br>
 
-### `npm start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Project Description
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+There is dire need to keep the Moringa School Community motivated during and after the bootcamp. <br> With the intensity of the software development program, it can be easy to burn out or even give up along the way. <br> Hence the need for a **motivation app** to reach the entire community.
 
-### `npm test`
+---
+### Links To Slides & Figma Design
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+[Link to slides](https://www.canva.com/design/DAFQqzfrCdg/m_HPRjgSnajJakWdqb4IFw/view?utm_content=DA[#4)<br>
 
-### `npm run build`
+[Figma Design](https://www.figma.com/file/d9Ry7aNnWv08VMFdQSCdYC/Untitled?node-id=0%3A1)<br>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+---
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Screen shots :fire:
 
-### `npm run eject`
+### Landing Page
+![Landing Page](./Resources/landing.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Login Page
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+![Login](./Resources/Login.png)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Home Page
+<br>
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Staff Page
+<br>
 
-## Learn More
+### Student Page
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Admin Page
+<br>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Creating User Form
+![CreatingForm](./Resources/CreateUser.png)
+### Creating Category Form
+<br>
 
-### Code Splitting
+### Edit User Form
+<br>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+---
+## Table of content
 
-### Analyzing the Bundle Size
+- [Technologies](#technologies)
+- [Description](#description)
+- [Features](#features)
+- [Setup-process](#setup_process)
+- [Project-usage](#project-usage)
+- [Licence](#licence)
+- [Copyright](#copyright)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Technologies :gear:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+    Ruby on Rails
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+    HTML and CSS
 
-### Deployment
+    JavaScript (React)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+    PostgreSQL
 
-### `npm run build` fails to minify
+    Heroku (deployment)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+    Git and GitHub (version control)
+
+    Redux
+
+    Bootstrap
+
+---
+
+### Features :green_circle:
+
+1. The application allows a user to post articles/blogs/videos and audios that will motivate members in the community.
+
+2. The application gives users access to other people posts/comments/reactions and shares.
+
+3. The applications allows a staff to verify/flag posted content.
+
+4. The application allows a staff options to create categories.
+
+5. The application gives the administrator an option to Create, Edit and Delete a user.
+
+### Description
+
+Motivation app is a great plateform that allows members of the community to share and post videos/images or audios that motivate other members in the community.<br>
+
+Members have the access to the application and participate in posting motivating information, It will enhance massive participation.
+
+### Requirements
+
+The following are the requirements to start and run this project.
+
+    Ruby 2.7.4 or later versions.
+
+    Rails 5.0 or later versions.
+
+    PostgreSQL 9.5 or later versions.
+
+    npm
+
+    node
+
+    Material ui version 4
+
+    Bootstrap 5
+
+    Heroku
+
+### Dependancies :link:
+* rails <br>
+*  ruby <br>
+*  node <br>
+*  npm <br>
+*  Material UI <br>
+*  Bootstrap <br>
+
+### Setup :hammer_and_wrench:
+
+---
+
+#### Client (React)
+
+clone the repo using the command
+
+```terminal
+>>Git Link
+```
+
+change directory using command
+
+```terminal
+cd Motivation-App
+```
+
+open project in vscode texteditor
+
+```terminal
+code .
+```
+
+install dependancies
+
+```shell
+npm install
+```
+
+run client end
+
+```terminal
+npm run dev
+```
+
+---
+
+#### API (Ruby on Rails)
+
+clone the repo using the command
+
+```terminal
+>> Git Link
+```
+
+change directory using command
+
+```terminal
+cd Motivation-app
+```
+
+open project in vscode texteditor
+
+```terminal
+code .
+```
+
+Check your Ruby version
+
+```terminal
+ruby -v
+```
+
+The ouput should start with something like `ruby 2.7.4` or any later version currently installed.
+
+If not, install the right ruby version using [rbenv](https://github.com/rbenv/rbenv) (it could take a while):
+
+```terminal
+rbenv install 2.7.0
+```
+
+install dependancies packages
+
+```terminal
+bundle install
+```
+
+Initialize the database
+
+```terminal
+rails db:create db:migrate db:seed
+```
+
+run api server
+
+```terminal
+rails s
+```
+
+---
+## How to use the project
+
+- To use the project follow the steps below:
+
+- First Login to the application. 
+
+- Add a post.
+
+- View all posts.
+
+- Share Posts.
+
+---
+
+
+### Contributing to project :memo: 
+
+    - Fork the repo
+
+    * Create a new branch in your terminal (git checkout -b improve-feature)
+    * Install the prerequisites
+    * Make appropriate changes in file(s)
+    * Run the server to see the changes
+    * Add the changes and commit them (git commit -am "Improve App")
+    * Push to the branch (git push origin improve-app)
+    * Create a Pull request
+
+---
+
+## Copyright :lock:
+
+**This project is licensed under the MIT License - see the LICENSE.md file for details.**
+
+---
+
+## [License](LICENSE) :shield:
+
+MIT License
+Copyright (c) 2022
+
