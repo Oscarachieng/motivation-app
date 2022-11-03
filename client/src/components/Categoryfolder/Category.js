@@ -1,6 +1,5 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom'
-
+import React, { useState,useEffect } from 'react'
+import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined'
 import './Category.css'
 import ShareIcon from '@mui/icons-material/Share'
 import CommentIcon from '@mui/icons-material/Comment'
@@ -9,11 +8,14 @@ import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined
 import Commentary from '../ArticleComments/Commentary'
 
 export default function Category({ article, currentUser }) {
-  const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
+const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
 const [showCommentary, setShowCommentary] = useState(false)
+const [deleteArticle, setDeleteArticle] = useState([])
+const [showFlag, setShowFlag] = useState(false)
+
+
   function handleOnLikeClick() {
     let likes = article.likes + 1
-    // likes += 1
     console.log(likes)
     fetch(`/like`, {
       method: 'PATCH',
@@ -30,9 +32,52 @@ const [showCommentary, setShowCommentary] = useState(false)
       .then((updatedArticle) => setNumberOfLikes(updatedArticle.likes))
       .catch()
   }
-  function handleCommentClick(e){
-    setShowCommentary (!showCommentary)
+
+  function handleOnFlagClick(e) {
+    fetch('/articles', {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Accept: 'application/json',
+      },
+      body: JSON.stringify({
+        id: article.id,
+      }),
+    }).then((response) => response.json())
+    alert('This post is flagged')
+    setShowFlag(!showFlag)
   }
+
+  function handleCommentClick(e) {
+    setShowFlag(!showFlag)
+  }
+  // delete article
+
+  useEffect(() => {
+    fetch('/articles').then((r) => {
+      if (r.ok) {
+        r.json().then((deleteArticle) => setDeleteArticle(deleteArticle))
+      }
+    })
+  }, [])
+
+  function handleDeleteArticle(article) {
+    //  e.preventDefault()
+    console.log(article)
+    fetch(`/articles/${article.id}`, {
+      method: 'DELETE',
+      //   body: JSON.stringify(userData),
+    })
+      .then((r) => r.json())
+      .then((deletedarticle) => {
+        const updatedList = deleteArticle.filter(
+          (article) => article.id !== deletedarticle.id,
+        )
+        setDeleteArticle(updatedList)
+      })
+  }
+  // delete article ends
+
 
   return (
     <div className="card" id="userbox">
@@ -65,27 +110,29 @@ const [showCommentary, setShowCommentary] = useState(false)
 
         {/* like section */}
         <div className="media d-flex text-muted" style={{ fontSize: '12px' }}>
-          <a className="" onClick={handleOnLikeClick}>
-            <ThumbUpIcon style={{ color: '#fa521c' }} />
-          </a>
-          <h6 className="text-sm" style={{ fontSize: '12px' }}>
+          <div className='d-flex'>
+            <ThumbUpIcon style={{ color: '#fa521c' }} onClick={handleOnLikeClick}/>
+            <h6 className="text-sm" style={{ fontSize: '12px' }}>
             {numberOfLikes}
           </h6>
+          </div>          
+          <ShareIcon style={{ color: '#fa521c' }} />
+          <CommentIcon  onClick={handleCommentClick} style={{ color: '#fa521c' }} />          
+          <DeleteOutlineOutlinedIcon
+          onClick={() => handleDeleteArticle(article)}
+          style={{ color: '#fa521c' }}
+        />
+        <FlagOutlinedIcon
+          style={{ color: '#fa521c' }}
+          onClick={handleOnFlagClick}
+        />
+
+
         </div>
         {/* like section ends */}
-
-        <a href="#" className="">
-          <ShareIcon style={{ color: '#fa521c' }} />
-        </a>
+       
   
   
-            <CommentIcon  onClick={handleCommentClick} style={{ color: '#fa521c' }} />
-          
-    
-
-        <a href="#" className="">
-          <DeleteOutlineOutlinedIcon style={{ color: '#fa521c' }} />
-        </a>
         {showCommentary ? <Commentary currentUser={currentUser} article={article} /> : null}
       </div>
     </div>

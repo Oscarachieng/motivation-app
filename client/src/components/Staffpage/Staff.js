@@ -10,6 +10,7 @@ export default function Staff({ currentUser, articles }) {
   const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
   const [categories, setCategories] = useState([])
   const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
+  const [showcategory,setshowCategory] = useState(false)
   
 
 
@@ -52,6 +53,11 @@ export default function Staff({ currentUser, articles }) {
       setShowArticleCreationForm(!showArticleCreationForm)
     }
     
+// staffcategorycreation
+function handleCategoryClick() {
+  setshowCategory(!showcategory)
+}
+
   return (
     <div className="card h-100 ">
       <div className=" card  " id="userbox" style={myStyles}>
@@ -69,10 +75,20 @@ export default function Staff({ currentUser, articles }) {
                 <h6 className="card-title">
                   {currentUser.first_name + " " + currentUser.last_name}
                 </h6>
-                <p className="text mb-1">CATEGORY</p>
+                <p className="text mb-1">{currentUser.category}</p>
                 <p className="text mb-1">About</p>
               </div>
             </div>
+
+            {/* user profile section */}
+            <div>
+            <button className="postbutton" onClick={handleCategoryClick}>
+              Create Category
+              
+            </button>
+            {showcategory? <Ftcategory setCategories={setCategories} categories={categories}/> : null}
+            </div>
+
 
             {/* user comment area */}
             <button onClick={handlePostClick} >Post</button>
