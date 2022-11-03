@@ -37,7 +37,8 @@ export default function App() {
   return (
     <div className="">
     
-      {/* <NavBar /> */}
+      <NavBar currentUser={currentUser} setCurrentUser={setCurrentUser} />
+
       <Routes>
       <Route
           path="/"
