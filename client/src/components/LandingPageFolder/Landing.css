@@ -1,0 +1,85 @@
+#footer {
+  display: flex;
+  align-items: flex-start;
+  margin-right: 5rem;
+}
+*{
+  font-family: 'Nunito', sans-serif;
+
+}
+h1{
+  font-weight: 900;
+}
+p{
+  font-weight: 500;
+}
+
+#partners {
+  opacity: 0.8;
+  background-image: linear-gradient(to right, grey, gray);
+}
+
+.partners-png {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  grid-auto-rows: 40px;
+
+}
+
+.part-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+
+}
+
+.landingview {
+  color: white;
+  display: flex;
+}
+
+.landingviewpage {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 25rem;
+  height: 70vh;
+  flex: 1 1 40rem;
+  padding: 2rem;
+  border-radius: .5rem;
+  color: #fff;
+  
+}
+.foot{
+  display: flex;
+  justify-content: space-evenly;
+  padding: 6px;
+  margin: 40;
+  outline: none;
+  text-align: center;
+  font-size: 40px;
+  padding-top: 25px;
+  color: #fa521c;
+  z-index: 1000;
+  background-color: #001E2A;
+  
+}
+footer {
+  background-color: #001E2A;
+  opacity: 0.7;
+  
+}
+#linkf:hover{
+  color: #fa521c;
+  }
+
+#linkf{
+  text-decoration: none;
+  display: flex;
+  color: #fff;
+  font-size: medium;
+  font-weight: 600;
+}
