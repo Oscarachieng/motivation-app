@@ -9,7 +9,9 @@ import SearchOutlinedIcon from "@mui/icons-material/SearchOutlined";
 import CategoryOutlinedIcon from "@mui/icons-material/CategoryOutlined";
 import LogoutOutlinedIcon from '@mui/icons-material/LogoutOutlined';
 
-export default function NavBar(currentUser) {
+export default function NavBar({currentUser}) {
+
+console.log(currentUser)
   return (
     <div className="links">
       <div className="l1">
@@ -34,11 +36,16 @@ export default function NavBar(currentUser) {
           <SearchOutlinedIcon />Search
         </Link>
         <Link to="/logout" id="l2">
+          
         <LogoutOutlinedIcon />Log Out
        
         </Link>
+        {/* { currentUser.user_category !== 'student' || currentUser.user_category !== 'staff' ? <Link to="/logout" id="l2">
+          
+          <LogoutOutlinedIcon /> Admin
+         
+          </Link> : <p>Login</p> } */}
       </div>
     </div>
   );
 }
-

@@ -58,9 +58,9 @@ export default function Ftuser({ users, setUsers }) {
                 <p>Username: {inspectedUser.username}</p>
                 <p>Email : {inspectedUser.email}</p>
                 <p>Category: {inspectedUser.user_category}</p>
-                <p>articles: {inspectedUser.posts.length}</p>
+                {/* <p>articles: {inspectedUser.posts.length}</p>
                 <p>Videos: {inspectedUser.posts.length}</p>
-                <p>Audios: {inspectedUser.posts.length}</p>
+                <p>Audios: {inspectedUser.posts.length}</p> */}
                 <button onClick={() => setInspectedUser(null)}>close</button>
                 <button onClick={() => handleUserDelete(inspectedUser)}>Delete</button>
               </div>

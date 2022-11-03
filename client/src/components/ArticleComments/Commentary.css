@@ -1,0 +1,10 @@
+.comment{
+    border: 2px solid #001e2a;
+    border-radius: .5rem;
+    
+    box-shadow: 1rem 1rem 2rem #001e2a;
+}
+.comment textarea{
+    border: 1px solid #001e2a;
+    height: 50px;
+}
