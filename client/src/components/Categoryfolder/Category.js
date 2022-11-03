@@ -7,10 +7,9 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import Commentary from '../ArticleComments/Commentary'
 
-export default function Category({ article, currentUser }) {
+export default function Category({ article,onDelete, currentUser }) {
 const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
 const [showCommentary, setShowCommentary] = useState(false)
-const [deleteArticle, setDeleteArticle] = useState([])
 const [showFlag, setShowFlag] = useState(false)
 
 
@@ -34,47 +33,59 @@ const [showFlag, setShowFlag] = useState(false)
   }
 
   function handleOnFlagClick(e) {
-    fetch('/articles', {
+    if(window.confirm("Really want to flag it!")){
+    fetch(`/articles/${article.id}`, {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json',
       },
       body: JSON.stringify({
-        id: article.id,
+        is_flagged:false
       }),
-    }).then((response) => response.json())
-    alert('This post is flagged')
-    setShowFlag(!showFlag)
+    }).then(response=> {
+       if(response.ok){
+        response.json().then(data=>{
+          alert("The post has been flagged")
+          setShowFlag(!showFlag)
+        })
+      }else{
+        response.json().then(error=>console.log(error))
+      }})
+    }else{
+     return null
+    }
+
   }
+
 
   function handleCommentClick(e) {
     setShowFlag(!showFlag)
   }
   // delete article
 
-  useEffect(() => {
-    fetch('/articles').then((r) => {
-      if (r.ok) {
-        r.json().then((deleteArticle) => setDeleteArticle(deleteArticle))
-      }
-    })
-  }, [])
+  // useEffect(() => {
+  //   fetch('/articles').then((r) => {
+  //     if (r.ok) {
+  //       r.json().then((deleteArticle) => setDeleteArticle(deleteArticle))
+  //     }
+  //   })
+  // }, [])
 
   function handleDeleteArticle(article) {
-    //  e.preventDefault()
-    console.log(article)
+   if(window.confirm("Sure to delete it?")){
     fetch(`/articles/${article.id}`, {
       method: 'DELETE',
-      //   body: JSON.stringify(userData),
     })
-      .then((r) => r.json())
-      .then((deletedarticle) => {
-        const updatedList = deleteArticle.filter(
-          (article) => article.id !== deletedarticle.id,
-        )
-        setDeleteArticle(updatedList)
-      })
+      .then((response =>{
+      if(response.ok){        
+          onDelete(article)   
+          alert("The post was deleted.")   
+      }
+      else{
+        response.json().then(error=>console.log(error))
+      }}))
+    }
   }
   // delete article ends
 

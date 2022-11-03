@@ -14,7 +14,7 @@ import Category from "../Categoryfolder/Category";
 import Contact from "../Contactfolder/Contact";
 import Ads from "../Adsfolder/Ads";
 
-export default function Home({ currentUser ,articles}) {
+export default function Home({ currentUser,onDelete,articles}) {
   const navigate = useNavigate();
   
   const myStyles = {
@@ -107,7 +107,7 @@ export default function Home({ currentUser ,articles}) {
 
         {/* Widget section */}
         <div className="col-sm-6">
-          {articles.map((article)=>  <Category key={article.id} article = {article} currentUser = { currentUser }/>)} 
+          {articles.map((article)=>  <Category key={article.id} article = {article} currentUser = { currentUser } onDelete={onDelete}/>)} 
       
         </div>
 

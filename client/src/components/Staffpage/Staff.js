@@ -5,8 +5,9 @@ import ShareIcon from "@mui/icons-material/Share";
 import CommentIcon from "@mui/icons-material/Comment";
 import Category from "../Categoryfolder/Category";
 import TelegramIcon from "@mui/icons-material/Telegram";
+import Ftcategory from "../ftCategory/ftCategory";
 
-export default function Staff({ currentUser, articles }) {
+export default function Staff({ currentUser,onDelete,articles }) {
   const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
   const [categories, setCategories] = useState([])
   const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
@@ -157,7 +158,7 @@ function handleCategoryClick() {
           {/* Widget section */}
           <div className="card h-100">
             {articles.map((article) => (
-              <Category key={article.id} article={article} currentUser = {currentUser}/>
+              <Category key={article.id} article={article} currentUser = {currentUser} onDelete={onDelete}/>
             ))}
           </div>
 

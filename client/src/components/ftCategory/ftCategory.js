@@ -1,13 +1,15 @@
 import React,{useEffect,useState} from 'react'
-​import './ftCategory.css'
-​
+import "./ftCategory.css";
+
+
+
+
 export default function Ftcategory({setCategories,categories}) {
-    const [category,setCategory]=useState("")
-​
+const [category,setCategory] = useState("")
+
     // Handle submit
-function handleSubmit(e) {
+     function handleSubmit(e) {
         e.preventDefault();
-​
         fetch("/categories", {
           method: "POST",
           headers: {
@@ -26,8 +28,7 @@ function handleSubmit(e) {
   return (
     <div className='Cat'>
         <form className='Cat1'> 
-            <input name='Category' value={category} onChange={(e) => setCategory(e.target.value) } required/>
-               
+            <input name='Category' value={category} onChange={(e) => setCategory(e.target.value) } required placeholder="Enter the Category"/>               
                <button onClick = {handleSubmit} >Submit</button>
             </form>
     </div>

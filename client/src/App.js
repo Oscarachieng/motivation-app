@@ -34,6 +34,14 @@ export default function App() {
     })
   }, [])
 
+
+  function onDelete(deletedPost){ 
+    const updatedList = articles.filter(article=>{
+      return article.id !== deletedPost.id
+    })
+     setArticles(updatedList)
+  }
+
   return (
     <div className="">
     
@@ -46,7 +54,7 @@ export default function App() {
 
         <Route
           path="/home"
-          element={<Home currentUser={currentUser} articles={articles} />}
+          element={<Home currentUser={currentUser} articles={articles} onDelete={onDelete}/>}
         />
         <Route
           path="/login"
@@ -55,16 +63,16 @@ export default function App() {
         <Route path="/topbar" element={<TopBar />} />
         <Route
           path="/staff"
-          element={<Staff currentUser={currentUser} articles={articles} />}
+          element={<Staff currentUser={currentUser} articles={articles} onDelete={onDelete} />}
         />
         <Route path="/profile" element={<Profile />} />
         <Route
           path="/student"
-          element={<Student currentUser={currentUser} articles={articles} />}
+          element={<Student currentUser={currentUser} articles={articles} onDelete={onDelete} />}
         />
           <Route
           path="/commentary"
-          element={<Commentary currentUser={currentUser} articles={articles} />}
+          element={<Commentary currentUser={currentUser} articles={articles} setArticles={setArticles} />}
         />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/users" element={<UserList />} />
