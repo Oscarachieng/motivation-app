@@ -31,6 +31,7 @@ export default function App() {
 
   const [categories, setCategories] = useState([])
   const [users,setUsers]=useState([])
+  const [post, setPost] = useState([])
 useEffect(() => {
     fetch('/users').then((r) => {
       if (r.ok) {
@@ -41,7 +42,7 @@ useEffect(() => {
 
 
   useEffect(() => {
-    fetch('/articles').then((r) => {
+    fetch('/posts').then((r) => {
       if (r.ok) {
         r.json().then((articles) => setArticles(articles))
       }
@@ -59,7 +60,8 @@ useEffect(() => {
 
   return (
     <div className="">
-
+      <Admin />
+        <Routes>
          <Route
           path="/login"
           element={<Login setCurrentUser={setCurrentUser} />}
@@ -81,6 +83,7 @@ useEffect(() => {
           path="/student"
           element={<Student currentUser={currentUser} articles={articles} />}
         />
+        <Route path="/admin" element={<Admin currentUser={currentUser} users = {users}  />} />
         <Route
           path="/home"
           element={<Home currentUser={currentUser} articles={articles} />}
@@ -89,7 +92,7 @@ useEffect(() => {
           path="/commentary"
           element={<Commentary currentUser={currentUser} articles={articles} />}
         />
-
+     </Routes>
     </div>
   );
 }
