@@ -38,7 +38,6 @@ export default function Home({ currentUser,onDelete,articles}) {
   return (
     <div className="container-fluid" >
       <div className="row" style={myStyles} id="main-body">
-        {/* user section  */}
         <div className="col-sm-3">
           <div className="card mb-4" id="userbox">
             <div className="card-body text-center">
@@ -53,8 +52,7 @@ export default function Home({ currentUser,onDelete,articles}) {
                 <h5 className="card-title">
                   {currentUser.first_name + " " + currentUser.last_name}
                 </h5>
-                <p className="text-muted mb-1">CATEGORY</p>
-                <p className="text-muted mb-1">About</p>
+                <p className="text-muted mb-1">{currentUser.user_category}</p>
               </div>
 
               <hr />

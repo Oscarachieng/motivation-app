@@ -5,21 +5,16 @@ import TopBar from './components/topbar/TopBar'
 import Sidebar from './components/sidebar/Sidebar'
 import Student from './components/StudentFolder/Student'
 import Staff from './components/Staffpage/Staff'
-import Category from './components/Categoryfolder/Category'
-
 import Login from './components/Login/Login'
 import Home from './components/home/Home'
-import Product from './page/product/Product'
 import UserList from './page/userList/UserList'
 import User from './page/user/User'
 import NewUser from './page/newUser/NewUser'
-import ProductList from './page/productList/ProductList'
-import NewProduct from './page/newProduct/NewProduct'
 import Profile from './components/Profile/Profile'
 import Landing from './components/LandingPageFolder/Landing'
-import NavBar from './components/Navbarpage.js/NavBar'
-import EditUser from './components/UserDetailsUpdateform/EditUser'
 import Commentary from './components/ArticleComments/Commentary'
+import FourOhFour from './page/404Page.js/404Page'
+import NavBar from './components/Navbarpage.js/NavBar'
 
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem('currentUser'))
@@ -29,7 +24,19 @@ export default function App() {
   useEffect(() => {
     fetch('/articles').then((r) => {
       if (r.ok) {
-        r.json().then((articles) => setArticles(articles))
+        r.json().then((articles) =>{
+
+        if(currentUser.user_category === 'student'){
+          console.log("I am a student")
+          const toDisplayArticles = articles.filter(article=>{
+            return article.is_approved === true
+          })
+          console.log(toDisplayArticles)
+          setArticles(toDisplayArticles)
+        }else{
+          setArticles(articles)}
+        }
+         )
       }
     })
   }, [])
@@ -42,46 +49,33 @@ export default function App() {
      setArticles(updatedList)
   }
 
+  function onFlag(flagged){
+    if(currentUser.user_category === 'student'){
+      const displayedPost = articles.filter(article=>{
+        return article.is_flagged === true
+      })
+      setArticles(displayedPost)
+    }
+  }
+
   return (
     <div className="">
     
-      {/* <NavBar /> */}
-      <Routes>
-      <Route
-          path="/"
-          element={<Landing />}
-        />
-
-        <Route
-          path="/home"
-          element={<Home currentUser={currentUser} articles={articles} onDelete={onDelete}/>}
-        />
-        <Route
-          path="/login"
-          element={<Login setCurrentUser={setCurrentUser} />}
-        />
+        <NavBar/>
+        <Routes>
+        <Route path="/" element={<Landing />}/>
+        <Route path="/home" element={<Home currentUser={currentUser} articles={articles} onDelete={onDelete}/>}       />
+        <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
         <Route path="/topbar" element={<TopBar />} />
-        <Route
-          path="/staff"
-          element={<Staff currentUser={currentUser} articles={articles} onDelete={onDelete} />}
-        />
+        <Route path="/staff"  element={<Staff currentUser={currentUser} articles={articles} onDelete={onDelete} />}       />
         <Route path="/profile" element={<Profile />} />
-        <Route
-          path="/student"
-          element={<Student currentUser={currentUser} articles={articles} onDelete={onDelete} />}
-        />
-          <Route
-          path="/commentary"
-          element={<Commentary currentUser={currentUser} articles={articles} setArticles={setArticles} />}
-        />
+        <Route path="/student" element={<Student currentUser={currentUser} articles={articles} onDelete={onDelete} />}       />
+        <Route path="/commentary" element={<Commentary currentUser={currentUser} articles={articles} setArticles={setArticles} />}        />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/users" element={<UserList />} />
         <Route path="/user/:userId" element={<User />} />
         <Route path="/newUser" element={<NewUser />} />
-        <Route path="/products" element={<ProductList />} />
-        <Route path="/product/:productId" element={<Product />} />
-        <Route path="/newProduct" element={<NewProduct />} />
-        {/* <Route path="/category" element={<Category currentUser={currentUser} article={article} />} /> */}
+        <Route path='*' element={<FourOhFour/>}/>
       </Routes>
     </div>
   )

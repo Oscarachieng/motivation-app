@@ -12,7 +12,6 @@ export default function Login({ setCurrentUser }) {
 
   function handleSubmit(e) {
     e.preventDefault();
-    // setIsLoading(true);
     fetch("/login", {
       method: "POST",
       headers: {
@@ -20,20 +19,17 @@ export default function Login({ setCurrentUser }) {
       },
       body: JSON.stringify({ email, password }),
     }).then((r) => {
-      // setIsLoading(false);
       if (r.ok) {
         r.json().then((user) => {
           localStorage.setItem("currentUser",JSON.stringify(user))
+
           // Persists the current user
-          setCurrentUser(user);
-          // if (user.user_category === "student") {
-          //   navigate("/student");
-          // } else {
+          setCurrentUser(user)
             navigate("/home");
-          // }
         });
       } else {
-        r.json().then((err) => setErrors(err.errors));
+        r.json().then(err => {
+          setErrors(err.error)});
       }
     });
   }
@@ -46,11 +42,6 @@ export default function Login({ setCurrentUser }) {
           className="col g-1 needs-validation"
           novalidate
         >
-          {/* {errors.map((err) => (
-            <p className=" " key={err}>
-              {err}
-            </p>
-          ))} */}
           <div className="im">
             <img className="image" src={`${logo}`} alt="logo" />
           </div>

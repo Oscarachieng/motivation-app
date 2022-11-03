@@ -8,15 +8,12 @@ import TelegramIcon from "@mui/icons-material/Telegram";
 import Ftcategory from "../ftCategory/ftCategory";
 
 export default function Staff({ currentUser,onDelete,articles }) {
-  const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
+  const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:false,likes:0,is_flagged:false,category_id:1,user_id:currentUser.id})
   const [categories, setCategories] = useState([])
   const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
   const [showcategory,setshowCategory] = useState(false)
+  const [errors,setErrors] = useState("")
   
-
-
-  //title - input
-  //select - category - fronm backend
 
   const myStyles = {
     backgroundImage:
@@ -47,8 +44,15 @@ export default function Staff({ currentUser,onDelete,articles }) {
             "Accept":"application/json"
          },
       })
-      .then((res) => res.json())
-      .then((post)=> console.log(post));
+      .then((response) =>{
+        if(response.ok){
+          response.json().then(data=>{
+            alert(`${data.title} has been created succesfully.`)
+          })
+        }else{
+          response.json().then(errors=>alert(errors.errors))
+        }
+      })
     }
     function handlePostClick(e){
       setShowArticleCreationForm(!showArticleCreationForm)
@@ -97,7 +101,6 @@ function handleCategoryClick() {
             <form onSubmit={handleSubmit} className="form-outline ">
               <label
                 className="form-label"
-                // for="textAreaExample"
                 style={{ color: "#fa521c" }}
               >
                 Say something...
@@ -124,20 +127,10 @@ function handleCategoryClick() {
                 value = {articleDetails.content}
                 onChange={handleOnchange}
               ></textarea>
-                  {/* <div className="form-group m-2">
-            <label 
-            // for="formFileSm"
-             className ="form-label">
-              Profile picture
-            </label>
-            <input
-              className="form-control form-control-sm"
-              id="formFileSm"
-              type="file"
-            /> 
-          
-          </div> */}
 
+              <p
+              >{errors}</p>
+                
           <button
           className="btn-rounded float-end"
           type="submit"

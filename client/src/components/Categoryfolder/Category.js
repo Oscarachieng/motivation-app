@@ -11,7 +11,14 @@ export default function Category({ article,onDelete, currentUser }) {
 const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
 const [showCommentary, setShowCommentary] = useState(false)
 const [showFlag, setShowFlag] = useState(false)
+const [enableEdit,setEnableEdit]= useState(false) 
 
+
+useEffect(()=>{
+  if(currentUser.user_category === "staff"){
+    setEnableEdit(true)
+  }
+},[])
 
   function handleOnLikeClick() {
     let likes = article.likes + 1
@@ -62,15 +69,7 @@ const [showFlag, setShowFlag] = useState(false)
   function handleCommentClick(e) {
     setShowFlag(!showFlag)
   }
-  // delete article
-
-  // useEffect(() => {
-  //   fetch('/articles').then((r) => {
-  //     if (r.ok) {
-  //       r.json().then((deleteArticle) => setDeleteArticle(deleteArticle))
-  //     }
-  //   })
-  // }, [])
+  
 
   function handleDeleteArticle(article) {
    if(window.confirm("Sure to delete it?")){
@@ -87,9 +86,7 @@ const [showFlag, setShowFlag] = useState(false)
       }}))
     }
   }
-  // delete article ends
-
-
+  
   return (
     <div className="card" id="userbox">
       <div className="card-body">
@@ -102,17 +99,12 @@ const [showFlag, setShowFlag] = useState(false)
             style={{ size: '80px' }}
           />
           <div className="mt-2">
-            <h6
-              className="text mb-1"
-              style={{ color: '#fa521c', fontSize: '12px' }}
-            >
-              {article.user.first_name + ' ' + article.user.last_name}
+            <h6 className="text mb-1" style={{ color: '#fa521c', fontSize: '13px' }} >
+              {article.user.first_name + ' ' + article.user.last_name +'  .'+article.category.category} 
+
             </h6>
-            <p
-              className="text mb-1"
-              style={{ color: '#fa521c', fontSize: '12px' }}
-            >
-              {article.category.category}
+            <p className="text mb-1" style={{ color: '#fa521c', fontSize: '15px' }}>
+              {article.title}
             </p>
           </div>
         </div>
@@ -129,14 +121,10 @@ const [showFlag, setShowFlag] = useState(false)
           </div>          
           <ShareIcon style={{ color: '#fa521c' }} />
           <CommentIcon  onClick={handleCommentClick} style={{ color: '#fa521c' }} />          
-          <DeleteOutlineOutlinedIcon
-          onClick={() => handleDeleteArticle(article)}
-          style={{ color: '#fa521c' }}
-        />
-        <FlagOutlinedIcon
-          style={{ color: '#fa521c' }}
-          onClick={handleOnFlagClick}
-        />
+          {enableEdit?<>
+          <DeleteOutlineOutlinedIcon onClick={() => handleDeleteArticle(article)} style={{ color: '#fa521c' }}/>
+        <FlagOutlinedIcon style={{ color: '#fa521c' }}  onClick={handleOnFlagClick} />
+        </>: null}
 
 
         </div>
