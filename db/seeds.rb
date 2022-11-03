@@ -14,21 +14,23 @@ puts "
 end                     
 
 10.times do
- Article.create!(
+ Post.create!(
 
     "title":Faker::Name.unique.name,
     "content":Faker::Lorem.paragraph(sentence_count: 20, supplemental: true, random_sentences_to_add: 4),
     "is_approved":true,
     "likes":rand(1..50),
+    "content_type":article,
     "is_flagged": true,
     "category_id":rand(1..2),
     "user_id":rand(1..2))
+   
 
   
  end
    
  10.times do 
-    ArticleComment.create!(
+    PostComment.create!(
 
         "comment":Faker::Lorem.sentence,
         "likes":rand(1..50),
@@ -51,7 +53,7 @@ end
              
  end
  10.times do 
-    ArticleCommentReply.create!(
+    PostCommentReply.create!(
 
     "reply":Faker::Lorem.sentence,
     "likes":rand(1..50),

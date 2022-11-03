@@ -16,8 +16,8 @@ class User < ApplicationRecord
     has_many :post_comment_replies
     #has_one_attached :avatar_url
     has_many :wishes
-    # has_many :subscriptions
-    category_id :categories
+    has_many :subscriptions
+    has_many :categories, through: :subscriptions
    
 
     # def get_photo_url

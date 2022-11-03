@@ -5,7 +5,7 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import Commentary from '../ArticleComments/Commentary'
 import MoreVertIcon from '@mui/icons-material/MoreVert'
 
-export default function Post({ article, currentUser }) {
+export default function Poster({ article, currentUser }) {
   const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
   const [showCommentary, setShowCommentary] = useState(false)
   const [deleteArticle, setDeleteArticle] = useState([])
@@ -32,7 +32,7 @@ export default function Post({ article, currentUser }) {
   }
 
   function handleOnFlagClick(e) {
-    fetch('/articles', {
+    fetch('/posts', {
       method: 'PATCH',
       headers: {
         'Content-Type': 'application/json',
