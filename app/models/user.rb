@@ -5,19 +5,19 @@ class User < ApplicationRecord
     validates :first_name,:last_name,:email, :password, :user_category,presence:true
     validates :email, uniqueness: true
     validates :password, length: { in: 8..24 }
-    # has_many :audios
-    # has_many :audio_comments
-    # has_many :audio_comment_replies
-    # has_many :videos
-    # has_many :video_comments
-    # has_many :video_comment_replies
+    has_many :audios
+    has_many :audio_comments
+    has_many :audio_comment_replies
+    has_many :videos
+    has_many :video_comments
+    has_many :video_comment_replies
     has_many :posts
     has_many :post_comments
     has_many :post_comment_replies
     #has_one_attached :avatar_url
     has_many :wishes
-    # has_many :subscriptions
-    category_id :categories
+     has_many :subscriptions
+    has_many :categories, through: :subscriptions
    
 
     # def get_photo_url

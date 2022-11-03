@@ -1,4 +1,4 @@
-import './sidebar.css'
+import "./sidebar.css";
 import {
   LineStyle,
   Timeline,
@@ -12,55 +12,34 @@ import {
   ChatBubbleOutline,
   WorkOutline,
   Report,
-} from '@material-ui/icons'
-import { Link } from 'react-router-dom'
+} from "@material-ui/icons";
+import { Link } from "react-router-dom";
 
-export default function Sidebar({
-  setShowusers,
-  showusers,
-  setPosts,
-  posts,
-  setshowCategory,
-  showcategory,
-}) {
-  function handleUsersClick() {
-    setShowusers(!showusers)
-    // alert("Test")
-  }
-  function handlePostClick() {
-    setPosts(!posts)
-    // alert("Test")
-  }
-  function handleCategoryClick() {
-    setshowCategory(!showcategory)
-    // alert("Test")
-  }
+
+export default function Sidebar({setShowusers,  setModalIsOpen, showusers,setPosts,posts,setshowCategory,showcategory}) {
+ function handleUsersClick(){
+  setShowusers (!showusers)
+  // alert("Test")
+ }
+ function handlePostClick(){
+  setModalIsOpen (true)
+  // alert("Test")
+ }
+ function handleCategoryClick(){
+  setshowCategory (!showcategory)
+  // alert("Test")
+ }
+ 
+
 
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
-          <ul className="sidebarList">
-            <Link to="/" className="link">
-              <li className="sidebarListItem active">
-                <LineStyle className="sidebarIcon" />
-                Home
-              </li>
-            </Link>
-            <li className="sidebarListItem">
-              <Timeline className="sidebarIcon" />
-              Videos
-            </li>
-            <li className="sidebarListItem">
-              <TrendingUp className="sidebarIcon" />
-              Blogs
-            </li>
-          </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
-
 
           <ul>
             {/* <Link to="/products" className="link"> */}
@@ -72,14 +51,9 @@ export default function Sidebar({
                 <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
                 Flags
               </li>
-
-          
             {/* Category Start */}
             <li className="sidebarListItem">
-              <AttachMoney
-                onClick={handleCategoryClick}
-                className="sidebarIcon"
-              />
+              <AttachMoney onClick= {handleCategoryClick}className="sidebarIcon" />
               Category
             </li>
             <li className="sidebarListItem">
@@ -90,20 +64,7 @@ export default function Sidebar({
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
-          <ul className="sidebarList">
-            <li className="sidebarListItem">
-              <MailOutline className="sidebarIcon" />
-              Mail
-            </li>
-            <li className="sidebarListItem">
-              <DynamicFeed className="sidebarIcon" />
-              Feedback
-            </li>
-            <li className="sidebarListItem">
-              <ChatBubbleOutline className="sidebarIcon" />
-              Messages
-            </li>
-          </ul>
+         
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>
@@ -124,5 +85,5 @@ export default function Sidebar({
         </div>
       </div>
     </div>
-  )
+  );
 }

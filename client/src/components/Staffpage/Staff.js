@@ -2,17 +2,15 @@ import React, { useEffect, useState } from 'react'
 import avatar from '../Assets/avator.png'
 
 import './Staff.css'
-import Ftcategory from '../ftcategory/Ftcategory'
 import ShareIcon from '@mui/icons-material/Share'
 import CommentIcon from '@mui/icons-material/Comment'
 import Category from '../Categoryfolder/Category'
 import TelegramIcon from '@mui/icons-material/Telegram'
-import FlagOutlinedIcon from '@mui/icons-material/FlagOutlined';
 
 
 export default function Staff({ currentUser, articles, setCategories,categories }) {
   const [articleDetails,setArticleDetails] = useState({title:"",content:"",is_approved:true,likes:0,is_flagged:true,category_id:1,user_id:currentUser.id})
-  const [showcategory,setshowCategory]= useState(false)
+  // const [categories, setCategories] = useState([])
   const [showArticleCreationForm, setShowArticleCreationForm] = useState(false)
 
   //title - input
@@ -59,11 +57,6 @@ export default function Staff({ currentUser, articles, setCategories,categories 
   function handlePostClick(e) {
     setShowArticleCreationForm(!showArticleCreationForm)
   }
-  // staffcategorycreation
-  function handleCategoryClick() {
-    setshowCategory(!showcategory)
-  }
-  // staff category creation ends
 
   return (
     <div className="card h-100 ">
@@ -87,14 +80,6 @@ export default function Staff({ currentUser, articles, setCategories,categories 
               </div>
             </div>
             {/* user profile section */}
-            <div>
-            <button className="postbutton" onClick={handleCategoryClick}>
-              Create Category
-              
-            </button>
-            {showcategory? <Ftcategory setCategories={setCategories} categories={categories}/> : null}
-            </div>
-           
 
             {/* user comment area */}
             <button className="postbutton" onClick={handlePostClick}>
@@ -165,9 +150,7 @@ export default function Staff({ currentUser, articles, setCategories,categories 
                 article={article}
                 currentUser={currentUser}
               />
-
             ))}
-            
           </div>
 
           {/* widget section ends */}

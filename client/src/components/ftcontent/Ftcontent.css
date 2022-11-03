@@ -10,8 +10,12 @@
   }
 
   .table{
-    height: 300px;
-    background-color: chocolate;
+    height: 600px;
+    
     padding-left: 50px;
     display: flex;
+  }
+
+  .c-body{
+    max-width: 70%;
   }

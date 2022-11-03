@@ -14,7 +14,7 @@ puts "
 end                     
 
 10.times do
- Article.create!(
+ Post.create!(
 
     "title":Faker::Name.unique.name,
     "content":Faker::Lorem.paragraph(sentence_count: 20, supplemental: true, random_sentences_to_add: 4),
@@ -22,57 +22,58 @@ end
     "likes":rand(1..50),
     "is_flagged": true,
     "category_id":rand(1..2),
-    "user_id":rand(1..2))
+    "user_id":rand(1..2),
+    "content_type":"DevOPs")
 
   
  end
    
- 10.times do 
-    ArticleComment.create!(
+#  10.times do 
+#     ArticleComment.create!(
 
-        "comment":Faker::Lorem.sentence,
-        "likes":rand(1..50),
-        "article_id":rand(1..10),
-         "user_id":rand(1..2))
+#         "comment":Faker::Lorem.sentence,
+#         "likes":rand(1..50),
+#         "article_id":rand(1..10),
+#          "user_id":rand(1..2))
     
-    VideoComment.create!(
+#     VideoComment.create!(
 
-            "comment":Faker::Lorem.sentence,
-            "likes":rand(1..50),
-            "video_id":rand(1..2),
-             "user_id":rand(1..2))
+#             "comment":Faker::Lorem.sentence,
+#             "likes":rand(1..50),
+#             "video_id":rand(1..2),
+#              "user_id":rand(1..2))
         
-    AudioComment.create!(
+#     AudioComment.create!(
 
-                "comment":Faker::Lorem.sentence,
-                "likes":rand(1..50),
-                "audio_id":rand(1..2),
-                 "user_id":rand(1..2))
+#                 "comment":Faker::Lorem.sentence,
+#                 "likes":rand(1..50),
+#                 "audio_id":rand(1..2),
+#                  "user_id":rand(1..2))
              
- end
- 10.times do 
-    ArticleCommentReply.create!(
+#  end
+#  10.times do 
+#     ArticleCommentReply.create!(
 
-    "reply":Faker::Lorem.sentence,
-    "likes":rand(1..50),
-     "user_id":rand(1..2),
-    "article_comment_id":rand(1..10)
-    )
-   AudioCommentReply.create!(
+#     "reply":Faker::Lorem.sentence,
+#     "likes":rand(1..50),
+#      "user_id":rand(1..2),
+#     "article_comment_id":rand(1..10)
+#     )
+#    AudioCommentReply.create!(
 
-        "reply":Faker::Lorem.sentence,
-        "likes":rand(1..50),
-         "user_id":rand(1..2),
-        "audio_comment_id":rand(1..10)
-   ) 
-   VideoCommentReply.create!(
+#         "reply":Faker::Lorem.sentence,
+#         "likes":rand(1..50),
+#          "user_id":rand(1..2),
+#         "audio_comment_id":rand(1..10)
+#    ) 
+#    VideoCommentReply.create!(
 
-            "reply":Faker::Lorem.sentence,
-            "likes":rand(1..50),
-             "user_id":rand(1..2),
-            "video_comment_id":rand(1..10)
-   )   
- end
+#             "reply":Faker::Lorem.sentence,
+#             "likes":rand(1..50),
+#              "user_id":rand(1..2),
+#             "video_comment_id":rand(1..10)
+#    )   
+#  end
 
  
  Subscription.create!(

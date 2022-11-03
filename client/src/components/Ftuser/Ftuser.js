@@ -1,7 +1,10 @@
+import { FormatColorReset } from "@material-ui/icons";
 import React, { useEffect, useState } from "react";
+import Modal from 'react-modal'
 import "./Ftuser.css";
 export default function Ftuser({ users, setUsers }) {
   const [inspectedUser, setInspectedUser] = useState(null);
+  
   // useEffect(() => {
   //     fetch('/users').then((r) => {
   //       if (r.ok) {
@@ -24,6 +27,13 @@ export default function Ftuser({ users, setUsers }) {
       });
   }
 
+
+  const HandleInspectUser = (inspectedUser) => {
+      console.log(inspectedUser)
+     
+       setInspectedUser(inspectedUser);
+  }
+
   // Handle delete end
 
   // Handle Option 2
@@ -35,8 +45,30 @@ export default function Ftuser({ users, setUsers }) {
   // // End of option 2
 
   return (
-    <div className="Table">
+    <div className="Table-2">
       {/* <h1>List of Users</h1> */}
+      <div className="user-details">
+        {inspectedUser ? (
+          <div className="content-body">
+            {inspectedUser.email}
+            <section className="section">
+              <div className="inspect">
+
+                <h3>User Details</h3>
+                <p>Username: {inspectedUser.username}</p>
+                <p>Email : {inspectedUser.email}</p>
+                <p>Category: {inspectedUser.user_category}</p>
+                <p>articles: {inspectedUser.posts.length}</p>
+                <p>Videos: {inspectedUser.posts.length}</p>
+                <p>Audios: {inspectedUser.posts.length}</p>
+                <button onClick={() => setInspectedUser(null)}>close</button>
+                <button onClick={() => handleUserDelete(inspectedUser)}>Delete</button>
+              </div>
+            </section>
+          </div>
+        ) : null}  
+       
+      </div>
       <div className="user-table">
         <table>
           <thead>
@@ -62,9 +94,10 @@ export default function Ftuser({ users, setUsers }) {
                   {/* <td >Button</td> */}
 
                  
-                  <button onClick={() => setInspectedUser(user)}>
+                  <button onClick={() => HandleInspectUser(user)}>
                     Inspect
                   </button>
+                  <button onClick={() => handleUserDelete(inspectedUser)}>Delete</button>
                 </tr>
               );
             })}
@@ -74,25 +107,7 @@ export default function Ftuser({ users, setUsers }) {
         </table>
       </div>
 
-      <div className="user-details">
-        {inspectedUser ? (
-          <div className="content-body">
-            {/* {inspectedUser.email} */}
-            <section className="section">
-              <div className="inspect">
-                <p>Username: {inspectedUser.username}</p>
-
-                <p>Category: {inspectedUser.user_category}</p>
-                <p>articles: {inspectedUser.articles.length}</p>
-                <button onClick={() => setInspectedUser(null)}>close</button>
-                <button onClick={() => handleUserDelete(inspectedUser)}>
-                    Deactivate
-                  </button>
-              </div>
-            </section>
-          </div>
-        ) : null}
-      </div>
+     
     </div>
   );
 }

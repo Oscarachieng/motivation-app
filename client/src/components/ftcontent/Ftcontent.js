@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+
 import "./Ftcontent.css";
 
 export default function Testing() {
   const [contents, setContents] = useState([]);
   const [inspectedContent, setInspectedContent] = useState(null);
   useEffect(() => {
-    fetch("/articles").then((r) => {
+    fetch("/posts").then((r) => {
       if (r.ok) {
         r.json().then((contents) => setContents(contents));
       }
@@ -59,6 +59,10 @@ export default function Testing() {
             <th scope="col">Title</th>
             <th scope="col">Category</th>
             <th scope="col">is_approved</th>
+            <th scope="col">likes</th>
+            <th scope="col">is_approved</th>
+            <th scope="col">is_flagged</th>
+            <th scope="col">Actions</th>
           </tr>
         </thead>
         <tbody>
@@ -69,6 +73,9 @@ export default function Testing() {
                 <td>{content.title}</td>
                 <td>{content.category.category}</td>
                 <td>{content.is_approved}</td>
+                <td>{content.likes}</td>
+                <td>{content.is_flagged}</td>
+                
 
                 {/* <td >Button</td> */}
 
@@ -91,16 +98,19 @@ export default function Testing() {
         {inspectedContent ? (
           <div className="content-body-2">
             <div className="inspect-content">
+              <h4>
+                Title: {inspectedContent.title}
+               
+              </h4>
               <p>
-                Author: {inspectedContent.user.first_name}{" "}
-                {inspectedContent.user.last_name}
+                 Content Body: {inspectedContent.content}
               </p>
               <p>Category: {inspectedContent.category.category}</p>
 
               <p>Likes: {inspectedContent.likes}</p>
 
-              <p>Likes: {inspectedContent.is_approved}</p>
-              <p>Likes: {inspectedContent.is_flagged}</p>
+              {/* <p>Likes: {inspectedContent.is_approved}</p>
+              <p>Likes: {inspectedContent.is_flagged}</p> */}
               {/* / */}
               <button onClick={() => setInspectedContent(null)}>close</button>
               <button onClick={() => handleContentApproval(inspectedContent)}>

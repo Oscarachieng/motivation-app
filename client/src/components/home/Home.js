@@ -56,7 +56,7 @@ export default function Home({ currentUser, articles }) {
               </div>
 
               <hr />
-              {/* <div className="card-body p-0  ">
+              <div className="card-body p-0  ">
                 <div className=" d-flex flex-row ">
                   <li className="list-group-item   p-0">
                     <LanguageIcon className="text-warning" />
@@ -77,7 +77,7 @@ export default function Home({ currentUser, articles }) {
                     <LinkedInIcon style={{ color: '#3b5998' }} />
                   </li>
                 </div>
-              </div> */}
+              </div>
               <hr />
               {/* user profile section ends */}
               {/* user comment area */}

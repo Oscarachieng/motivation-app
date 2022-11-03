@@ -18,7 +18,7 @@
 }
 .Container-fluid{
     /* background-color: red; */
-    width: 1200px;
+    width: 1000px;
 
 }
 .fluid{
@@ -26,10 +26,20 @@
     
 }
 
+.content-body-2{
+    border-style: groove;
+    border-color: orange;
+}
+
 .users{
-    height: 300px;
+    height: 600px;
     background-color: chocolate;
 }
 .content{
     height: 250px;
+}
+
+.table {
+    display: flex;
+    flex-direction: column;
 }
