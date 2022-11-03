@@ -2,7 +2,7 @@ class ArticleCommentsController < ApplicationController
     
     #GET /article_comments
     def index        
-        render json:ArticleComment.all
+        render json:ArticleComment.all                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                ]
     end
 
     #GET /article_comments/:id

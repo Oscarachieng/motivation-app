@@ -9,7 +9,7 @@ import Commentary from '../ArticleComments/Commentary'
 
 export default function Category({ article,onDelete, currentUser }) {
 const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
-const [showCommentary, setShowCommentary] = useState(false)
+const [showCommentForm, setShowCommentForm] = useState(false)
 const [showFlag, setShowFlag] = useState(false)
 const [enableEdit,setEnableEdit]= useState(false) 
 
@@ -66,8 +66,8 @@ useEffect(()=>{
   }
 
 
-  function handleCommentClick(e) {
-    setShowFlag(!showFlag)
+  function handleCommentClick() {
+    setShowCommentForm(!showCommentForm)
   }
   
 
@@ -123,16 +123,13 @@ useEffect(()=>{
           <CommentIcon  onClick={handleCommentClick} style={{ color: '#fa521c' }} />          
           {enableEdit?<>
           <DeleteOutlineOutlinedIcon onClick={() => handleDeleteArticle(article)} style={{ color: '#fa521c' }}/>
-        <FlagOutlinedIcon style={{ color: '#fa521c' }}  onClick={handleOnFlagClick} />
-        </>: null}
+          <FlagOutlinedIcon style={{ color: '#fa521c' }}  onClick={handleOnFlagClick} />
+          </>: null}
 
 
         </div>
-        {/* like section ends */}
-       
-  
-  
-        {showCommentary ? <Commentary currentUser={currentUser} article={article} /> : null}
+      
+        {showCommentForm ? <Commentary currentUser={currentUser} article={article} /> : null}
       </div>
     </div>
   )

@@ -27,12 +27,10 @@ export default function App() {
         r.json().then((articles) =>{
 
         if(currentUser.user_category === 'student'){
-          console.log("I am a student")
           const toDisplayArticles = articles.filter(article=>{
             return article.is_approved === true
           })
-          console.log(toDisplayArticles)
-          setArticles(toDisplayArticles)
+           setArticles(toDisplayArticles)
         }else{
           setArticles(articles)}
         }

@@ -6,8 +6,8 @@ Rails.application.routes.draw do
     resources :audio_comments
     resources :audio_comment_replies
     resources :articles
-    resources :articles_comments
-    resources :articles_comment_replies
+    resources :article_comments
+    resources :article_comment_replies
     resources :videos 
     resources :video_comments 
     resources :video_comment_replies
