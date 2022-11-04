@@ -149,7 +149,7 @@ export default function Student({ currentUser,onDelete, articles }) {
 
           <div className="media"></div>
           {/* Widget section */}
-          <div className="card h-100">
+          <div className="widget">
             {articles.map((article) => (
               <Category key={article.id} article={article} currentUser = {currentUser} onDelete={onDelete}/>
             ))}
