@@ -7,32 +7,43 @@ import Home from "../home/Home";
 import TopBar from "../topbar/TopBar";
 import Sidebar from "../sidebar/Sidebar";
 import "./admin.css";
-import Login from "../Login/Login";
-import UserList from "../page/userList/UserList";
+// import Login from "../Login/Login";
+// import UserList from "../page/userList/UserList";
 import Ftuser from "../Ftuser/Ftuser";
-import Ftcontent from "../ftcontent/Ftcontent";
-import Ftcategory from "../ftcategory/Ftcategory";
-import NewUser from "../page/newUser/NewUser";
+// import Ftcontent from "../ftcontent/Ftcontent";
+import Ftcategory from "../ftCategory/Ftcategory";
+import NewUser from "../../page/newUser/NewUser";
 import Modal from "react-modal";
 // import Popup from "./Popup";
 
-export default function Admin({ setCategories, categories, users, setUsers }) {
+export default function Admin(categories, setCategories) {
   const [showusers, setShowusers] = useState(false);
   const [posts, setPosts] = useState(false);
   const [showcategory, setshowCategory] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [perPage, setPerPage] = useState(5);
+  // const [currentPage, setCurrentPage] = useState(1);
+   const [users, setUsers] = useState([]);
   const [modalIsOpen, setModalIsOpen] = useState(false);
+  // const [categories, setCategories] = useState([])
+
+
   // const [popup, setPopup] = useState(false)
 
-  const indexOfLastPost = currentPage * perPage;
-  const indexOfFirstPost = indexOfLastPost - perPage;
-  const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
+  // const indexOfLastPost = currentPage * perPage;
+  // const indexOfFirstPost = indexOfLastPost - perPage;
+  // const currentPosts = users.slice(indexOfFirstPost, indexOfLastPost);
 
   const [contents, setContents] = useState([]);
   const [inspectedContent, setInspectedContent] = useState(null);
+
+  // useEffect(() => {
+  //   fetch('/categories')
+  //     .then((response) => response.json())
+  //     .then((categories) => setCategories(categories))
+  //     .catch((error) => console.log(error))
+  // }, [])
+
   useEffect(() => {
-    fetch("/posts").then((r) => {
+    fetch("/articles").then((r) => {
       if (r.ok) {
         r.json().then((contents) => setContents(contents));
       }
@@ -57,10 +68,14 @@ export default function Admin({ setCategories, categories, users, setUsers }) {
   }
   // End of update
 
+  useEffect(() => {
+    fetch('/users').then(r=> r.json()).then(users => console.log(users))
+  }, [])
+
   // Delete
   function handleContentDelete(content) {
     // e.preventDefault()
-    console.log(content);
+    console.log("Oscar");
     fetch(`/articles/${content.id}`, {
       method: "DELETE",
       //   body: JSON.stringify(userData),
@@ -73,6 +88,8 @@ export default function Admin({ setCategories, categories, users, setUsers }) {
         setContents(updatedList);
       });
   }
+
+  console.log("Oscar")
 
   return (
     <div className="Con">
@@ -100,9 +117,27 @@ export default function Admin({ setCategories, categories, users, setUsers }) {
             )}
           </div>
           {/* <button onClick={setPopup(true)}>Popup-B</button> */}
-          {showcategory ? (
+          <Modal
+            isOpen={showcategory}
+            onRequestClose={() => setshowCategory(false)}
+            
+            style={{
+              overlay: {
+                backgroundColor: "navy",
+              },
+              content: {
+                color: "orange",
+                WebkitOverflowScrolling: "touch",
+                maxWidth: "1000px"
+              },
+            }}
+          >
             <Ftcategory setCategories={setCategories} categories={categories} />
-          ) : null}
+
+             <button onClick={() => setshowCategory(false)}>
+                    exit
+             </button>
+        </Modal>
 
           <Modal
             isOpen={modalIsOpen}

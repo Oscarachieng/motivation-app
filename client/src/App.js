@@ -15,11 +15,13 @@ import Landing from './components/LandingPageFolder/Landing'
 import Commentary from './components/ArticleComments/Commentary'
 import FourOhFour from './page/404Page.js/404Page'
 import NavBar from './components/Navbarpage.js/NavBar'
+import Admin from './components/Admin/Admin'
 
 export default function App() {
   const initialUser = JSON.parse(localStorage.getItem('currentUser'))
   const [currentUser, setCurrentUser] = useState(initialUser)
   const [articles, setArticles] = useState([])
+  const [categories, setCategories] = useState([])
 
   useEffect(() => {
     fetch('/articles').then((r) => {
@@ -37,6 +39,13 @@ export default function App() {
          )
       }
     })
+  }, [])
+
+    useEffect(() => {
+    fetch('/categories')
+      .then((response) => response.json())
+      .then((categories) => setCategories(categories))
+      .catch((error) => console.log(error))
   }, [])
 
 
@@ -58,16 +67,17 @@ export default function App() {
 
   return (
     <div className="">
-{/*     
-        <NavBar/> */}
+    
+        <NavBar/>
         <Routes>
         <Route path="/" element={<Landing />}/>
+        <Route path="/admin" element={<Admin currentUser={currentUser} articles={articles} categories={categories} setCategories={setCategories}/>}  />     
         <Route path="/home" element={<Home currentUser={currentUser} articles={articles} onDelete={onDelete}/>}       />
         <Route path="/login" element={<Login setCurrentUser={setCurrentUser} />} />
         <Route path="/topbar" element={<TopBar />} />
         <Route path="/staff"  element={<Staff currentUser={currentUser} articles={articles} onDelete={onDelete} />}       />
         <Route path="/profile" element={<Profile />} />
-        <Route path="/student" element={<Student currentUser={currentUser} articles={articles} onDelete={onDelete} />}       />
+        <Route path="/student" element={<Student currentUser={currentUser} articles={articles} onDelete={onDelete} categories={categories} setCategories={setCategories}/>}       />
         <Route path="/commentary" element={<Commentary currentUser={currentUser} articles={articles} setArticles={setArticles} />}        />
         <Route path="/sidebar" element={<Sidebar />} />
         <Route path="/users" element={<UserList />} />
