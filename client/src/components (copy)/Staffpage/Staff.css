@@ -1,0 +1,68 @@
+#im-wd {
+    width: 40px;
+    height: 40px;
+}
+.profiler{
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+#student-page-profile {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: flex-end;
+    height: 120px;
+    overflow: hidden;
+    color: #fff;
+    font-family: 'Nunito', sans-serif;
+    background-color: red;
+    margin-left: 100px;
+}
+.Buttns{
+display: flex;
+flex-direction: column;
+justify-content: flex-start;
+align-items: flex-start;
+}
+.postbutton:hover{
+    color:#fa521c;
+    background: #fff;
+    border: 2px solid white;
+}
+.student-page-profile-text{
+   padding: 2px;
+   color: #fff;
+}
+.student-page-profile-text h6{
+    font-weight: 400;
+    font-size: 18px;
+}
+.student-page-profile-text p{
+    font-weight: 300;
+    font-size: smaller;
+    
+}
+#student-page-profile EditIcon{
+    align-items: flex-start;
+}
+
+.form-outline i{
+    position: absolute;
+}
+.form-outline {
+  color: #fff;
+}
+#textArea{
+    background: white;
+   
+}
+.postbutton{
+    border-radius: .7rem;
+    color: #fff;
+    background: #fa521c;
+    border: 2px solid #fa521c;
+    font-family: 'Nunito', sans-serif;
+}
