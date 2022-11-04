@@ -67,7 +67,6 @@ export default function App() {
 
   return (
     <div className="">
-    
         <NavBar/>
         <Routes>
         <Route path="/" element={<Landing />}/>
