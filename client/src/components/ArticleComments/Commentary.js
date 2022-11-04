@@ -34,7 +34,7 @@ export default function Commentary({article, currentUser}) {
        setCommentData({ comment:'', article_id:article.id, user_id:currentUser.id,likes:0 })
       })
      }else{
-      response.json().then(error=>setErrors(error.errors[0]))
+      response.json().then(error=>setErrors(errors))
      }
     }
     )
