@@ -49,8 +49,8 @@ export default function NewUser() {
     });
   };
   return (
-    <div className="container">
-      <h3 className="newUserTitle text-white">Create New User</h3>
+    <div className="contain">
+      <h3 className="newUserTit text-white">Create New User</h3>
       {errors.length > 0 && (
           <ul style={{ color: "red" }}>
             {errors.map((error) => (
@@ -60,7 +60,7 @@ export default function NewUser() {
         )}
       <p style={{color:"green"}}>{created}</p>
       <form className="newUserForm col-md-12" onSubmit={handleSubmit}>
-        <div className="newUserItem">
+        <div className="newUserIt">
           <label>First Name</label>
           <input
             type="text"
@@ -70,7 +70,7 @@ export default function NewUser() {
             value={newUser.first_name}
           />
         </div>
-        <div className="newUserItem">
+        <div className="newUserIte">
           <label>Last Name</label>
           <input
             type="text"
@@ -81,7 +81,7 @@ export default function NewUser() {
           />
         </div>
         {/* select */}
-        <div className="newUserItem">
+        <div className="newUserIt">
           <label>User Category</label>
           <select  name ='user_category' onChange={handleChange} value={newUser.user_category}>
             <optgroup label="Select user category" >
@@ -91,7 +91,7 @@ export default function NewUser() {
           </select>
         </div>
         {/* select */}
-        <div className="newUserItem">
+        <div className="newUserIte">
           <label>Email</label>
           <input
             type="email"
@@ -101,7 +101,7 @@ export default function NewUser() {
             value={newUser.email}
           />
         </div>
-        <div className="newUserItem">
+        <div className="newUsertem">
           <label>Password</label>
           <input
             type="password"
@@ -111,7 +111,7 @@ export default function NewUser() {
             value={newUser.password}
           />
         </div>
-        <div className="newUserItem">
+        <div className="newUserIem">
           <button className="btn btn-primary p-0 w-100" type="submit">
             CREATE
           </button>

@@ -6,7 +6,7 @@ import CommentIcon from '@mui/icons-material/Comment'
 import Category from '../Categoryfolder/Category'
 import TelegramIcon from '@mui/icons-material/Telegram'
 
-export default function Student({ currentUser,onDelete, articles, categories, setCategories}) {
+export default function Student({ currentUser,onDelete, articles }) {
   const [articleDetails, setArticleDetails] = useState({
     title: '',
     content: '',
@@ -16,7 +16,7 @@ export default function Student({ currentUser,onDelete, articles, categories, se
     category_id: 1,
     user_id: currentUser.id,
   })
-  // const [categories, setCategories] = useState([])
+  const [categories, setCategories] = useState([])
 
   //title - input
   //select - category - fronm backend
@@ -29,12 +29,12 @@ export default function Student({ currentUser,onDelete, articles, categories, se
     backgroundPosition: 'center',
     backgroundAttachment: 'fixed',
   }
-  // useEffect(() => {
-  //   fetch('/categories')
-  //     .then((response) => response.json())
-  //     .then((categories) => setCategories(categories))
-  //     .catch((error) => console.log(error))
-  // }, [])
+  useEffect(() => {
+    fetch('/categories')
+      .then((response) => response.json())
+      .then((categories) => setCategories(categories))
+      .catch((error) => console.log(error))
+  }, [])
 
   function handleOnchange(event) {
     setArticleDetails({
