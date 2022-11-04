@@ -66,9 +66,9 @@ function handleCategoryClick() {
   return (
     <div className="card h-100 ">
       <div className=" card  " id="userbox" style={myStyles}>
-        <div className="">
-          <div className="profiler">
-            <div className="" id="student-page-profile">
+        <div className="card-body bg-primary bg-gradient bg-opacity-25">
+          <div className="fixer">
+            <div className="card-body " id="student-page-profile">
               <img
                 id="im-wd"
                 className="rounded-circle img-fluid"
@@ -80,8 +80,7 @@ function handleCategoryClick() {
                 <h6 className="card-title">
                   {currentUser.first_name + " " + currentUser.last_name}
                 </h6>
-                <p className="text mb-1">{currentUser.category}</p>
-                <p className="text mb-1">About</p>
+                <p className="text mb-1">{currentUser.user_category}</p>
               </div>
             </div>
 
@@ -89,7 +88,6 @@ function handleCategoryClick() {
             <div className="Buttns">
             <button className="postbutton" onClick={handleCategoryClick}>
               Create Category
-              
             </button>
             {showcategory? <Ftcategory setCategories={setCategories} categories={categories}/> : null}
             </div>
@@ -149,11 +147,11 @@ function handleCategoryClick() {
 
           <div className="media"></div>
           {/* Widget section */}
-          {/* <div className="card h-100">
+          <div className="widget">
             {articles.map((article) => (
               <Category key={article.id} article={article} currentUser = {currentUser} onDelete={onDelete}/>
             ))}
-          </div> */}
+          </div>
 
           {/* widget section ends */}
         </div>

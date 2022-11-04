@@ -11,7 +11,8 @@
     height: 130px;
     overflow: hidden;
     color:#fff;
-    position: fixed;
+    position: relative;
+   
 }
 .student-page-profile-text{
    padding: 2px;
@@ -45,5 +46,5 @@
 .widget{
     width: 70%;
     display:block;
-    justify-content: ;
+  
 }

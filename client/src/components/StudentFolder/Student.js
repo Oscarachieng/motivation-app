@@ -18,8 +18,6 @@ export default function Student({ currentUser,onDelete, articles }) {
   })
   const [categories, setCategories] = useState([])
 
-  //title - input
-  //select - category - fronm backend
 
   const myStyles = {
     backgroundImage:
@@ -74,8 +72,7 @@ export default function Student({ currentUser,onDelete, articles }) {
                 <h6 className="card-title">
                   {currentUser.first_name + ' ' + currentUser.last_name}
                 </h6>
-                <p className="text mb-1">CATEGORY</p>
-                <p className="text mb-1">About</p>
+                <p className="text mb-1">{currentUser.user_category}</p>
               </div>
             </div>
 

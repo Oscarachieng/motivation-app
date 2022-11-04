@@ -58,8 +58,7 @@ export default function App() {
 
   return (
     <div className="">
-{/*     
-        <NavBar/> */}
+        <NavBar/>
         <Routes>
         <Route path="/" element={<Landing />}/>
         <Route path="/home" element={<Home currentUser={currentUser} articles={articles} onDelete={onDelete}/>}       />

@@ -70,7 +70,7 @@ export default function Commentary({article, currentUser}) {
         ></textarea>
         <p style={{color:"red"}}>{errors}</p>
         <div>
-        <ul style={{color:"black",listStyle:"disc"}}>
+        <ul style={{color:"white",listStyle:"disc"}}>
           {postComments.map(comment => <li key={comment.id}>{comment.comment}</li>)}
         </ul>
 
