@@ -1,0 +1,36 @@
+.foote {
+    display: flex;
+    justify-content: space-evenly;
+    height: 35px;
+    position: sticky;
+    bottom: 0;
+
+
+    outline: none;
+    text-align: center;
+
+    z-index: 999;
+    background-color: #fff;
+    margin-left: 70px;
+    margin-right: 70px;
+
+}
+
+.fut {
+    display: flex;
+    padding: 6px;
+}
+
+.contact {
+    color: #fa521c;
+    display: flex;
+    justify-content:space-between;
+    margin-right: 70px;
+    
+}
+
+.foIcons {
+    color: #fa521c;
+    margin-left: 40px;
+   
+}

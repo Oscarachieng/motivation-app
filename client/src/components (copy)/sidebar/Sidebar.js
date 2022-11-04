@@ -15,46 +15,47 @@ import {
 } from "@material-ui/icons";
 import { Link } from "react-router-dom";
 
-
-export default function Sidebar({setShowusers,  setModalIsOpen, showusers,setPosts,posts,setshowCategory,showcategory}) {
- function handleUsersClick(){
-  setShowusers (!showusers)
-  // alert("Test")
- }
- function handlePostClick(){
-  setModalIsOpen (true)
-  // alert("Test")
- }
- function handleCategoryClick(){
-  setshowCategory (!showcategory)
-  // alert("Test")
- }
- 
-
-
+export default function Sidebar() {
   return (
     <div className="sidebar">
       <div className="sidebarWrapper">
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Dashboard</h3>
+          <ul className="sidebarList">
+            <Link to="/" className="link">
+            <li className="sidebarListItem active">
+              <LineStyle className="sidebarIcon" />
+              Home
+            </li>
+            </Link>
+            <li className="sidebarListItem">
+              <Timeline className="sidebarIcon" />
+              Videos
+            </li>
+            <li className="sidebarListItem">
+              <TrendingUp className="sidebarIcon" />
+              Blogs
+            </li>
+          </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Quick Menu</h3>
-
-          <ul>
-            {/* <Link to="/products" className="link"> */}
-            <li className="link">
-                <Storefront  onClick= {handleUsersClick}  className="sidebarIcon" />
+          <ul className="sidebarList">
+            <Link to="/users" className="link">
+              <li className="sidebarListItem">
+                <PermIdentity className="sidebarIcon" />
                 Users
               </li>
-              <li className="link">
-                <Storefront  onClick= {handlePostClick}  className="sidebarIcon" />
+            </Link>
+            <Link to="/products" className="link">
+              <li className="sidebarListItem">
+                <Storefront className="sidebarIcon" />
                 Flags
               </li>
-            {/* Category Start */}
+            </Link>
             <li className="sidebarListItem">
-              <AttachMoney onClick= {handleCategoryClick}className="sidebarIcon" />
-              Category
+              <AttachMoney className="sidebarIcon" />
+              Contents
             </li>
             <li className="sidebarListItem">
               <BarChart className="sidebarIcon" />
@@ -64,7 +65,20 @@ export default function Sidebar({setShowusers,  setModalIsOpen, showusers,setPos
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Notifications</h3>
-         
+          <ul className="sidebarList">
+            <li className="sidebarListItem">
+              <MailOutline className="sidebarIcon" />
+              Mail
+            </li>
+            <li className="sidebarListItem">
+              <DynamicFeed className="sidebarIcon" />
+              Feedback
+            </li>
+            <li className="sidebarListItem">
+              <ChatBubbleOutline className="sidebarIcon" />
+              Messages
+            </li>
+          </ul>
         </div>
         <div className="sidebarMenu">
           <h3 className="sidebarTitle">Staff</h3>

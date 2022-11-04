@@ -1,0 +1,55 @@
+.Table {
+    border: 2px solid forestgreen;
+    width: 100%;
+    height: 620px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+  }
+    
+  tr {
+    border-bottom: 1px solid black;
+    margin:20px;
+    margin-right: 20px;
+
+
+  }
+    
+  td {
+    text-align: center;
+  }
+ th{
+    /* color:blue; */
+    padding-left: 50px;
+ }
+ button{
+    background-color: aqua;
+  padding-left: 10px;
+  padding-right: 10px;
+  border-radius: 30px;
+}
+
+.content-body{
+  background-color: blue;
+  height: 150px;
+  width: 70%;
+}
+
+.inspect{
+  display: flex;
+  justify-content: space-around;
+  height: 80px;
+}
+
+.user-details{
+  margin-left: 50px;
+  height: 300px;
+ 
+}
+.user-table{
+  margin-left: 20px;
+  
+}
