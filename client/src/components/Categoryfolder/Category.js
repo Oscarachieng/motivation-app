@@ -7,6 +7,8 @@ import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import DeleteOutlineOutlinedIcon from '@mui/icons-material/DeleteOutlineOutlined'
 import Commentary from '../ArticleComments/Commentary'
 
+
+
 export default function Category({ article,onDelete, currentUser }) {
 const [numberOfLikes, setNumberOfLikes] = useState(article.likes)
 const [showCommentForm, setShowCommentForm] = useState(false)
@@ -88,42 +90,41 @@ useEffect(()=>{
   }
   
   return (
-    <div className="card" id="userbox">
-      <div className="card-body">
-        <div className="d-flex">
+    <div className="post">
+      <div className="postWrapper">
+        <div className="postTopLeft">
           <img
-            id="imw-wd"
-            className="rounded-circle img-fluid"
+            className="postProfileImg"
             src={article.user.avatar_url.url}
-            alt="avatar"
-            style={{ size: '80px' }}
+            alt=" "
           />
-          <div className="mt-2">
-            <h6 className="text mb-1" style={{ color: '#fa521c', fontSize: '13px' }} >
-              {article.user.first_name + ' ' + article.user.last_name +'  .'+article.category.category} 
+          <div className="postCenter">
+            <span className="postText1">
+              {article.user.first_name + ' ' + article.user.last_name} </span> 
 
-            </h6>
-            <p className="text mb-1" style={{ color: '#fa521c', fontSize: '15px' }}>
+              <span className="postText2">
+              {article.category.category} 
+            </span>
+            <span className="postText3">
               {article.title}
-            </p>
+            </span>
           </div>
         </div>
 
-        <p className="card-text">{article.content}</p>
+        <span className="postText">{article.content}</span>
 
         {/* like section */}
-        <div className="media d-flex text-muted" style={{ fontSize: '12px' }}>
-          <div className='d-flex'>
-            <ThumbUpIcon style={{ color: '#fa521c' }} onClick={handleOnLikeClick}/>
-            <h6 className="text-sm" style={{ fontSize: '12px' }}>
+        <div className="postBottom">
+          <div className='postBottomLeft'>
+            <ThumbUpIcon onClick={handleOnLikeClick}/>
+            <span className="postLikeCounter">
             {numberOfLikes}
-          </h6>
+          </span>
           </div>          
-          <ShareIcon style={{ color: '#fa521c' }} />
-          <CommentIcon  onClick={handleCommentClick} style={{ color: '#fa521c' }} />          
+          <CommentIcon style={{color:'fa521c'}} onClick={handleCommentClick} />          
           {enableEdit?<>
           <DeleteOutlineOutlinedIcon onClick={() => handleDeleteArticle(article)} style={{ color: '#fa521c' }}/>
-          <FlagOutlinedIcon style={{ color: '#fa521c' }}  onClick={handleOnFlagClick} />
+          <FlagOutlinedIcon onClick={handleOnFlagClick} />
           </>: null}
 
 

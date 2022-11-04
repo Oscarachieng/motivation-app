@@ -66,9 +66,9 @@ function handleCategoryClick() {
   return (
     <div className="card h-100 ">
       <div className=" card  " id="userbox" style={myStyles}>
-        <div className="card-body bg-primary bg-gradient bg-opacity-25">
-          <div className="fixer">
-            <div className="card-body " id="student-page-profile">
+        <div className="">
+          <div className="profiler">
+            <div className="" id="student-page-profile">
               <img
                 id="im-wd"
                 className="rounded-circle img-fluid"
@@ -86,7 +86,7 @@ function handleCategoryClick() {
             </div>
 
             {/* user profile section */}
-            <div>
+            <div className="Buttns">
             <button className="postbutton" onClick={handleCategoryClick}>
               Create Category
               
@@ -96,7 +96,7 @@ function handleCategoryClick() {
 
 
             {/* user comment area */}
-            <button onClick={handlePostClick} >Post</button>
+            <button onClick={handlePostClick} className="postbutton">Post</button>
             {showArticleCreationForm ? 
             <form onSubmit={handleSubmit} className="form-outline ">
               <label
@@ -149,11 +149,11 @@ function handleCategoryClick() {
 
           <div className="media"></div>
           {/* Widget section */}
-          <div className="card h-100">
+          {/* <div className="card h-100">
             {articles.map((article) => (
               <Category key={article.id} article={article} currentUser = {currentUser} onDelete={onDelete}/>
             ))}
-          </div>
+          </div> */}
 
           {/* widget section ends */}
         </div>

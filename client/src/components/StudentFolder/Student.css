@@ -42,3 +42,8 @@
 .fixer{
     background-attachment: fixed;
 }
+.widget{
+    width: 70%;
+    display:block;
+    justify-content: ;
+}

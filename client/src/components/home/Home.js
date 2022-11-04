@@ -113,14 +113,15 @@ export default function Home({ currentUser,onDelete,articles}) {
 
         {/* Ads section */}
         <div className="col-sm-3">
-          <Ads />
+          {/* <Ads /> */}
           {/* Contacts section */}
-          <Contact />
+         
           {/* Contacts section */}
         </div>
 
         {/* Ads section ends */}
       </div>
+      <Contact />
     </div>
   );
 }
